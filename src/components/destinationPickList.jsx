@@ -1,9 +1,12 @@
+import { useEffect } from "react"
 import destinations from "./destinations"
 
 const destinationPickList = (props) => {
 
-    function handleDestinationClick(destination) {
-        props.setDestination(destination)
+    function handleDestinationClick(address) {
+        return function() {
+            props.updateDestination(address)
+        }
       }
     
     const destinationsMap = destinations.map((destination) => (
@@ -12,7 +15,9 @@ const destinationPickList = (props) => {
         </div>
     ))
 
-    props.setDestination(destinations[0])
+    useEffect(() => {
+        props.updateDestination(destinations[0].address)
+    },[])
 
     return (
     <>

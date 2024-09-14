@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { APIProvider, Map, AdvancedMarker, Pin, useMapsLibrary, useMap } from '@vis.gl/react-google-maps'
 
-const apiKey = 'AIzaSyCYTE0MP12UXfo5QNIH4DQF6YG6Di2OBh4'
+const apiKey = import.meta.env.VITE_apiKey
 
 const GoogleMap = (props) => {
 
@@ -46,7 +46,7 @@ const GoogleMap = (props) => {
             });
       
           return () => directionsRenderer.setMap(null);
-        }, [directionsService, directionsRenderer]);
+        }, [directionsService, directionsRenderer, props.origin, props.destination]);
       
         // Update direction route
         useEffect(() => {
@@ -137,12 +137,19 @@ const GoogleMap = (props) => {
     console.log(`the userLocation is ${JSON.stringify(userLocation)}`)
     const [sourceAddress, setSourceAddress] = useState("")
     useEffect(() => {
-        getAddress(userLocation)
-        console.log(sourceAddress)
-    }, [sourceAddress])
+      if (props.hardcodeStartAddress === true) {
+          console.log('using hardcoded start address');
+          setSourceAddress(props.startAddress);
+      } else {
+          getAddress(userLocation);
+      }
+  }, [userLocation, props.hardcodeStartAddress, props.startAddress]);
     
     return (
-        <APIProvider apiKey = {apiKey} onLoad={() => console.log('Maps API has loaded')}>
+    <div> Map
+      <p>The origin is {sourceAddress}.</p>
+      <p>The destination is {props.destination}</p>
+      <APIProvider apiKey = {apiKey} onLoad={() => console.log('Maps API has loaded')}>
         <Map className='googlemap' mapId={'bf51a910020fa25a'} defaultZoom = {13} defaultCenter={ { lat: userLocation.lat, lng: userLocation.long } } >
         <AdvancedMarker
           position={{lat: userLocation.lat, lng: userLocation.long}}
@@ -155,6 +162,7 @@ const GoogleMap = (props) => {
         <Directions origin={sourceAddress} destination={props.destination}/>
         </Map>
     </APIProvider>
+    </div>
     )
 }
 
