@@ -8,6 +8,8 @@ import Aftercare from './pages/Aftercare.jsx';
 import About from './pages/About.jsx';
 import Preferences from './pages/Preferences.jsx';
 import Logout from './pages/Logout.jsx';
+import NavBar from './components/NavBar.jsx';
+import TermsAndConditions from './components/TermsAndConditions.jsx';
 
 function App() {
   const [destination, setDestination] = useState('')
@@ -19,32 +21,55 @@ function App() {
 
   return (
     <Router>
-      <nav>
-        <ul>
-          <li><Link to="/">Login</Link></li>
-          <li><Link to="/map">Map</Link></li>
-          <li><Link to="/aftercare">Aftercare</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/preferences">Preferences</Link></li>
-          <li><Link to="/logout">Logout</Link></li>
-        </ul>
-      </nav>
-
       <Routes>
         <Route path="/" element={<Login />} />
         <Route
           path="/map"
           element={
             <>
-            <DestinationPickList updateDestination = {updateDestination}/>
-            <GoogleMap destination = {destination} hardcodeStartAddress = {true} startAddress= {'1530 E 19th St Brooklyn NY 11230'} />
+              <NavBar />
+              <DestinationPickList updateDestination={updateDestination} />
+              <GoogleMap destination={destination} hardcodeStartAddress={true} startAddress={'1530 E 19th St Brooklyn NY 11230'} />
             </>
           }
         />
-        <Route path="/aftercare" element={<Aftercare />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/preferences" element={<Preferences />} />
+        <Route
+          path="/aftercare"
+          element={
+            <>
+              <NavBar />
+              <Aftercare />
+            </>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <>
+              <NavBar />
+              <About />
+            </>
+          }
+        />
+        <Route
+          path="/preferences"
+          element={
+            <>
+              <NavBar />
+              <Preferences />
+            </>
+          }
+        />
         <Route path="/logout" element={<Logout />} />
+        <Route
+          path="/termsandconditions"
+          element={
+            <>
+              <NavBar />
+              <TermsAndConditions />
+            </>
+          }
+        />
       </Routes>
     </Router>
   );

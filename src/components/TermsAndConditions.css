@@ -1,0 +1,23 @@
+/* src/components/TermsAndConditions.css */
+
+.terms-container {
+    max-width: 800px; /* Limit width for readability */
+    margin: 20px auto; /* Center the container and add vertical spacing */
+    padding: 20px; /* Add padding inside the container */
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for contrast */
+    border-radius: 8px; /* Optional: rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: slight shadow for depth */
+    overflow-y: auto; /* Allow vertical scrolling if content is too long */
+    max-height: 90vh; /* Limit height to avoid cutting off */
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px; /* Space below the heading */
+  }
+  
+  p {
+    font-size: 1rem;
+    line-height: 1.5; /* Increase line height for readability */
+    margin-bottom: 15px; /* Space between paragraphs */
+  }

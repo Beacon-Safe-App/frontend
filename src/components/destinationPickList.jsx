@@ -4,11 +4,11 @@ import destinations from "./destinations"
 const destinationPickList = (props) => {
 
     function handleDestinationClick(address) {
-        return function() {
+        return function () {
             props.updateDestination(address)
         }
-      }
-    
+    }
+
     const destinationsMap = destinations.map((destination) => (
         <div key={destination._id}>
             <button value={destination.address} onClick={handleDestinationClick(destination.address)}>{destination.address}</button>
@@ -17,13 +17,13 @@ const destinationPickList = (props) => {
 
     useEffect(() => {
         props.updateDestination(destinations[0].address)
-    },[])
+    }, [])
 
     return (
-    <>
-        <p>Destination Pick List</p>
-        {destinationsMap}
-    </>
+        <>
+            <p>Destination Pick List</p>
+            {destinationsMap}
+        </>
     )
 }
 
