@@ -20,11 +20,11 @@ const destinationPickList = (props) => {
     }, [])
 
     return (
-        <>
+        <div className="destination-pick-list">
             <p>Destination Pick List</p>
             {destinationsMap}
-        </>
-    )
-}
+        </div>
+    );
+};
 
 export default destinationPickList

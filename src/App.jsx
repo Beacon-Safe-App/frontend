@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import './index.css'
 import './App.css';
 import GoogleMap from './components/map.jsx';
 import DestinationPickList from './components/destinationPickList.jsx';
@@ -12,27 +13,34 @@ import NavBar from './components/NavBar.jsx';
 import TermsAndConditions from './components/TermsAndConditions.jsx';
 
 function App() {
-  const [destination, setDestination] = useState('')
+  const [destination, setDestination] = useState('');
 
   const updateDestination = (address) => {
-    setDestination(address)
-    console.log(`the value of destination is now set to ${destination}`)
-  }
+    setDestination(address);
+    console.log(`the value of destination is now set to ${destination}`);
+  };
 
   return (
     <Router>
       <Routes>
+
         <Route path="/" element={<Login />} />
+
         <Route
           path="/map"
           element={
-            <>
+            <div className="map-page">
               <NavBar />
               <DestinationPickList updateDestination={updateDestination} />
-              <GoogleMap destination={destination} hardcodeStartAddress={true} startAddress={'1530 E 19th St Brooklyn NY 11230'} />
-            </>
+              <GoogleMap
+              destination={destination}
+              hardcodeStartAddress={true}
+              startAddress={'1530 E 19th St Brooklyn NY 11230'} 
+              />
+            </div>
           }
         />
+
         <Route
           path="/aftercare"
           element={
@@ -42,6 +50,7 @@ function App() {
             </>
           }
         />
+
         <Route
           path="/about"
           element={
@@ -51,6 +60,7 @@ function App() {
             </>
           }
         />
+
         <Route
           path="/preferences"
           element={
@@ -60,6 +70,7 @@ function App() {
             </>
           }
         />
+
         <Route path="/logout" element={<Logout />} />
         <Route
           path="/termsandconditions"
@@ -70,7 +81,9 @@ function App() {
             </>
           }
         />
+
       </Routes>
+      
     </Router>
   );
 }

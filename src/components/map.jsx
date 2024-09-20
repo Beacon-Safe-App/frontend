@@ -1,7 +1,96 @@
 import React, { useEffect, useState } from 'react';
-import { APIProvider, Map, AdvancedMarker, Pin, useMapsLibrary, useMap } from '@vis.gl/react-google-maps'
+import { APIProvider, Map, AdvancedMarker, Pin, useMapsLibrary, useMap } from '@vis.gl/react-google-maps';
 
-const apiKey = import.meta.env.VITE_apiKey
+const googleMapStyle = [
+  {
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#212121"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#212121"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#212121"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#484848"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#8b8686"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#1a1a1a"
+      }
+    ]
+  }
+];
+
+const apiKey = import.meta.env.VITE_apiKey;
 
 const GoogleMap = (props) => {
 
@@ -146,14 +235,24 @@ const GoogleMap = (props) => {
   }, [userLocation, props.hardcodeStartAddress, props.startAddress]);
 
   return (
-    <div> Map
+    <div className="googlemap-container"> Map
       <p>The origin is {sourceAddress}.</p>
       <p>The destination is {props.destination}</p>
       <APIProvider apiKey={apiKey} onLoad={() => console.log('Maps API has loaded')}>
-        <Map className='googlemap' mapId={'bf51a910020fa25a'} defaultZoom={13} defaultCenter={{ lat: userLocation.lat, lng: userLocation.long }} >
+        <Map
+          className='googlemap'
+          mapId={'bf51a910020fa25a'}
+          defaultZoom={13}
+          defaultCenter={{ lat: userLocation.lat, lng: userLocation.long }}
+          options={{
+            styles: googleMapStyle,
+            mapTypeId: 'satellite'
+          }}
+        >
           <AdvancedMarker
             position={{ lat: userLocation.lat, lng: userLocation.long }}
-            title={'AdvancedMarker with customized pin.'}>
+            title={'AdvancedMarker with customized pin.'}
+          >
             <Pin background={'#22ccff'} borderColor={'#1e89a1'} scale={1.4}>
               {/* children are rendered as 'glyph' of pin */}
               👀
@@ -163,7 +262,7 @@ const GoogleMap = (props) => {
         </Map>
       </APIProvider>
     </div>
-  )
-}
+  );
+};
 
 export default GoogleMap
