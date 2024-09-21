@@ -9,7 +9,7 @@ function Login({ loginUser }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const loginData = { email, password };
+    const loginData = { email: email, password: password };
     const success = await loginUser(loginData);
     if (success) {
     navigate('/map');
