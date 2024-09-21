@@ -14,12 +14,12 @@ import NavBar from './components/NavBar.jsx';
 import TermsAndConditions from './components/TermsAndConditions.jsx';
 
 function App() {
-  const baseBackendURL = "localhost:8080";
+  const baseBackendURL = "http://localhost:8080";
 
   const [userData, setUserData] = useState(null);
 
   const loginUser = async (loginData) => {
-    const request = await fetch(`${baseBackendURL}auth/login`, {
+    const request = await fetch(`${baseBackendURL}/auth/login`, {
       method: "POST",
       credentials: 'include',
       headers: {
