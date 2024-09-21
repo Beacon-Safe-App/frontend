@@ -99,7 +99,7 @@ function App() {
           element={
             <>
               <NavBar />
-              <Preferences />
+              <Preferences userData={userData} />
             </>
           }
         />

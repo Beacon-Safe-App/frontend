@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 // import './Preferences.css';
 
-function Preferences() {
+function Preferences({ userData }) {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     pin: '',
@@ -67,9 +67,28 @@ function Preferences() {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    navigate('/map');
+  
+    try {
+      const response = await fetch(`http://localhost:8080/users/update/${userData.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      const result = await response.json();
+      if (response.ok) {
+        console.log("User preferences updated successfully", result);
+        navigate('/map');
+      } else {
+        console.error("Failed to update preferences:", result.message);
+      }
+    } catch (error) {
+      console.error("An error occurred while updating preferences:", error);
+    }
   };
 
   // Function to render the form based on the current step
