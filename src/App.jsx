@@ -5,7 +5,6 @@ import './App.css';
 import GoogleMap from './components/map.jsx';
 import DestinationPickList from './components/destinationPickList.jsx';
 import Login from './pages/Login.jsx';
-import Password from './pages/Password.jsx';
 import Aftercare from './pages/Aftercare.jsx';
 import About from './pages/About.jsx';
 import Preferences from './pages/Preferences.jsx';
@@ -15,6 +14,31 @@ import NavBar from './components/NavBar.jsx';
 import TermsAndConditions from './components/TermsAndConditions.jsx';
 
 function App() {
+  const baseBackendURL = "localhost:8080";
+
+  const [userData, setUserData] = useState(null);
+
+  const loginUser = async (loginData) => {
+    const request = await fetch(`${baseBackendURL}auth/login`, {
+      method: "POST",
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(loginData),
+    });
+    const requestData = await request.json();
+    console.log(requestData);
+
+    if (requestData.message === "Login successful") {
+      setUserData(requestData);
+      return true;
+    } else {
+      setUserData(null);
+      return false;
+    }
+  };
+
   const [destination, setDestination] = useState('');
 
   const updateDestination = (address) => {
@@ -25,18 +49,9 @@ function App() {
   return (
     <Router>
       <Routes>
-
-        <Route 
-          path="/" 
-          element={
-          <Login />
-          } 
-        />
-        <Route 
-          path="/password" 
-          element={
-          <Password />
-          } 
+        <Route
+          path="/"
+          element={<Login loginUser={loginUser} />}
         />
         <Route
           path="/register"
@@ -47,7 +62,6 @@ function App() {
             </>
           }
         />
-
         <Route
           path="/map"
           element={
@@ -55,14 +69,13 @@ function App() {
               <NavBar />
               <DestinationPickList updateDestination={updateDestination} />
               <GoogleMap
-              destination={destination}
-              hardcodeStartAddress={true}
-              startAddress={'1530 E 19th St Brooklyn NY 11230'} 
+                destination={destination}
+                hardcodeStartAddress={true}
+                startAddress={'1530 E 19th St Brooklyn NY 11230'}
               />
             </div>
           }
         />
-
         <Route
           path="/aftercare"
           element={
@@ -72,7 +85,6 @@ function App() {
             </>
           }
         />
-
         <Route
           path="/about"
           element={
@@ -82,7 +94,6 @@ function App() {
             </>
           }
         />
-
         <Route
           path="/preferences"
           element={
@@ -92,7 +103,6 @@ function App() {
             </>
           }
         />
-
         <Route path="/logout" element={<Logout />} />
         <Route
           path="/termsandconditions"
@@ -103,9 +113,7 @@ function App() {
             </>
           }
         />
-
       </Routes>
-
     </Router>
   );
 }

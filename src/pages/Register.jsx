@@ -1,6 +1,5 @@
-// pages/Register.jsx
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 // import './Register.css';
 
 function Register() {
@@ -11,6 +10,8 @@ function Register() {
     password: '',
     phoneNumber: ''
   });
+
+  const navigate = useNavigate();
 
   const handleNext = () => {
     setStep(step + 1);
@@ -27,7 +28,31 @@ function Register() {
     });
   };
 
-  // Function to render the form based on the current step
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    console.log('Submitting form...', formData);
+
+    try {
+      const response = await fetch('http://localhost:8080/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('HTTP error! Status: ${response.status');
+      }
+
+      const data = await response.json();
+      console.log('Response received:', data);
+
+        navigate('/map');
+        } catch (error) {
+        console.error('Error occurred:', error.message);
+    }
+  };
+
   const renderFormStep = () => {
     switch (step) {
       case 1:
@@ -93,7 +118,7 @@ function Register() {
       default:
         return null;
     }
-  };
+  }
 
   const progressPercentage = (step / 4) * 100;
 
@@ -102,7 +127,10 @@ function Register() {
       <div className="progress-bar">
         <div className="progress" style={{ width: `${progressPercentage}%` }}></div>
       </div>
-      <form className="register-form">
+      <form className="register-form" onSubmit={(e) => {
+        console.log('Form is being submitted');
+        handleSubmit(e);
+    }}>
         {renderFormStep()}
       </form>
     </div>
