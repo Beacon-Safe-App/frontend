@@ -8,7 +8,7 @@ function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate('/map');
+    navigate('/password');
   };
 
   return (

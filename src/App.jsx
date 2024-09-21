@@ -5,6 +5,7 @@ import './App.css';
 import GoogleMap from './components/map.jsx';
 import DestinationPickList from './components/destinationPickList.jsx';
 import Login from './pages/Login.jsx';
+import Password from './pages/Password.jsx';
 import Aftercare from './pages/Aftercare.jsx';
 import About from './pages/About.jsx';
 import Preferences from './pages/Preferences.jsx';
@@ -29,6 +30,12 @@ function App() {
           path="/" 
           element={
           <Login />
+          } 
+        />
+        <Route 
+          path="/password" 
+          element={
+          <Password />
           } 
         />
         <Route
