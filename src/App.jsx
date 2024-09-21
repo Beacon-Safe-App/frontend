@@ -31,7 +31,8 @@ function App() {
     console.log(requestData);
 
     if (requestData.message === "Login successful") {
-      setUserData(requestData);
+      console.log(`user ${requestData.data[0]._id} successfully logged in`)
+      setUserData(requestData.data[0])
       return true;
     } else {
       setUserData(null);

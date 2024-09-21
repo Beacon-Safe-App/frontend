@@ -71,12 +71,15 @@ function Preferences({ userData }) {
     event.preventDefault();
   
     try {
-      const response = await fetch(`http://localhost:8080/users/update/${userData.id}`, {
+      console.log(formData)
+      console.log(userData)
+      const response = await fetch(`http://localhost:8080/auth/${userData._id}`, {
         method: 'PUT',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({preferences: {formData}}),
       });
   
       const result = await response.json();
