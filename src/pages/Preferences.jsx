@@ -143,8 +143,8 @@ function Preferences() {
               <label>
                 <input
                 type="checkbox"
-                name="AuInPolice"
-                checked={formData.interventionPreferences.includes('AuInPolice')}
+                name="auin_police"
+                checked={formData.interventionPreferences.includes('auin_police')}
                 onChange={handleCheckboxChange}
                 />
                 police intervention
@@ -154,8 +154,8 @@ function Preferences() {
               <label>
                 <input
                 type="checkbox"
-                name="AuInSecurity"
-                checked={formData.interventionPreferences.includes('AuInSecurity')}
+                name="auin_security"
+                checked={formData.interventionPreferences.includes('auin_security')}
                 onChange={handleCheckboxChange}
                 />
                 professional security intervention
@@ -165,8 +165,8 @@ function Preferences() {
               <label>
                 <input
                 type="checkbox"
-                name="AuInGovernment"
-                checked={formData.interventionPreferences.includes('AuInGovernment')}
+                name="auin_government"
+                checked={formData.interventionPreferences.includes('auin_government')}
                 onChange={handleCheckboxChange}
                 />
                 law enforcement intervention
@@ -176,8 +176,8 @@ function Preferences() {
               <label>
                 <input
                 type="checkbox"
-                name="AuInCivil"
-                checked={formData.interventionPreferences.includes('AuInCivil')}
+                name="auin_civil"
+                checked={formData.interventionPreferences.includes('auin_civil')}
                 onChange={handleCheckboxChange}
                 />
                 civil servant intervention (e.g. park rangers, fire department, transit workers, etc.)
@@ -187,8 +187,8 @@ function Preferences() {
               <label>
                 <input
                 type="checkbox"
-                name="AuInCommunity"
-                checked={formData.interventionPreferences.includes('AuInCommunity')}
+                name="auin_community"
+                checked={formData.interventionPreferences.includes('auin_community')}
                 onChange={handleCheckboxChange}
                 />
                 community member intervention (others with the Beacon Safe app)
@@ -198,8 +198,8 @@ function Preferences() {
               <label>
                 <input
                 type="checkbox"
-                name="PerInCommunity"
-                checked={formData.interventionPreferences.includes('PerInCommunity')}
+                name="perin_community"
+                checked={formData.interventionPreferences.includes('perin_community')}
                 onChange={handleCheckboxChange}
                 />
                 personal intervention if community members are experiencing an emergency (others with the Beacon Safe app)
@@ -228,8 +228,8 @@ function Preferences() {
                     Phone Number:
                     <input
                     type="tel"
-                    name="phoneNumber"
-                    value={contact.phoneNumber}
+                    name="phone_number"
+                    value={contact.phone_number}
                     onChange={(event) => handleContactChange(index, event)}
                     required
                     />
