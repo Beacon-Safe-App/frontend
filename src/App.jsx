@@ -9,6 +9,7 @@ import Aftercare from './pages/Aftercare.jsx';
 import About from './pages/About.jsx';
 import Preferences from './pages/Preferences.jsx';
 import Logout from './pages/Logout.jsx';
+import Register from './pages/Register.jsx';
 import NavBar from './components/NavBar.jsx';
 import TermsAndConditions from './components/TermsAndConditions.jsx';
 
@@ -24,7 +25,21 @@ function App() {
     <Router>
       <Routes>
 
-        <Route path="/" element={<Login />} />
+        <Route 
+          path="/" 
+          element={
+          <Login />
+          } 
+        />
+        <Route
+          path="/register"
+          element={
+            <>
+              <NavBar />
+              <Register />
+            </>
+          }
+        />
 
         <Route
           path="/map"
@@ -83,7 +98,7 @@ function App() {
         />
 
       </Routes>
-      
+
     </Router>
   );
 }

@@ -19,6 +19,11 @@ function Login() {
         <input type="email" className="email-input" placeholder="enter your email" required />
         <button type="submit" className="arrow-button">→</button>
       </form>
+      <div className="registration-prompt">
+        <p>
+          <Link to="/register" className="register-link">register</Link>
+          </p>
+      </div>
       <div className="terms-and-conditions">
         <p>by proceeding, you agree to our</p>
         <p>
