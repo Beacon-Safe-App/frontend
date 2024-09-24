@@ -71,8 +71,6 @@ function Preferences({ userData }) {
     event.preventDefault();
   
     try {
-      console.log(formData)
-      console.log(userData)
       const response = await fetch(`http://localhost:8080/auth/${userData._id}`, {
         method: 'PUT',
         credentials: 'include',
@@ -243,7 +241,6 @@ function Preferences({ userData }) {
                     name="name"
                     value={contact.name}
                     onChange={(event) => handleContactChange(index, event)}
-                    required
                     />
                   </label>
                   <label>
@@ -253,7 +250,6 @@ function Preferences({ userData }) {
                     name="phone_number"
                     value={contact.phone_number}
                     onChange={(event) => handleContactChange(index, event)}
-                    required
                     />
                   </label>
                 </div>
