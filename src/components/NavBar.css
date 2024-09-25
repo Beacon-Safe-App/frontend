@@ -3,7 +3,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background: linear-gradient(90deg, rgba(50, 50, 50, 0.6), rgba(90, 90, 90, 0.6)); /* Semi-transparent grey gradient */
+    background: linear-gradient(90deg, rgba(50, 50, 50, 0.6), rgba(90, 90, 90, 0.6));
     height: 60px;
     display: flex;
     align-items: center;
@@ -12,7 +12,6 @@
     z-index: 10;
   }
   
-  /* Hamburger menu button */
   .menu-icon {
     background: none;
     border: none;
@@ -20,7 +19,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 24px; /* Adjust based on the height of the lines */
+    height: 24px;
     width: 30px;
   }
   
@@ -28,12 +27,11 @@
     display: block;
     height: 4px;
     width: 100%;
-    background-color: white; /* Change to fit your color scheme */
+    background-color: white;
     border-radius: 2px;
     transition: background-color 0.3s ease-in-out;
   }
   
-  /* Optional: Menu icon hover effect */
   .menu-icon:hover span {
     background-color: lightgrey;
   }
