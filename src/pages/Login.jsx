@@ -21,7 +21,6 @@ function Login({ loginUser }) {
   return (
     <div className="login-container">
       <img id="logo-image" src="https://64.media.tumblr.com/716975a64c9046776c921f55ad51639b/5620776a7cc956d4-67/s2048x3072/f4b3cc26ac90e4bfc465e43e8177f4caeec26817.pnj" alt="logo"></img>
-      <p>connect with your email:</p>
       <form className="login-form" onSubmit={handleSubmit}>
         <input 
         type="email" 

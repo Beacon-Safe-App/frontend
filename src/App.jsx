@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import './index.css'
 import './App.css';
 import GoogleMap from './components/map.jsx';
 import DestinationPickList from './components/destinationPickList.jsx';
