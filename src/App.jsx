@@ -74,7 +74,7 @@ const baseBackendURL = getBaseBackendURL()
           path="/register"
           element={
             <>
-              <Register />
+              <Register baseBackendURL={baseBackendURL} />
             </>
           }
         />
