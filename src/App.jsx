@@ -3,15 +3,28 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 // pages import
-import Login from './pages/Login.jsx';
-import MapPage from './pages/MapPage';
-import Aftercare from './pages/Aftercare.jsx';
 import About from './pages/About.jsx';
-import Preferences from './pages/Preferences.jsx';
+import Aftercare from './pages/Aftercare.jsx';
+import Alarm from './pages/Alarm.jsx';
+import AudioRecording from './pages/AudioRecording.jsx';
+import BystanderReport from './pages/BystanderReport.jsx';
+import EmergencyMode from './pages/EmergencyMode.jsx';
+import FakeCall from './pages/FakeCall.jsx';
+import Flashlight from './pages/Flashlight.jsx';
+import HistoryLog from './pages/HistoryLog.jsx';
+import Login from './pages/Login.jsx';
 import Logout from './pages/Logout.jsx';
-import Register from './pages/Register.jsx';
-import TermsAndConditions from './pages/TermsAndConditions.jsx';
+import MainMenu from './pages/MainMenu.jsx';
+import MapPage from './pages/MapPage';
+import Preferences from './pages/Preferences.jsx';
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
+import Register from './pages/Register.jsx';
+import StalkerLog from './pages/StalkerLog.jsx';
+import TermsAndConditions from './pages/TermsAndConditions.jsx';
+import VideoRecording from './pages/VideoRecording.jsx';
+import VoiceActivation from './pages/VoiceActivation.jsx';
+import WalkWithMe from './pages/WalkWithMe.jsx';
+import WorldView from './pages/WorldView.jsx';
 
 // css import
 import './App.css';
@@ -19,16 +32,16 @@ import './App.css';
 function App() {
   const getBaseBackendURL = () => {
     switch (window.location.origin) {
-     case "https://yellow-beach-0a6bcfb0f.5.azurestaticapps.net":
-       console.log("Running in the production environment")
-       return ("https://beacon-backend-prod.azurewebsites.net")
-     default: 
-       console.log("Running in the local environment")
-       return("http://localhost:8080/")
+      case "https://yellow-beach-0a6bcfb0f.5.azurestaticapps.net":
+        console.log("Running in the production environment")
+        return ("https://beacon-backend-prod.azurewebsites.net")
+      default:
+        console.log("Running in the local environment")
+        return ("http://localhost:8080/")
     }
-}
+  }
 
-const baseBackendURL = getBaseBackendURL()
+  const baseBackendURL = getBaseBackendURL()
 
   const [userData, setUserData] = useState(null);
 
@@ -71,18 +84,10 @@ const baseBackendURL = getBaseBackendURL()
           }
         />
         <Route
-          path="/register"
+          path="/about"
           element={
             <>
-              <Register baseBackendURL={baseBackendURL} />
-            </>
-          }
-        />
-        <Route
-          path="/map"
-          element={
-            <>
-              <MapPage />
+              <About />
             </>
           }
         />
@@ -95,10 +100,80 @@ const baseBackendURL = getBaseBackendURL()
           }
         />
         <Route
-          path="/about"
+          path="/alarm"
           element={
             <>
-              <About />
+              <Alarm />
+            </>
+          }
+        />
+        <Route
+          path="/audiorecording"
+          element={
+            <>
+              <AudioRecording />
+            </>
+          }
+        />
+        <Route
+          path="/bystanderreport"
+          element={
+            <>
+              <BystanderReport />
+            </>
+          }
+        />
+        <Route
+          path="/emergencymode"
+          element={
+            <>
+              <EmergencyMode />
+            </>
+          }
+        />
+        <Route
+          path="/fakecall"
+          element={
+            <>
+              <FakeCall />
+            </>
+          }
+        />
+        <Route
+          path="/flashlight"
+          element={
+            <>
+              <Flashlight />
+            </>
+          }
+        />
+        <Route
+          path="/historylog"
+          element={
+            <>
+              <HistoryLog />
+            </>
+          }
+        />
+        <Route
+          path="/logout"
+          element={
+            <Logout />
+          }
+        />
+        <Route
+          path="/mainmenu"
+          element={
+            <>
+              <MainMenu />
+            </>
+          }
+        />
+        <Route
+          path="/map"
+          element={
+            <>
+              <MapPage />
             </>
           }
         />
@@ -110,11 +185,29 @@ const baseBackendURL = getBaseBackendURL()
             </>
           }
         />
-        <Route 
-          path="/logout"
+        <Route
+          path="/privacypolicy"
           element={
-            <Logout />
-          } 
+            <>
+              <PrivacyPolicy />
+            </>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <>
+              <Register baseBackendURL={baseBackendURL} />
+            </>
+          }
+        />
+        <Route
+          path="/stalkerlog"
+          element={
+            <>
+              <StalkerLog />
+            </>
+          }
         />
         <Route
           path="/termsandconditions"
@@ -125,10 +218,34 @@ const baseBackendURL = getBaseBackendURL()
           }
         />
         <Route
-          path="/privacypolicy"
+          path="/videorecording"
           element={
             <>
-              <PrivacyPolicy />
+              <VideoRecording />
+            </>
+          }
+        />
+        <Route
+          path="/voiceactivation"
+          element={
+            <>
+              <VoiceActivation />
+            </>
+          }
+        />
+        <Route
+          path="/walkwithme"
+          element={
+            <>
+              <WalkWithMe />
+            </>
+          }
+        />
+        <Route
+          path="/worldview"
+          element={
+            <>
+              <WorldView />
             </>
           }
         />
