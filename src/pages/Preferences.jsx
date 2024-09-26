@@ -1,8 +1,7 @@
-// pages/Preferences.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-// import './Preferences.css';
+import './Preferences.css';
 
 function Preferences({ userData }) {
   const [step, setStep] = useState(1);
@@ -98,68 +97,72 @@ function Preferences({ userData }) {
       case 1:
         return (
           <div className="form-step">
-            <label htmlFor="pin">please choose a 4-digit pin:</label>
+            <label htmlFor="pin">a pin number will be used to deactivate any active security tools. for example, if using the 'walk with me' feature, in order to ensure you have reached your destination safely and emergency mode should not be activated, you will be asked to enter your pin.</label>
             <input
               type="text"
               name="pin"
               id="pin"
+              placeholder="please choose a 4-digit pin"
               value={formData.pin}
               onChange={handleChange}
               required
             />
-            <button type="button" onClick={handleNext}>Next</button>
+            <button type="button" onClick={handleNext}>→</button>
           </div>
         );
       case 2:
         return (
           <div className="form-step">
-            <label htmlFor="pronouns">pronouns:</label>
+            <label htmlFor="pronouns">we ask for your pronouns to ensure that anyone intervening and supporting you in a state of emergency will address you correctly.</label>
             <input
               type="text"
               name="pronouns"
               id="pronouns"
+              placeholder="preferred pronouns"
               value={formData.pronouns}
               onChange={handleChange}
               required
             />
-            <button type="button" onClick={handleNext}>Next</button>
+            <button type="button" onClick={handleNext}>→</button>
           </div>
         );
       case 3:
         return (
           <div className="form-step">
-            <label htmlFor="accessibility">accessibility considerations:</label>
+            <label htmlFor="accessibility">we ask for you to let us know of any accessibility considerations one should be aware of in the event that you are in an emergency. an example could be that you are deaf or hard of hearing, or that you require a wheelchair.</label>
             <input
               type="text"
               name="accessibility"
               id="accessibility"
+              placeholder="accessibility requirements"
               value={formData.accessibility}
               onChange={handleChange}
               required
             />
-            <button type="button" onClick={handleNext}>Next</button>
+            <button type="button" onClick={handleNext}>→</button>
           </div>
         );
       case 4:
         return (
           <div className="form-step">
-            <label htmlFor="addtlreq">Do you have any additional notes or requirements in the event that you are in a state of emergency?</label>
+            <label htmlFor="addtlreq">we leave this section open-ended, if there is anything else you want intervening parties to be aware of in the event that you are in an emergency situation.</label>
             <input
               type="text"
               name="addtlreq"
               id="addtlreq"
+              placeholder="additional notes"
               value={formData.addtlreq}
               onChange={handleChange}
               required
             />
-            <button type="button" onClick={handleNext}>Next</button>
+            <button type="button" onClick={handleNext}>→</button>
           </div>
         );
       case 5:
         return (
-          <div className="form-step">
-            <label>Intervention Preferences (select all that apply):</label>
-            <div>
+          <div className="preferences-container">
+            <h3>Intervention Preferences (select all that apply):</h3>
+            <div className="options-box">
               <label>
                 <input
                 type="checkbox"
@@ -225,7 +228,7 @@ function Preferences({ userData }) {
                 personal intervention if community members are experiencing an emergency (others with the Beacon Safe app)
               </label>
             </div>
-            <button type="button" onClick={handleNext}>Next</button>
+            <button type="button" onClick={handleNext}>→</button>
           </div>
         );
         case 6:
@@ -259,7 +262,7 @@ function Preferences({ userData }) {
                   Add a new contact
                 </button>
               )}
-              <button type="submit">Submit Preferences</button>
+              <button type="submit">submit preferences</button>
             </div>
           );
       default:
