@@ -17,7 +17,18 @@ import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 import './App.css';
 
 function App() {
-  const baseBackendURL = "http://localhost:8080";
+  const getBaseBackendURL = () => {
+    switch (window.location.origin) {
+     case "https://yellow-beach-0a6bcfb0f.5.azurestaticapps.net":
+       console.log("Running in the production environment")
+       return ("https://beacon-backend-prod.azurewebsites.net")
+     default: 
+       console.log("Running in the local environment")
+       return("http://localhost:8080/")
+    }
+}
+
+const baseBackendURL = getBaseBackendURL()
 
   const [userData, setUserData] = useState(null);
 
@@ -63,7 +74,7 @@ function App() {
           path="/register"
           element={
             <>
-              <Register />
+              <Register baseBackendURL={baseBackendURL} />
             </>
           }
         />
