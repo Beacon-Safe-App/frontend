@@ -1,10 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './css/TandCPrivacy.css';
+import './css/Textblock.css';
 
 function PrivacyPolicy() {
     return (
-        <div className="privacypolicy-container">
+        <div className="textblock-container">
             <h1>PRIVACY POLICY</h1>
             <p>Last updated: 01/11/2023‍Your privacy is important to Beacon Safe Incorporated. This privacy policy (“Privacy Policy”) applies to the Beacon Safe Incorporated websites and other services that Beacon Safe Incorporated may offer you (the “Services”) and explains how personal information is collected, used, disclosed, and protected by Beacon Safe Incorporated.</p>
             <h3>‍CHANGES TO THIS PRIVACY POLICY</h3>

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './css/TandCPrivacy.css';
+import './css/Textblock.css';
 
 function TermsAndConditions() {
     return (
-        <div className="terms-container">
+        <div className="textblock-container">
             <h1>TERMS & CONDITIONS</h1>
             <p>Last updated: 09/20/20234. These Terms of Use are a legal agreement between Beacon Safe Incorporated, a company incorporated under the laws of New York State in the United States of America (“Beacon Safe Incorporated”), and you. The terms of this agreement govern your access and use of the Beacon Safe Incorporated websites and other Beacon Safe Incorporated services (the “Services”). BY INDICATING YOUR ACCEPTANCE BY CLICKING ON THE APPROPRIATE BUTTON BELOW, OR BY DOWNLOADING, INSTALLING, ACTIVATING OR USING ANY OF THE SERVICES, YOU AGREE TO BE BOUND BY THESE TERMS OF USE.</p>
             <h3>MOBILE SERVICES ADDITIONAL TERMS</h3>

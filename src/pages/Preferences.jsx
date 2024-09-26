@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import './Preferences.css';
+import './css/Preferences.css';
 
 function Preferences({ userData }) {
   const [step, setStep] = useState(1);
@@ -49,7 +49,7 @@ function Preferences({ userData }) {
 
   const handleContactChange = (index, event) => {
     const updatedContacts = [...formData.contacts];
-    updatedContacts[index] [event.target.name] = event.target.value;
+    updatedContacts[index][event.target.name] = event.target.value;
 
     setFormData({
       ...formData,
@@ -68,7 +68,7 @@ function Preferences({ userData }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
+
     try {
       const response = await fetch(`http://localhost:8080/auth/${userData._id}`, {
         method: 'PUT',
@@ -76,9 +76,9 @@ function Preferences({ userData }) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({preferences: {formData}}),
+        body: JSON.stringify({ preferences: { formData } }),
       });
-  
+
       const result = await response.json();
       if (response.ok) {
         console.log("User preferences updated successfully", result);
@@ -164,10 +164,10 @@ function Preferences({ userData }) {
             <div className="options-box">
               <label>
                 <input
-                type="checkbox"
-                name="auin_police"
-                checked={formData.interventionPreferences.includes('auin_police')}
-                onChange={handleCheckboxChange}
+                  type="checkbox"
+                  name="auin_police"
+                  checked={formData.interventionPreferences.includes('auin_police')}
+                  onChange={handleCheckboxChange}
                 />
                 police intervention
               </label>
@@ -175,10 +175,10 @@ function Preferences({ userData }) {
             <div className="options-box">
               <label>
                 <input
-                type="checkbox"
-                name="auin_security"
-                checked={formData.interventionPreferences.includes('auin_security')}
-                onChange={handleCheckboxChange}
+                  type="checkbox"
+                  name="auin_security"
+                  checked={formData.interventionPreferences.includes('auin_security')}
+                  onChange={handleCheckboxChange}
                 />
                 professional security intervention
               </label>
@@ -186,10 +186,10 @@ function Preferences({ userData }) {
             <div className="options-box">
               <label>
                 <input
-                type="checkbox"
-                name="auin_government"
-                checked={formData.interventionPreferences.includes('auin_government')}
-                onChange={handleCheckboxChange}
+                  type="checkbox"
+                  name="auin_government"
+                  checked={formData.interventionPreferences.includes('auin_government')}
+                  onChange={handleCheckboxChange}
                 />
                 law enforcement intervention
               </label>
@@ -197,10 +197,10 @@ function Preferences({ userData }) {
             <div className="options-box">
               <label>
                 <input
-                type="checkbox"
-                name="auin_civil"
-                checked={formData.interventionPreferences.includes('auin_civil')}
-                onChange={handleCheckboxChange}
+                  type="checkbox"
+                  name="auin_civil"
+                  checked={formData.interventionPreferences.includes('auin_civil')}
+                  onChange={handleCheckboxChange}
                 />
                 civil servant intervention
               </label>
@@ -208,10 +208,10 @@ function Preferences({ userData }) {
             <div className="options-box">
               <label>
                 <input
-                type="checkbox"
-                name="auin_community"
-                checked={formData.interventionPreferences.includes('auin_community')}
-                onChange={handleCheckboxChange}
+                  type="checkbox"
+                  name="auin_community"
+                  checked={formData.interventionPreferences.includes('auin_community')}
+                  onChange={handleCheckboxChange}
                 />
                 community intervention
               </label>
@@ -219,10 +219,10 @@ function Preferences({ userData }) {
             <div className="options-box">
               <label>
                 <input
-                type="checkbox"
-                name="perin_community"
-                checked={formData.interventionPreferences.includes('perin_community')}
-                onChange={handleCheckboxChange}
+                  type="checkbox"
+                  name="perin_community"
+                  checked={formData.interventionPreferences.includes('perin_community')}
+                  onChange={handleCheckboxChange}
                 />
                 personal intervention
               </label>
@@ -230,42 +230,48 @@ function Preferences({ userData }) {
             <button type="button" onClick={handleNext}>→</button>
           </div>
         );
-        case 6:
-  return (
-    <div className="form-step" id="contactform">
-      <label className="primary-contacts-title">Primary Contacts:</label>
-      <div className="contact-box">
-        {formData.contacts.map((contact, index) => (
-          <div key={index} className="contact-entry">
-            <label>
-              Contact Name:
-              <input
-                type="text"
-                name="name"
-                value={contact.name}
-                onChange={(event) => handleContactChange(index, event)}
-              />
-            </label>
-            <label>
-              Phone Number:
-              <input
-                type="tel"
-                name="phone_number"
-                value={contact.phone_number}
-                onChange={(event) => handleContactChange(index, event)}
-              />
-            </label>
+      case 6:
+        return (
+          <div className="form-step" >
+            <h3 className="primary-contacts-title">Primary Contacts:</h3>
+            <div className="contacts-container">
+              <div className="contact-box-scrollable">
+                {formData.contacts.map((contact, index) => (
+                  <div key={index} className="contact-entry">
+                    <label>
+                      Contact Name:
+                      <input
+                        type="text"
+                        name="name"
+                        value={contact.name}
+                        onChange={(event) => handleContactChange(index, event)}
+                      />
+                    </label>
+                    <label>
+                      Phone Number:
+                      <input
+                        type="tel"
+                        name="phoneNumber"
+                        value={contact.phoneNumber}
+                        onChange={(event) => handleContactChange(index, event)}
+                      />
+                    </label>
+                  </div>
+                ))}
+                {formData.contacts.length < 10 && (
+                  <button type="button" className="add-contact-button" onClick={addNewContact}>
+                    add a new contact
+                  </button>
+                )}
+              </div>
+            </div >
+            <div>
+              <button type="submit" className="submit-preferences-button">
+                submit preferences
+              </button>
+            </div >
           </div>
-        ))}
-      </div>
-      {formData.contacts.length < 10 && (
-        <button type="button" className="add-contact-button" onClick={addNewContact}>
-          Add a new contact
-        </button>
-      )}
-      <button type="submit" className="submit-preferences-button">submit preferences</button>
-    </div>
-  );
+        );
       default:
         return null;
     }

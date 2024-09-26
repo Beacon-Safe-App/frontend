@@ -50,6 +50,10 @@ function Login({ loginUser }) {
         <p>
           <Link to="/termsandconditions" className="terms-link">Terms & Conditions</Link>
         </p>
+        <p>and our</p>
+        <p>
+          <Link to="/privacypolicy" className="privacy-link">Privacy Policy</Link>
+        </p>
         <p>and confirm that you are at least 13 years old</p>
       </div>
     </div>
