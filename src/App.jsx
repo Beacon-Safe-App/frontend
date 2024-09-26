@@ -1,16 +1,19 @@
+import React from 'react';
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import './App.css';
-import GoogleMap from './components/map.jsx';
-import DestinationPickList from './components/destinationPickList.jsx';
+
+// pages import
 import Login from './pages/Login.jsx';
+import MapPage from './pages/MapPage';
 import Aftercare from './pages/Aftercare.jsx';
 import About from './pages/About.jsx';
 import Preferences from './pages/Preferences.jsx';
 import Logout from './pages/Logout.jsx';
 import Register from './pages/Register.jsx';
-import NavBar from './components/NavBar.jsx';
-import TermsAndConditions from './components/TermsAndConditions.jsx';
+import TermsAndConditions from './pages/TermsAndConditions.jsx';
+
+// css import
+import './App.css';
 
 function App() {
   const baseBackendURL = "http://localhost:8080";
@@ -51,13 +54,14 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Login loginUser={loginUser} />}
+          element={
+            <Login loginUser={loginUser} />
+          }
         />
         <Route
           path="/register"
           element={
             <>
-              <NavBar />
               <Register />
             </>
           }
@@ -65,22 +69,15 @@ function App() {
         <Route
           path="/map"
           element={
-            <div className="map-page">
-              <NavBar />
-              <DestinationPickList updateDestination={updateDestination} />
-              <GoogleMap
-                destination={destination}
-                hardcodeStartAddress={true}
-                startAddress={'1530 E 19th St Brooklyn NY 11230'}
-              />
-            </div>
+            <>
+              <MapPage />
+            </>
           }
         />
         <Route
           path="/aftercare"
           element={
             <>
-              <NavBar />
               <Aftercare />
             </>
           }
@@ -89,7 +86,6 @@ function App() {
           path="/about"
           element={
             <>
-              <NavBar />
               <About />
             </>
           }
@@ -98,17 +94,20 @@ function App() {
           path="/preferences"
           element={
             <>
-              <NavBar />
               <Preferences userData={userData} />
             </>
           }
         />
-        <Route path="/logout" element={<Logout />} />
+        <Route 
+          path="/logout"
+          element={
+            <Logout />
+          } 
+        />
         <Route
           path="/termsandconditions"
           element={
             <>
-              <NavBar />
               <TermsAndConditions />
             </>
           }
