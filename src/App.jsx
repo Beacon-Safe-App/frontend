@@ -21,7 +21,7 @@ function App() {
     switch (window.location.origin) {
      case "https://yellow-beach-0a6bcfb0f.5.azurestaticapps.net":
        console.log("Running in the production environment")
-       return ("beacon-backend-prod.azurewebsites.net")
+       return ("https://beacon-backend-prod.azurewebsites.net")
      default: 
        console.log("Running in the local environment")
        return("http://localhost:8080/")
