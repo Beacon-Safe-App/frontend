@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-// import './Register.css';
+import './Register.css';
 
 function Register() {
   const [step, setStep] = useState(1);
@@ -58,61 +58,65 @@ function Register() {
       case 1:
         return (
           <div className="form-step">
-            <label htmlFor="name">What's your name?</label>
+            <label htmlFor="name">your name will be used with any alerts sent to your primary contacts in the event of an emergency.</label>
             <input
               type="text"
               name="name"
               id="name"
+              placeholder="enter your first and last name"
               value={formData.name}
               onChange={handleChange}
               required
             />
-            <button type="button" onClick={handleNext}>Next</button>
+            <button type="button" onClick={handleNext}>→</button>
           </div>
         );
       case 2:
         return (
           <div className="form-step">
-            <label htmlFor="email">What's your email?</label>
+            <label htmlFor="email">your email address will be the unique identifier associated with your account and will be used for login.</label>
             <input
               type="email"
               name="email"
               id="email"
+              placeholder="enter your email address"
               value={formData.email}
               onChange={handleChange}
               required
             />
-            <button type="button" onClick={handleNext}>Next</button>
+            <button type="button" onClick={handleNext}>→</button>
           </div>
         );
       case 3:
         return (
           <div className="form-step">
-            <label htmlFor="password">Create a password</label>
+            <label htmlFor="password">your password will be used to log in to your account.</label>
             <input
               type="password"
               name="password"
               id="password"
+              placeholder="create a password"
               value={formData.password}
               onChange={handleChange}
               required
             />
-            <button type="button" onClick={handleNext}>Next</button>
+            <button type="button" onClick={handleNext}>→</button>
           </div>
         );
       case 4:
         return (
           <div className="form-step">
-            <label htmlFor="phoneNumber">What's your phone number?</label>
+            <label htmlFor="phoneNumber">your phone number is used for two of the app's primary safety tools.</label>
             <input
               type="tel"
               name="phoneNumber"
               id="phoneNumber"
+              placeholder="enter your phone number"
               value={formData.phoneNumber}
               onChange={handleChange}
               required
             />
-            <button type="submit">Submit</button>
+            <button type="submit">submit</button>
           </div>
         );
       default:
