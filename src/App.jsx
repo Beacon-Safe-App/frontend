@@ -11,6 +11,7 @@ import Preferences from './pages/Preferences.jsx';
 import Logout from './pages/Logout.jsx';
 import Register from './pages/Register.jsx';
 import TermsAndConditions from './pages/TermsAndConditions.jsx';
+import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 
 // css import
 import './App.css';
@@ -109,6 +110,14 @@ function App() {
           element={
             <>
               <TermsAndConditions />
+            </>
+          }
+        />
+        <Route
+          path="/privacypolicy"
+          element={
+            <>
+              <PrivacyPolicy />
             </>
           }
         />

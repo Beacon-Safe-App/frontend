@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import './Login.css';
+import './css/Login.css';
 
 function Login({ loginUser }) {
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ function Login({ loginUser }) {
         onChange={(e) => setPassword(e.target.value)}
         required
         />
-        <button type="submit" className="arrow-button">→</button>
+        <button type="submit" className="arrow-button" id="arrow">→</button>
       </form>
       <div className="registration-prompt">
         <p>

@@ -1,4 +1,3 @@
-// pages/Aftercare.jsx
 import React from 'react';
 
 function Aftercare() {

@@ -91,7 +91,6 @@ function Preferences({ userData }) {
     }
   };
 
-  // Function to render the form based on the current step
   const renderFormStep = () => {
     switch (step) {
       case 1:
@@ -160,7 +159,7 @@ function Preferences({ userData }) {
         );
       case 5:
         return (
-          <div className="preferences-container">
+          <div className="form-step">
             <h3>Intervention Preferences (select all that apply):</h3>
             <div className="options-box">
               <label>
@@ -173,7 +172,7 @@ function Preferences({ userData }) {
                 police intervention
               </label>
             </div>
-            <div>
+            <div className="options-box">
               <label>
                 <input
                 type="checkbox"
@@ -184,7 +183,7 @@ function Preferences({ userData }) {
                 professional security intervention
               </label>
             </div>
-            <div>
+            <div className="options-box">
               <label>
                 <input
                 type="checkbox"
@@ -195,7 +194,7 @@ function Preferences({ userData }) {
                 law enforcement intervention
               </label>
             </div>
-            <div>
+            <div className="options-box">
               <label>
                 <input
                 type="checkbox"
@@ -203,10 +202,10 @@ function Preferences({ userData }) {
                 checked={formData.interventionPreferences.includes('auin_civil')}
                 onChange={handleCheckboxChange}
                 />
-                civil servant intervention (e.g. park rangers, fire department, transit workers, etc.)
+                civil servant intervention
               </label>
             </div>
-            <div>
+            <div className="options-box">
               <label>
                 <input
                 type="checkbox"
@@ -214,10 +213,10 @@ function Preferences({ userData }) {
                 checked={formData.interventionPreferences.includes('auin_community')}
                 onChange={handleCheckboxChange}
                 />
-                community member intervention (others with the Beacon Safe app)
+                community intervention
               </label>
             </div>
-            <div>
+            <div className="options-box">
               <label>
                 <input
                 type="checkbox"
@@ -225,46 +224,48 @@ function Preferences({ userData }) {
                 checked={formData.interventionPreferences.includes('perin_community')}
                 onChange={handleCheckboxChange}
                 />
-                personal intervention if community members are experiencing an emergency (others with the Beacon Safe app)
+                personal intervention
               </label>
             </div>
             <button type="button" onClick={handleNext}>→</button>
           </div>
         );
         case 6:
-          return (
-            <div className="form-step">
-              <label>Primary Contacts:</label>
-              {formData.contacts.map((contact, index) => (
-                <div key={index}>
-                  <label>
-                    Contact Name:
-                    <input
-                    type="text"
-                    name="name"
-                    value={contact.name}
-                    onChange={(event) => handleContactChange(index, event)}
-                    />
-                  </label>
-                  <label>
-                    Phone Number:
-                    <input
-                    type="tel"
-                    name="phone_number"
-                    value={contact.phone_number}
-                    onChange={(event) => handleContactChange(index, event)}
-                    />
-                  </label>
-                </div>
-              ))}
-              {formData.contacts.length < 10 && (
-                <button type="button" onClick={addNewContact}>
-                  Add a new contact
-                </button>
-              )}
-              <button type="submit">submit preferences</button>
-            </div>
-          );
+  return (
+    <div className="form-step" id="contactform">
+      <label className="primary-contacts-title">Primary Contacts:</label>
+      <div className="contact-box">
+        {formData.contacts.map((contact, index) => (
+          <div key={index} className="contact-entry">
+            <label>
+              Contact Name:
+              <input
+                type="text"
+                name="name"
+                value={contact.name}
+                onChange={(event) => handleContactChange(index, event)}
+              />
+            </label>
+            <label>
+              Phone Number:
+              <input
+                type="tel"
+                name="phone_number"
+                value={contact.phone_number}
+                onChange={(event) => handleContactChange(index, event)}
+              />
+            </label>
+          </div>
+        ))}
+      </div>
+      {formData.contacts.length < 10 && (
+        <button type="button" className="add-contact-button" onClick={addNewContact}>
+          Add a new contact
+        </button>
+      )}
+      <button type="submit" className="submit-preferences-button">submit preferences</button>
+    </div>
+  );
       default:
         return null;
     }
