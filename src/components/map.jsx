@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { APIProvider, Map, AdvancedMarker, Pin, useMapsLibrary, useMap } from '@vis.gl/react-google-maps';
+import { APIProvider, Map, AdvancedMarker, Marker, Pin, useMapsLibrary, useMap } from '@vis.gl/react-google-maps';
 
 const googleMapStyle = [
   {
@@ -241,7 +241,6 @@ const GoogleMap = (props) => {
       <APIProvider apiKey={apiKey} onLoad={() => console.log('Maps API has loaded')}>
         <Map
           className='googlemap'
-          mapId={'bf51a910020fa25a'}
           defaultZoom={13}
           defaultCenter={{ lat: userLocation.lat, lng: userLocation.long }}
           options={{
@@ -249,15 +248,11 @@ const GoogleMap = (props) => {
             mapTypeId: 'satellite'
           }}
         >
-          <AdvancedMarker
+          <Marker
             position={{ lat: userLocation.lat, lng: userLocation.long }}
-            title={'AdvancedMarker with customized pin.'}
+            title={'Marker'}
           >
-            <Pin background={'#22ccff'} borderColor={'#1e89a1'} scale={1.4}>
-              {/* children are rendered as 'glyph' of pin */}
-              👀
-            </Pin>
-          </AdvancedMarker>
+          </Marker>
           <Directions origin={sourceAddress} destination={props.destination} />
         </Map>
       </APIProvider>
