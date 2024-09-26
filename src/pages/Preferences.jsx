@@ -258,19 +258,19 @@ function Preferences({ userData }) {
                     </label>
                   </div>
                 ))}
+                </div>
+
                 {formData.contacts.length < 10 && (
                   <button type="button" className="add-contact-button" onClick={addNewContact}>
                     add a new contact
                   </button>
                 )}
               </div>
-            </div >
-            <div>
+        
               <button type="submit" className="submit-preferences-button">
                 submit preferences
               </button>
             </div >
-          </div>
         );
       default:
         return null;
