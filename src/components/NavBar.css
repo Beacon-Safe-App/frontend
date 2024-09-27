@@ -1,3 +1,11 @@
+.top-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1000;
+}
+
 .top-scrollable-nav, .bottom-scrollable-nav {
   display: flex;
   overflow-x: auto;
@@ -6,7 +14,6 @@
   position: fixed;
   left: 0;
   width: 100%;
-  /* background: rgba(0, 0, 0, 0.6); */
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -35,6 +42,7 @@
   opacity: 50%;
   transition: transform 0.2s ease-in-out;
   position: relative;
+  cursor: pointer;
   z-index: 1001;
 }
 
@@ -47,6 +55,7 @@
   opacity: 50%;
   transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
   position: relative;
+  cursor: pointer;
   z-index: 1001;
 }
 
@@ -75,5 +84,36 @@
 }
 
 .scrollable-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.mainmenu-container {
+  position: relative;
+}
+
+.mainmenu-submenu {
+  position: fixed;
+  top: 100px;
+  left: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  display: flex;
+  justify-content: space-evenly;
+  z-index: 1001;
+  padding: 10px;
+  width: 100vw;
+}
+
+.mainmenu-submenu a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+.mainmenu-submenu a:hover {
+  text-decoration: underline;
+}
+
+.hidden {
   display: none;
 }

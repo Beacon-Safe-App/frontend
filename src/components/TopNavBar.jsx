@@ -12,20 +12,52 @@ const navItems = [
     { id: 7, icon: 'https://64.media.tumblr.com/d860b2ddd9eefebc77c25afc2be7e6df/3ac6fb9510c32e59-ed/s540x810/8de11f009883735dbdf62832f3244755b9893d8b.pnj', route: '/walkwithme' },
     { id: 8, icon: 'https://64.media.tumblr.com/ccb436886e444071cdf361b9ed0939d0/16c4e6698b3ae15e-43/s540x810/45f278c21dcc58f559b144477a6844f226a6ad1e.pnj', route: '/voiceactivation' },
     { id: 9, icon: 'https://64.media.tumblr.com/8bfc7162ba8e2cc5bae584cea40c5071/9837fef34ebdbd6e-f4/s540x810/f1f80c5f61d631371d549a168f17c10391032e5b.pnj', route: '/historylog' },
-  ];
-  
-  const TopNavBar = () => {
+];
+
+const TopNavBar = () => {
+    const [isMainMenuOpen, setIsMainMenuOpen] = useState(false);
+
+    const handleMainMenuClick = () => {
+        setIsMainMenuOpen(!isMainMenuOpen);
+    };
+
     return (
-      <div className="top-navbar">
-        <div className="top-scrollable-nav">
-          {navItems.map(item => (
-            <Link key={item.id} to={item.route}>
-              <img src={item.icon} alt="icon" className="top-nav-icon" />
-            </Link>
-          ))}
+        <div className="top-navbar">
+            <div className="top-scrollable-nav">
+                {navItems.map((item) => {
+                    if (item.id === 5) {
+                        return (
+                            <div key={item.id} className="mainmenu-container">
+                                <img
+                                    src={item.icon}
+                                    alt="Main Menu"
+                                    className="top-nav-icon"
+                                    onClick={handleMainMenuClick}
+                                />
+                                {isMainMenuOpen && (
+                                    <div className="mainmenu-submenu">
+                                        <Link to="/profile">PROFILE</Link>
+                                        <Link to="/preferences">PREFERENCES</Link>
+                                        <Link to="/howto">HOW-TO</Link>
+                                        <Link to="/about">ABOUT</Link>
+                                        <Link to="/bystanderreport">BYSTANDER REPORT</Link>
+                                        <Link to="/privacypolicy">PRIVACY</Link>
+                                        <Link to="/termsandconditions">TERMS</Link>
+                                        <Link to="/logout">LOGOUT</Link>
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    }
+                    return (
+                        <Link key={item.id} to={item.route}>
+                            <img src={item.icon} alt="icon" className="top-nav-icon" />
+                        </Link>
+                    );
+                })}
+            </div>
         </div>
-      </div>
     );
-  };
-  
-  export default TopNavBar;
+};
+
+export default TopNavBar;

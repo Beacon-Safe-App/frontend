@@ -12,11 +12,12 @@ import EmergencyMode from './pages/EmergencyMode.jsx';
 import FakeCall from './pages/FakeCall.jsx';
 import Flashlight from './pages/Flashlight.jsx';
 import HistoryLog from './pages/HistoryLog.jsx';
+import HowTo from './pages/HowTo.jsx';
 import Login from './pages/Login.jsx';
 import Logout from './pages/Logout.jsx';
-import MainMenu from './pages/MainMenu.jsx';
 import MapPage from './pages/MapPage';
 import Preferences from './pages/Preferences.jsx';
+import Profile from './pages/Profile.jsx';
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 import Register from './pages/Register.jsx';
 import StalkerLog from './pages/StalkerLog.jsx';
@@ -174,10 +175,10 @@ function App() {
           }
         />
         <Route
-          path="/mainmenu"
+          path="/howto"
           element={
             <>
-              <MainMenu />
+              <HowTo />
             </>
           }
         />
@@ -206,6 +207,14 @@ function App() {
           element={
             <>
               <PrivacyPolicy />
+            </>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <>
+              <Profile />
             </>
           }
         />
