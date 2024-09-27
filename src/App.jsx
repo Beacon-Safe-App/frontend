@@ -143,7 +143,9 @@ function App() {
           path="/fakecall"
           element={
             <>
+              <TopNavBar />
               <FakeCall />
+              <BottomNavBar />
             </>
           }
         />
@@ -245,7 +247,9 @@ function App() {
           path="/voiceactivation"
           element={
             <>
+              <TopNavBar />
               <VoiceActivation />
+              <BottomNavBar />
             </>
           }
         />
@@ -253,7 +257,9 @@ function App() {
           path="/walkwithme"
           element={
             <>
+              <TopNavBar />
               <WalkWithMe />
+              <BottomNavBar />
             </>
           }
         />
