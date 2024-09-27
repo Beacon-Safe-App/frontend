@@ -1,26 +1,69 @@
-.top-nav-bar {
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 10px 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.nav-scroll-container {
+.top-scrollable-nav, .bottom-scrollable-nav {
   display: flex;
   overflow-x: auto;
   white-space: nowrap;
   padding: 0 20px;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
 }
 
-.nav-icon {
-  width: 40px;
-  height: 40px;
-  margin-right: 15px;
-  cursor: pointer;
-  transition: transform 0.2s;
+.top-scrollable-nav {
+  top: 0;
+  height: 100px;
 }
 
-.nav-icon:hover {
-  transform: scale(1.1);
+.bottom-scrollable-nav {
+  bottom: 0;
+  height: 200px;
+}
+
+.top-nav-icon {
+  width: auto;
+  height: 50px;
+  margin: 0 15px;
+  opacity: 50%;
+  transition: transform 0.2s ease-in-out;
+  position: relative;
+  z-index: 1001;
+}
+
+.bottom-nav-icon {
+  width: auto;
+  height: 100px;
+  margin: 0 15px;
+  opacity: 50%;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  position: relative;
+  z-index: 1001;
+}
+
+.top-nav-icon:hover {
+  transform: scale(1.5);
+  opacity: 100%;
+  z-index: 1002;
+}
+
+.bottom-nav-icon:hover {
+  transform: scale(2.0) translateY(-30px);
+  opacity: 100%;
+  z-index: 1002;
+}
+
+.bottom-nav-icon-red:hover {
+  filter: invert(42%) sepia(150%) saturate(10000%) hue-rotate(360deg) brightness(100%) contrast(100%);
+}
+
+.top-navbar:hover, .bottom-navbar:hover {
+  height: auto;
+}
+
+.scrollable-nav::-webkit-scrollbar {
+  display: none;
 }

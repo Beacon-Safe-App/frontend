@@ -26,6 +26,10 @@ import VoiceActivation from './pages/VoiceActivation.jsx';
 import WalkWithMe from './pages/WalkWithMe.jsx';
 import WorldView from './pages/WorldView.jsx';
 
+// components import
+import TopNavBar from './components/TopNavBar.jsx';
+import BottomNavBar from './components/BottomNavBar.jsx'
+
 // css import
 import './App.css';
 
@@ -95,7 +99,9 @@ function App() {
           path="/aftercare"
           element={
             <>
+              <TopNavBar />
               <Aftercare />
+              <BottomNavBar />
             </>
           }
         />
@@ -119,7 +125,9 @@ function App() {
           path="/bystanderreport"
           element={
             <>
+              <TopNavBar />
               <BystanderReport />
+              <BottomNavBar />
             </>
           }
         />
@@ -151,7 +159,9 @@ function App() {
           path="/historylog"
           element={
             <>
+              <TopNavBar />
               <HistoryLog />
+              <BottomNavBar />
             </>
           }
         />
@@ -173,7 +183,9 @@ function App() {
           path="/map"
           element={
             <>
+              <TopNavBar />
               <MapPage />
+              <BottomNavBar />
             </>
           }
         />
@@ -181,7 +193,9 @@ function App() {
           path="/preferences"
           element={
             <>
+              <TopNavBar />
               <Preferences userData={userData} />
+              <BottomNavBar />
             </>
           }
         />
@@ -205,7 +219,9 @@ function App() {
           path="/stalkerlog"
           element={
             <>
+              <TopNavBar />
               <StalkerLog />
+              <BottomNavBar />
             </>
           }
         />
@@ -245,7 +261,9 @@ function App() {
           path="/worldview"
           element={
             <>
+              <TopNavBar />
               <WorldView />
+              <BottomNavBar />
             </>
           }
         />

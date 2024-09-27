@@ -8,20 +8,25 @@ const navItems = [
     { id: 3, icon: 'https://64.media.tumblr.com/6be521812ff178b39835ac030de86de2/d15a111cd6df2c62-60/s540x810/b076adb5ee3907c69e536fd5caec8c3abe39cca2.pnj', route: '/emergencymode' },
     { id: 4, icon: 'https://64.media.tumblr.com/6b561e80f7c47e3915828c3047c67aa1/6f3589135cc2e4a0-55/s540x810/f5bc0d98339befb7b15391b62f2ce5ffac411d06.pnj', route: '/alarm' },
     { id: 5, icon: 'https://64.media.tumblr.com/ef33459304eea82c4132808dd94aaca6/4aa372146841d9c8-10/s540x810/b1f792f76598e9e23e35da0b57fca31a78b18f27.pnj', route: '/flashlight' },
-  ];
-  
-  function BottomNavBar() {
+];
+
+const BottomNavBar = () => {
     return (
-      <nav className="bottom-nav-bar">
-        <div className="nav-scroll-container">
-          {navItems.map(item => (
-            <Link key={item.id} to={item.route}>
-              <img src={item.icon} alt={`Icon ${item.id}`} className="nav-icon" />
-            </Link>
-          ))}
+        <div className="bottom-navbar">
+            <div className="bottom-scrollable-nav">
+                {navItems.map(item => (
+                    <Link key={item.id} to={item.route}>
+                        <img 
+                            src={item.icon} 
+                            alt="icon" 
+                            // className="bottom-nav-icon"
+                            className={`bottom-nav-icon ${item.id === 3 ? 'bottom-nav-icon-red' : ''}`}
+                        />
+                    </Link>
+                ))}
+            </div>
         </div>
-      </nav>
     );
-  }
-  
-  export default BottomNavBar;
+};
+
+export default BottomNavBar;

@@ -14,18 +14,18 @@ const navItems = [
     { id: 9, icon: 'https://64.media.tumblr.com/8bfc7162ba8e2cc5bae584cea40c5071/9837fef34ebdbd6e-f4/s540x810/f1f80c5f61d631371d549a168f17c10391032e5b.pnj', route: '/historylog' },
   ];
   
-  function TopNavBar() {
+  const TopNavBar = () => {
     return (
-      <nav className="top-nav-bar">
-        <div className="nav-scroll-container">
+      <div className="top-navbar">
+        <div className="top-scrollable-nav">
           {navItems.map(item => (
             <Link key={item.id} to={item.route}>
-              <img src={item.icon} alt={`Icon ${item.id}`} className="nav-icon" />
+              <img src={item.icon} alt="icon" className="top-nav-icon" />
             </Link>
           ))}
         </div>
-      </nav>
+      </div>
     );
-  }
+  };
   
   export default TopNavBar;
