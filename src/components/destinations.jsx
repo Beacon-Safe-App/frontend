@@ -1,4 +1,4 @@
-const destinations = [
+const Destinations = [
     {
         "_id": 1,
         "address": '1530 E 18th St, Brooklyn, NY',
@@ -17,4 +17,4 @@ const destinations = [
     },
 ]
 
-export default destinations
+export default Destinations

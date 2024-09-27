@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import GoogleMap from '../components/map.jsx';
-import DestinationPickList from '../components/destinationPickList.jsx';
+import GoogleMap from '../components/Map.jsx';
+import DestinationPickList from '../components/DestinationPickList.jsx';
 import './css/MapPage.css';
 
 const MapPage = () => {
@@ -19,7 +19,7 @@ const MapPage = () => {
         startAddress={'1530 E 19th St Brooklyn NY 11230'}
         className="googlemap"
       />
-      <DestinationPickList updateDestination={updateDestination} className="destination-pick-list"/>
+      <DestinationPickList updateDestination={updateDestination} />
     </div>
   );
 };
