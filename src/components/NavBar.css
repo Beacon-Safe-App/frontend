@@ -6,6 +6,11 @@
   z-index: 1000;
 }
 
+.bottom-navbar {
+  height: 200px;
+  position: relative;
+}
+
 .top-scrollable-nav, .bottom-scrollable-nav {
   display: flex;
   overflow-x: auto;
@@ -15,14 +20,14 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  display: flex;
   align-items: center;
   justify-content: center;
-  overflow: visible;
 }
 
 .top-scrollable-nav {
   top: 0;
+  padding-top: 10px;
+  align-items: flex-start;
   height: 100px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 }
@@ -31,19 +36,41 @@
   bottom: 0;
   height: 200px;
   background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  display: flex;
+  overflow: visible;
 }
 
 .top-nav-icon {
   width: auto;
   height: 50px;
   margin: 0 15px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 10px;
   opacity: 50%;
   transition: transform 0.2s ease-in-out;
-  position: relative;
   cursor: pointer;
   z-index: 1001;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.nav-label {
+  display: none;
+  position: absolute;
+  bottom: -30px;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  z-index: 1002;
+}
+
+.nav-item:hover .nav-label {
+  display: block;
 }
 
 .bottom-nav-icon {
@@ -56,7 +83,7 @@
   transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
   position: relative;
   cursor: pointer;
-  z-index: 1001;
+  z-index: 1003;
 }
 
 .top-nav-icon:hover {
@@ -72,7 +99,7 @@
 }
 
 .bottom-nav-icon-red {
-  height: 150px;
+  height: 125px;
 }
 
 .bottom-nav-icon-red:hover {
