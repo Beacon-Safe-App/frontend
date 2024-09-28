@@ -253,7 +253,7 @@ const GoogleMap = (props) => {
             title={'Marker'}
           >
           </Marker>
-          <Directions origin={sourceAddress} destination={props.destination} />
+          <Directions origin={sourceAddress} destination={props.destination} baseBackendURL={props.baseBackendURL} />
         </Map>
       </APIProvider>
     </div>

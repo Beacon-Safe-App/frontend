@@ -42,7 +42,7 @@ function App() {
         return ("https://beacon-backend-prod.azurewebsites.net")
       default:
         console.log("Running in the local environment")
-        return ("http://localhost:8080/")
+        return ("http://localhost:8080")
     }
   }
 
@@ -183,7 +183,7 @@ function App() {
           element={
             <>
               <TopNavBar />
-              <MapPage />
+              <MapPage baseBackendURL={baseBackendURL}/>
               <BottomNavBar />
             </>
           }
