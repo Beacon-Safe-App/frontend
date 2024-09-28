@@ -23,7 +23,7 @@ import Register from './pages/Register.jsx';
 import StalkerLog from './pages/StalkerLog.jsx';
 import TermsAndConditions from './pages/TermsAndConditions.jsx';
 import VideoRecording from './pages/VideoRecording.jsx';
-import VoiceActivation from './pages/VoiceActivation.jsx';
+import VoiceRecognition from './pages/VoiceRecognition.jsx';
 import WalkWithMe from './pages/WalkWithMe.jsx';
 import WorldView from './pages/WorldView.jsx';
 
@@ -126,7 +126,9 @@ function App() {
           path="/aftercare"
           element={
             <>
+              <TopNavBar />
               <Aftercare />
+              <BottomNavBar />
             </>
           }
         />
@@ -186,7 +188,9 @@ function App() {
           path="/historylog"
           element={
             <>
+              <TopNavBar />
               <HistoryLog />
+              <BottomNavBar />
             </>
           }
         />
@@ -273,11 +277,11 @@ function App() {
           }
         />
         <Route
-          path="/voiceactivation"
+          path="/voicerecognition"
           element={
             <>
               <TopNavBar />
-              <VoiceActivation />
+              <VoiceRecognition />
               <BottomNavBar />
             </>
           }

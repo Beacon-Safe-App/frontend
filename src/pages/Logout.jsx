@@ -5,7 +5,7 @@ import './css/Textblock.css';
 function Logout(props) {
   props.logoutUser()
   return (
-    <div className="textblock-container">
+    <div className="logout-container">
             <h3>YOU HAVE BEEN SUCCESSFULLY LOGGED OUT</h3>
             <br></br>
             <br></br>
