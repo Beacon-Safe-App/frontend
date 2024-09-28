@@ -7,7 +7,8 @@ import './css/Preferences.css';
 function Preferences({ userData, baseBackendURL }) {
   useLastVisitedPage();
   // this shows user data in preferences
-  console.log(userData)
+  console.log(JSON.stringify(userData))
+  const userId = userData['data'][0]._id
 
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -75,7 +76,7 @@ function Preferences({ userData, baseBackendURL }) {
     event.preventDefault();
 
     try {
-      const response = await fetch(`${baseBackendURL}/auth/${userData._id}`, {
+      const response = await fetch(`${baseBackendURL}/auth/${userId}`, {
         method: 'PUT',
         credentials: 'include',
         headers: {
