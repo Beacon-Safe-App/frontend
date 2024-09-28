@@ -40,7 +40,6 @@ function Login({ loginUser }) {
           required
         />
         <button type="submit" className="loginarrow-button" id="arrow">→</button>
-        {/* Move the registration prompt here */}
         <div className="registration-prompt">
           <p>
             <Link to="/register" className="register-link">register</Link>
