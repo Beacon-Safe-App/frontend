@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './css/Login.css';
 
 function Login({ loginUser, userData }) {
 
-  try {if (userData) {
-    navigate('/map')
-  }}
-  catch {}
+  useEffect(() => {
+    try {if (userData) {
+      navigate('/map')
+    }}
+    catch {}
+  },[userData])
 
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
