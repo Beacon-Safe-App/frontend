@@ -14,7 +14,7 @@ function StalkerLog() {
                 <img
                     id="tool-image"
                     src="https://64.media.tumblr.com/ebbd27e2a24d7aee92525b0a6be0bf33/68d315420f546d0f-0c/s540x810/994db3a0cd38d9dcb8b32166d4036b478d399bea.pnj"
-                    alt="fake call graphic"
+                    alt="stalker log pin graphic"
                 />
                 {isHovered && <p className="tool-label">PIN AN INSTANCE</p>}
             </div>
