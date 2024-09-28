@@ -126,7 +126,9 @@ function App() {
           path="/aftercare"
           element={
             <>
+              <TopNavBar />
               <Aftercare />
+              <BottomNavBar />
             </>
           }
         />

@@ -46,6 +46,35 @@
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
+#aftercare-submenu-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.aftercare-submenu-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+#aftercare-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+}
+
+#aftercare-image {
+    max-width: 30%;
+    height: auto;
+    margin-bottom: 20px;
+    margin-top: 0;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
 .fake-call-container {
     display: flex;
     flex-direction: column;
