@@ -22,7 +22,7 @@ function FakeCall() {
         <div className="fake-call-container">
             <img 
                 id="fake-call-image" 
-                src="https://64.media.tumblr.com/2278b08277a5f1493ff55c1e6764d105/f6bf6f2d48f4ab11-11/s500x750/a6eb3c1db9c7a6ef98b6412abb36a0d1ce2f6352.pnj" 
+                src="https://64.media.tumblr.com/503ec7e61c04fc363f74cbdec833b0f9/b839c8aa3e6f5850-e5/s500x750/9036ce408a7251efffa18a164b10a769a2986d57.pnj" 
                 alt="fake call graphic" 
             />
             <p className="tool-p">This will make your phone ring and show a call screen so that it looks like the person you have selected is calling you</p>
