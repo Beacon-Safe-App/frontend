@@ -46,6 +46,14 @@
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
+#walk-with-me-image {
+    max-width: 25%;
+    height: auto;
+    margin-bottom: 20px;
+    margin-top: 10%;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
 #aftercare-submenu-container {
     display: flex;
     justify-content: space-around;
@@ -75,7 +83,7 @@
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.fake-call-container {
+.fake-call-container, .walk-with-me-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -84,6 +92,11 @@
 }
 
 .fake-call-container:hover #fake-call-image {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.walk-with-me-container:hover #walk-with-me-image {
     transform: scale(1.1);
     filter: brightness(1.2);
 }
@@ -100,7 +113,7 @@
     padding: 0;
 }
 
-.fake-call-form {
+.fake-call-form, .walk-with-me-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -119,6 +132,22 @@
 }
 
 .tool-text-input:focus {
+    border-color: #1a304e;
+    box-shadow: 0px 0px 8px rgba(30, 58, 95, 0.8);
+}
+
+.destination-text-input {
+    padding: 10px;
+    margin-bottom: 100px;
+    width: 60%;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #1a2a40, #0b1825);
+    color: #d1d1e9;
+    border: 1px solid #1e3a5f;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5), -5px -5px 10px rgba(255, 255, 255, 0.05);
+}
+
+.destination-text-input:focus {
     border-color: #1a304e;
     box-shadow: 0px 0px 8px rgba(30, 58, 95, 0.8);
 }
