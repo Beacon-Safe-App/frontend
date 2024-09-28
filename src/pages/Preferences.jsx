@@ -8,7 +8,7 @@ function Preferences({ userData, baseBackendURL }) {
   useLastVisitedPage();
   // this shows user data in preferences
   console.log(JSON.stringify(userData))
-  const userId = userData['data'][0]._id
+  const userId = userData._id
 
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
