@@ -2,7 +2,8 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './css/Textblock.css';
 
-function Logout() {
+function Logout(props) {
+  props.logoutUser()
   return (
     <div className="textblock-container">
             <h3>YOU HAVE BEEN SUCCESSFULLY LOGGED OUT</h3>

@@ -72,6 +72,15 @@ function App() {
     }
   };
 
+  const logoutUser = async () => {
+    const URL = `${baseBackendURL}/auth/logout`
+    await fetch(URL, {
+        method: "POST",
+        credentials: 'include'
+    })
+    setUserData(null)
+  }
+
   const [destination, setDestination] = useState('');
 
   const updateDestination = (address) => {
@@ -167,7 +176,7 @@ function App() {
         <Route
           path="/logout"
           element={
-            <Logout />
+            <Logout logoutUser={logoutUser}/>
           }
         />
         <Route
