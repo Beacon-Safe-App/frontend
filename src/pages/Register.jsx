@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import useLastVisitedPage from '../hooks/useLastVisitedPage.js';
 import './css/Register.css';
 
 function Register(props) {
@@ -47,9 +48,9 @@ function Register(props) {
       const data = await response.json();
       console.log('Response received:', data);
 
-        navigate('/map');
-        } catch (error) {
-        console.error('Error occurred:', error.message);
+      navigate('/map');
+    } catch (error) {
+      console.error('Error occurred:', error.message);
     }
   };
 
@@ -63,12 +64,12 @@ function Register(props) {
               type="text"
               name="name"
               id="name"
-              placeholder="enter your first and last name"
+              placeholder="first and last name"
               value={formData.name}
               onChange={handleChange}
               required
             />
-            <button type="button" onClick={handleNext}>→</button>
+            <button type="button" id="nextregisterarrowbutton" onClick={handleNext}>→</button>
           </div>
         );
       case 2:
@@ -79,12 +80,12 @@ function Register(props) {
               type="email"
               name="email"
               id="email"
-              placeholder="enter your email address"
+              placeholder="email"
               value={formData.email}
               onChange={handleChange}
               required
             />
-            <button type="button" onClick={handleNext}>→</button>
+            <button type="button" id="nextregisterarrowbutton" onClick={handleNext}>→</button>
           </div>
         );
       case 3:
@@ -95,12 +96,12 @@ function Register(props) {
               type="password"
               name="password"
               id="password"
-              placeholder="create a password"
+              placeholder="password"
               value={formData.password}
               onChange={handleChange}
               required
             />
-            <button type="button" onClick={handleNext}>→</button>
+            <button type="button" id="nextregisterarrowbutton" onClick={handleNext}>→</button>
           </div>
         );
       case 4:
@@ -111,12 +112,12 @@ function Register(props) {
               type="tel"
               name="phoneNumber"
               id="phoneNumber"
-              placeholder="enter your phone number"
+              placeholder="phone number"
               value={formData.phoneNumber}
               onChange={handleChange}
               required
             />
-            <button type="submit">submit</button>
+            <button type="submit" id="registersubmitbutton">SUBMIT</button>
           </div>
         );
       default:
@@ -126,6 +127,8 @@ function Register(props) {
 
   const progressPercentage = (step / 4) * 100;
 
+  useLastVisitedPage();
+
   return (
     <div className="register-container">
       <div className="progress-bar">
@@ -134,9 +137,12 @@ function Register(props) {
       <form className="register-form" onSubmit={(e) => {
         console.log('Form is being submitted');
         handleSubmit(e);
-    }}>
+      }}>
         {renderFormStep()}
       </form>
+      <div className="return-to-login">
+        <Link to={sessionStorage.getItem('lastVisitedPage') || '/'} className="return-link">← Return</Link>
+      </div>
     </div>
   );
 }

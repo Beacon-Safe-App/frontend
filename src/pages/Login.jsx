@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import './css/Login.css';
 
 function Login({ loginUser }) {
+
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -12,7 +13,7 @@ function Login({ loginUser }) {
     const loginData = { email: email, password: password };
     const success = await loginUser(loginData);
     if (success) {
-    navigate('/map');
+      navigate('/map');
     } else {
       alert('Login failed. Please check your email and password.');
     }
@@ -20,31 +21,32 @@ function Login({ loginUser }) {
 
   return (
     <div className="login-container">
-      <img id="logo-image" src="https://64.media.tumblr.com/716975a64c9046776c921f55ad51639b/5620776a7cc956d4-67/s2048x3072/f4b3cc26ac90e4bfc465e43e8177f4caeec26817.pnj" alt="logo"></img>
+      <img id="logo-image" src="https://64.media.tumblr.com/716975a64c9046776c921f55ad51639b/5620776a7cc956d4-67/s2048x3072/f4b3cc26ac90e4bfc465e43e8177f4caeec26817.pnj" alt="logo" />
       <form className="login-form" onSubmit={handleSubmit}>
         <input 
-        type="email" 
-        className="email-input" 
-        placeholder="enter your email" 
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
+          type="email" 
+          className="email-input" 
+          placeholder="enter your email" 
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
         />
         <input
-        type="password"
-        className="password-input"
-        placeholder="your password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
+          type="password"
+          className="password-input"
+          placeholder="your password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
         />
-        <button type="submit" className="arrow-button" id="arrow">→</button>
-      </form>
-      <div className="registration-prompt">
-        <p>
-          <Link to="/register" className="register-link">register</Link>
+        <button type="submit" className="loginarrow-button" id="arrow">→</button>
+        {/* Move the registration prompt here */}
+        <div className="registration-prompt">
+          <p>
+            <Link to="/register" className="register-link">register</Link>
           </p>
-      </div>
+        </div>
+      </form>
       <div className="terms-and-conditions">
         <p>by proceeding, you agree to our</p>
         <p>

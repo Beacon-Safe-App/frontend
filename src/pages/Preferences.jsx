@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import useLastVisitedPage from '../hooks/useLastVisitedPage.js';
 import './css/Preferences.css';
 
 function Preferences({ userData }) {
+  useLastVisitedPage();
+
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     pin: '',
@@ -258,19 +261,19 @@ function Preferences({ userData }) {
                     </label>
                   </div>
                 ))}
-                </div>
-
-                {formData.contacts.length < 10 && (
-                  <button type="button" className="add-contact-button" onClick={addNewContact}>
-                    add a new contact
-                  </button>
-                )}
               </div>
-        
-              <button type="submit" className="submit-preferences-button">
-                submit preferences
-              </button>
-            </div >
+
+              {formData.contacts.length < 10 && (
+                <button type="button" className="add-contact-button" onClick={addNewContact}>
+                  add a new contact
+                </button>
+              )}
+            </div>
+
+            <button type="submit" className="submit-preferences-button">
+              submit preferences
+            </button>
+          </div >
         );
       default:
         return null;
@@ -287,6 +290,9 @@ function Preferences({ userData }) {
       <form className="preferences-form" onSubmit={handleSubmit}>
         {renderFormStep()}
       </form>
+      <div className="return-to-login">
+        <Link to={sessionStorage.getItem('lastVisitedPage') || '/'} className="return-link">← Return</Link>
+      </div>
     </div>
   );
 }

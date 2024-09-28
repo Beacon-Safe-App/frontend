@@ -1,8 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import useLastVisitedPage from '../hooks/useLastVisitedPage.js';
 import './css/Textblock.css';
 
 function PrivacyPolicy() {
+
+    useLastVisitedPage();
+
     return (
         <div className="textblock-container">
             <h1>PRIVACY POLICY</h1>
@@ -43,6 +47,9 @@ function PrivacyPolicy() {
             <p>Any questions about this Privacy Policy should be addressed to:<br></br>Beacon Safe Incorporated<br></br>New York, United States<br></br>support@beaconsafeincorporated.com</p>
             <h3>COMPLAINTS</h3>
             <p>‍If you’re based in New York State, you can always file a complaint with the Equal Employment Opportunity Commission or the Better Business Bureau.</p>
+            <div className="return-to-login">
+                <Link to={sessionStorage.getItem('lastVisitedPage') || '/'} className="return-link">← Return</Link>
+            </div>
         </div>
     );
 }

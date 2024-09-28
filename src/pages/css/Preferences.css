@@ -96,6 +96,23 @@ input:focus {
   align-items: center;
 }
 
+.nextpreferencesarrowbutton {
+  background-color: transparent;
+  border: none;
+  font-size: 4.5rem;
+  font-weight: 100;
+  color: #b9b9b9;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  transition: color 0.3s ease;
+  margin-top: 20px;
+}
+
+.nextpreferencesarrowbutton:hover {
+  color: white;
+}
+
 .add-contact-button {
   font-family: 'Montserrat', sans-serif;
   position: absolute;

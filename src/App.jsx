@@ -100,9 +100,7 @@ function App() {
           path="/aftercare"
           element={
             <>
-              <TopNavBar />
               <Aftercare />
-              <BottomNavBar />
             </>
           }
         />
@@ -162,9 +160,7 @@ function App() {
           path="/historylog"
           element={
             <>
-              <TopNavBar />
               <HistoryLog />
-              <BottomNavBar />
             </>
           }
         />
@@ -196,9 +192,7 @@ function App() {
           path="/preferences"
           element={
             <>
-              <TopNavBar />
               <Preferences userData={userData} />
-              <BottomNavBar />
             </>
           }
         />

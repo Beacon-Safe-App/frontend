@@ -1,18 +1,17 @@
 #logo-image {
     max-width: 50%;
     height: auto;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
     flex-shrink: 1;
 }
 
 .login-container {
-    /* width: 100vw; */
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
     overflow: hidden;
 }
@@ -28,45 +27,48 @@
     position: relative;
 }
 
-.email-input, .password-input {
+.email-input,
+.password-input {
     width: 100%;
-    max-width: 350px;
-    padding: 10px;
-    font-size: 1rem;
+    max-width: 520px;
+    font-size: 2rem;
     background-color: transparent;
     border: none;
     border-bottom: 1px solid lightgrey;
     color: white;
     text-align: center;
     outline: none;
-    margin: 10px 0;
+    margin-top: 20px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     position: relative;
 }
 
-.email-input::placeholder, .password-input::placeholder {
+.email-input::placeholder,
+.password-input::placeholder {
     color: lightgrey;
     opacity: 0.7;
 }
 
-.email-input:focus, .password-input:focus {
+.email-input:focus,
+.password-input:focus {
     border-bottom: 1px solid white;
 }
 
-#arrow {
+.loginarrow-button {
     background-color: transparent;
     border: none;
-    font-size: 2.5rem;
+    font-size: 4.5rem;
     font-weight: 100;
     color: #b9b9b9;
     cursor: pointer;
     position: absolute;
-    right: 0;
+    right: 20px;
     transition: color 0.3s ease;
+    margin-top: 20px;
 }
 
-#arrow:hover {
+.loginarrow-button:hover {
     color: white;
 }
 
@@ -74,6 +76,8 @@
     display: flex;
     justify-content: flex-end;
     width: 40%;
+    margin-top: -80px;
+    margin-right: -200px;
 }
 
 .register-link {
@@ -81,6 +85,7 @@
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: border-bottom 0.3s ease;
+    font-size: 1.5rem;
 }
 
 .register-link:hover {
@@ -99,7 +104,8 @@
     color: #b9b9b9;
 }
 
-.terms-link, .privacy-link {
+.terms-link,
+.privacy-link {
     color: #b9b9b9;
     text-decoration: none;
     border-bottom: 1px solid transparent;
@@ -108,7 +114,8 @@
     font-weight: 600;
 }
 
-.terms-link:hover, .privacy-link:hover {
+.terms-link:hover,
+.privacy-link:hover {
     border-bottom: 1px solid #b9b9b9;
 }
 
@@ -121,7 +128,8 @@
         font-size: 0.9rem;
     }
 
-    .email-input, .password-input {
+    .email-input,
+    .password-input {
         width: 90%;
     }
 }

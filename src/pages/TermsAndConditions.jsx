@@ -1,8 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import useLastVisitedPage from '../hooks/useLastVisitedPage.js';
 import './css/Textblock.css';
 
 function TermsAndConditions() {
+
+    useLastVisitedPage();
+
     return (
         <div className="textblock-container">
             <h1>TERMS & CONDITIONS</h1>
@@ -40,6 +44,10 @@ function TermsAndConditions() {
                 Address: Brooklyn, New York, 11216, United States of America</p>
             <h3>MISCELLANEOUS</h3>
             <p>‍These Terms of Use shall be governed by the laws of New York State in the United States of America. You hereby consent to the exclusive jurisdiction and venue of New York State, United States of America. Use of the Services is unauthorized in any jurisdiction that does not give effect to all provisions of these Terms of Use, including without limitation this paragraph. You agree that no joint venture, partnership, employment, or agency relationship exists between you and Beacon Safe Incorporated as a result of these Terms of Use or your use of the Services. Beacon Safe Incorporated’s performance of these Terms of Use is subject to existing laws and legal process, and nothing contained in these Terms of Use is in derogation of Beacon Safe Incorporated’s right to comply with governmental, court and law enforcement requests or requirements relating to your use of the Services or information provided to or gathered by Beacon Safe Incorporated with respect to such use. If any part of these Terms of Use is determined to be invalid or unenforceable pursuant to applicable law including, but not limited to, the warranty disclaimers and liability limitations set forth above, then the invalid or unenforceable provision will be deemed superseded by a valid, enforceable provision that most closely matches the intent of the original provision and the remainder of the agreement shall continue in effect. Unless otherwise specified herein, these Terms of Use constitutes the entire agreement between you and Beacon Safe Incorporated with respect to the Services and it supersedes all prior or contemporaneous communications and proposals, whether electronic, oral or written, between the user and Beacon Safe Incorporated with respect to the Services. Please print a copy of these TERMS OF USE for you records and PLEASE check the Site frequently for any changes to these Terms of use.</p>
+
+            <div className="return-to-login">
+                <Link to={sessionStorage.getItem('lastVisitedPage') || '/'} className="return-link">← Return</Link>
+            </div>
         </div>
     );
 }
