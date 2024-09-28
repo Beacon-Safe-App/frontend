@@ -88,7 +88,7 @@ function App() {
   })
   const requestData = await request.json()
   if (requestData.message === "Returning user data") {
-    setUserData(requestData)
+    setUserData(requestData.data[0])
   } else {
     setUserData(null)
   }
