@@ -1,10 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
-#fake-call-image {
+#tool-image {
     max-width: 25%;
     height: auto;
     margin-bottom: 20px;
     margin-top: 0;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.tool-image-container:hover #tool-image {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.tool-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.tool-label {
+    font-size: 1rem;
+    margin-top: 10px;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease;
+}
+
+.tool-label {
+    display: none;
+}
+
+.tool-image-container:hover .tool-label {
+    display: block;
 }
 
 .fake-call-container {
