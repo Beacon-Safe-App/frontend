@@ -4,8 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import useLastVisitedPage from '../hooks/useLastVisitedPage.js';
 import './css/Preferences.css';
 
-function Preferences({ userData }) {
+function Preferences({ userData, baseBackendURL }) {
   useLastVisitedPage();
+  // this shows user data in preferences
+  console.log(userData)
 
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -73,7 +75,7 @@ function Preferences({ userData }) {
     event.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:8080/auth/${userData._id}`, {
+      const response = await fetch(`${baseBackendURL}/auth/${userData._id}`, {
         method: 'PUT',
         credentials: 'include',
         headers: {
