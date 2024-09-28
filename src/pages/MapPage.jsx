@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import GoogleMap from '../components/map.jsx';
-import DestinationPickList from '../components/destinationPickList.jsx';
+import DestinationPickList from '../components/destinationsPickList.jsx';
 import './css/MapPage.css';
 
 const MapPage = (props) => {

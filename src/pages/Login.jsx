@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './css/Login.css';
 
-function Login({ loginUser }) {
+function Login({ loginUser, userData }) {
+
+  try {if (userData) {
+    navigate('/map')
+  }}
+  catch {}
 
   const navigate = useNavigate();
   const [email, setEmail] = useState('');

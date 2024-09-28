@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 // pages import
@@ -81,6 +81,23 @@ function App() {
     setUserData(null)
   }
 
+  const getCurrentUserData = async () => {
+    const request = await fetch (`${baseBackendURL}/auth/`, {
+      method: "GET",
+      credentials: 'include',
+  })
+  const requestData = await request.json()
+  if (requestData.message === "Returning user data") {
+    setUserData(requestData)
+  } else {
+    setUserData(null)
+  }
+  }
+
+  useEffect(() => {
+    getCurrentUserData()
+  }, [])
+
   const [destination, setDestination] = useState('');
 
   const updateDestination = (address) => {
@@ -94,7 +111,7 @@ function App() {
         <Route
           path="/"
           element={
-            <Login loginUser={loginUser} />
+            <Login loginUser={loginUser} userData={userData} />
           }
         />
         <Route
