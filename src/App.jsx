@@ -301,7 +301,7 @@ function App() {
           element={
             <>
               <TopNavBar />
-              <WorldView />
+              <MapPage baseBackendURL={baseBackendURL}/>
               <BottomNavBar />
             </>
           }
