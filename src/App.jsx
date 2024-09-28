@@ -220,7 +220,7 @@ function App() {
           path="/preferences"
           element={
             <>
-              <Preferences userData={userData} />
+              <Preferences userData={userData} baseBackendURL={baseBackendURL} />
             </>
           }
         />
