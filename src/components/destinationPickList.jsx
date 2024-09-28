@@ -1,7 +1,28 @@
 import { useState, useEffect } from "react";
-import Destinations from "./Destinations.jsx";
 
 const DestinationPickList = (props) => {
+    const [destinations, setDestinations] = useState([])
+
+    const getDestinations = async() => {
+        const URL = `${props.baseBackendURL}/locations`
+        const response = await fetch(URL, {
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        console.log(response)
+        const data = await response.json()
+        setDestinations(data['data'])
+    }
+    
+    useEffect(() => {
+        getDestinations()
+        try {props.updateDestination(destinations[0].address)}
+        catch {}
+    }, [])
+    
     const [isOpen, setIsOpen] = useState(false);
 
     function handleDestinationClick(address) {
@@ -11,17 +32,13 @@ const DestinationPickList = (props) => {
         };
     }
 
-    const destinationsMap = Destinations.map((Destination) => (
+    const destinationsMap = destinations.map((Destination) => (
         <div key={Destination._id}>
             <button value={Destination.address} onClick={handleDestinationClick(Destination.address)}>
                 {Destination.address}
             </button>
         </div>
     ));
-
-    useEffect(() => {
-        props.updateDestination(Destinations[0].address);
-    }, []);
 
     return (
         <div className={`destination-pick-list ${isOpen ? 'open' : ''}`}>

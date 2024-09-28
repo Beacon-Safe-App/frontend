@@ -183,7 +183,7 @@ function App() {
           element={
             <>
               <TopNavBar />
-              <MapPage />
+              <MapPage baseBackendURL={baseBackendURL}/>
               <BottomNavBar />
             </>
           }
