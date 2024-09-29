@@ -67,7 +67,7 @@ function VideoRecording() {
       )}
       {isPinComplete && (
         <div>
-          <h2>Recording has been deactivated.</h2>
+          <h2>RECORDING HAS STOPPED</h2>
           <button id="primarytoolbutton" onClick={returnToMap}>RETURN TO MAP</button>
         </div>
       )}
