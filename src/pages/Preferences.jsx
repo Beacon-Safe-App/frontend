@@ -6,18 +6,16 @@ import './css/Preferences.css';
 
 function Preferences({ userData, baseBackendURL }) {
   useLastVisitedPage();
-  // this shows user data in preferences
-  console.log(JSON.stringify(userData))
   const userId = userData._id
 
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
-    pin: '',
-    pronouns: '',
-    accessibility: '',
-    addtlreq: '',
-    interventionPreferences: [],
-    contacts: [{ name: '', phoneNumber: '' }],
+    pin: `${userData.preferences.pin}` || '',
+    pronouns: `${userData.preferences.pronouns}` || '',
+    accessibility: `${userData.preferences.accessibility}` || '',
+    addtlreq: `${userData.preferences.addtlreq}` || '',
+    interventionPreferences: userData.preferences.interventionPreferences || [],
+    contacts: userData.preferences.contacts || [{ name: '', phone_number: '' }],
   });
 
   const navigate = useNavigate();
@@ -257,8 +255,8 @@ function Preferences({ userData, baseBackendURL }) {
                       Phone Number:
                       <input
                         type="tel"
-                        name="phoneNumber"
-                        value={contact.phoneNumber}
+                        name="phone_number"
+                        value={contact.phone_number}
                         onChange={(event) => handleContactChange(index, event)}
                       />
                     </label>
