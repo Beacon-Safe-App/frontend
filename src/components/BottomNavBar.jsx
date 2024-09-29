@@ -7,7 +7,7 @@ const navItems = [
     { id: 2, icon: 'https://64.media.tumblr.com/f932053ac4f4e8e0d294457d241adec9/ad51c2a0414ef920-b3/s540x810/dbf89ff192722ca3d2c9eb898e1f433a0f7a1033.pnj', label: 'AUDIO RECORD', route: '/audiorecording' },
     { id: 3, icon: 'https://64.media.tumblr.com/6be521812ff178b39835ac030de86de2/d15a111cd6df2c62-60/s540x810/b076adb5ee3907c69e536fd5caec8c3abe39cca2.pnj', label: 'EMERGENCY MODE', route: '/emergencymode' },
     { id: 4, icon: 'https://64.media.tumblr.com/6b561e80f7c47e3915828c3047c67aa1/6f3589135cc2e4a0-55/s540x810/f5bc0d98339befb7b15391b62f2ce5ffac411d06.pnj', label: 'ALARM', route: '/alarm' },
-    { id: 5, icon: 'https://64.media.tumblr.com/ef33459304eea82c4132808dd94aaca6/4aa372146841d9c8-10/s540x810/b1f792f76598e9e23e35da0b57fca31a78b18f27.pnj', label: 'FLASHLIGHT', route: '/flashlight' },
+    { id: 5, icon: 'https://64.media.tumblr.com/383760b5e04414482fb1753d89a97f04/e2301e7bd4f21116-f4/s540x810/50b48c109a7c02bc2d90864410acc2c8addb730d.pnj', label: 'STROBE', route: '/strobe' },
 ];
 
 const BottomNavBar = () => {

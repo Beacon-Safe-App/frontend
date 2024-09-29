@@ -10,7 +10,6 @@ import AudioRecording from './pages/AudioRecording.jsx';
 import BystanderReport from './pages/BystanderReport.jsx';
 import EmergencyMode from './pages/EmergencyMode.jsx';
 import FakeCall from './pages/FakeCall.jsx';
-import Flashlight from './pages/Flashlight.jsx';
 import HistoryLog from './pages/HistoryLog.jsx';
 import HowTo from './pages/HowTo.jsx';
 import Login from './pages/Login.jsx';
@@ -21,6 +20,7 @@ import Profile from './pages/Profile.jsx';
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 import Register from './pages/Register.jsx';
 import StalkerLog from './pages/StalkerLog.jsx';
+import Strobe from './pages/Strobe.jsx';
 import TermsAndConditions from './pages/TermsAndConditions.jsx';
 import VideoRecording from './pages/VideoRecording.jsx';
 import VoiceRecognition from './pages/VoiceRecognition.jsx';
@@ -177,10 +177,10 @@ function App() {
           }
         />
         <Route
-          path="/flashlight"
+          path="/strobe"
           element={
             <>
-              <Flashlight />
+              <Strobe />
             </>
           }
         />
