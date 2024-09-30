@@ -35,6 +35,7 @@ const DestinationPickList = (props) => {
     const destinationsMap = destinations.map((Destination) => (
         <div key={Destination._id}>
             <button value={Destination.address} onClick={handleDestinationClick(Destination.address)}>
+                {Destination.name} - {Destination.type} <br />
                 {Destination.address}
             </button>
         </div>

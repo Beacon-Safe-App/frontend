@@ -234,30 +234,62 @@ const GoogleMap = (props) => {
     }
   }, [userLocation, props.hardcodeStartAddress, props.startAddress]);
 
-  return (
-    <div className="googlemap-container"> Map
-      <p>The origin is {sourceAddress}.</p>
-      <p>The destination is {props.destination}</p>
-      <APIProvider apiKey={apiKey} onLoad={() => console.log('Maps API has loaded')}>
-        <Map
-          className='googlemap'
-          defaultZoom={13}
-          defaultCenter={{ lat: userLocation.lat, lng: userLocation.long }}
-          options={{
-            styles: googleMapStyle,
-            mapTypeId: 'satellite'
-          }}
-        >
-          <Marker
-            position={{ lat: userLocation.lat, lng: userLocation.long }}
-            title={'Marker'}
+  const returnMapWithDirections = () => {
+    return (
+      <div className="googlemap-container">
+        <APIProvider apiKey={apiKey} onLoad={() => console.log('Maps API has loaded')}>
+          <Map
+            className='googlemap'
+            defaultZoom={13}
+            defaultCenter={{ lat: userLocation.lat, lng: userLocation.long }}
+            options={{
+              styles: googleMapStyle,
+              mapTypeId: 'satellite'
+            }}
           >
-          </Marker>
-          <Directions origin={sourceAddress} destination={props.destination} baseBackendURL={props.baseBackendURL} />
-        </Map>
-      </APIProvider>
-    </div>
-  );
+            <Marker
+              position={{ lat: userLocation.lat, lng: userLocation.long }}
+              title={'Marker'}
+            >
+            </Marker>
+            <Directions origin={sourceAddress} destination={props.destination} baseBackendURL={props.baseBackendURL} />
+          </Map>
+        </APIProvider>
+      </div>
+    );
+  }
+
+  const returnMap = () => {
+    return (
+      <div className="googlemap-container">
+        <APIProvider apiKey={apiKey} onLoad={() => console.log('Maps API has loaded')}>
+          <Map
+            className='googlemap'
+            defaultZoom={13}
+            defaultCenter={{ lat: userLocation.lat, lng: userLocation.long }}
+            options={{
+              styles: googleMapStyle,
+              mapTypeId: 'satellite'
+            }}
+          >
+            <Marker
+              position={{ lat: userLocation.lat, lng: userLocation.long }}
+              title={'Marker'}
+            >
+            </Marker>
+          </Map>
+        </APIProvider>
+      </div>
+    );
+  }
+
+  if (props.destination !== "") {
+    console.log('returning map with directions')
+    return returnMapWithDirections()
+  } else {
+    console.log('returning map')
+    return returnMap()
+  }
 };
 
 export default GoogleMap
