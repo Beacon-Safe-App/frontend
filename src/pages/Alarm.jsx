@@ -40,7 +40,7 @@ function Alarm() {
 
   return (
     <div className="alarm-container">
-      <img 
+      <img
         src="https://64.media.tumblr.com/6b561e80f7c47e3915828c3047c67aa1/6f3589135cc2e4a0-55/s540x810/f5bc0d98339befb7b15391b62f2ce5ffac411d06.pnj"
         alt="Alarm Indicator"
         className={`recording-image ${isRecording && !isPinComplete ? 'blinking' : ''}`}
@@ -49,6 +49,9 @@ function Alarm() {
         <>
           <h3>ALARM TO START IN:</h3>
           <h2>{seconds} seconds</h2>
+          <button id="cancel-button" onClick={returnToMap}>
+            CANCEL
+          </button>
         </>
       )}
       {isRecording && !isPinComplete && (

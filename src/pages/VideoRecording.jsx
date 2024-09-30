@@ -40,7 +40,7 @@ function VideoRecording() {
 
   return (
     <div className="videorecording-container">
-      <img 
+      <img
         src="https://64.media.tumblr.com/de1664fac8b56acd863c332d3c245c8f/0309429298651caf-94/s540x810/c587940f25cfd0d32c647c0df98fae7d8cccc2be.pnj"
         alt="Recording Indicator"
         className={`recording-image ${isRecording && !isPinComplete ? 'blinking' : ''}`}
@@ -49,6 +49,9 @@ function VideoRecording() {
         <>
           <h3>VIDEO RECORDING TO START IN:</h3>
           <h2>{seconds} seconds</h2>
+          <button id="cancel-button" onClick={returnToMap}>
+            CANCEL
+          </button>
         </>
       )}
       {isRecording && !isPinComplete && (

@@ -40,7 +40,7 @@ function Strobe() {
 
   return (
     <div className="strobe-container">
-      <img 
+      <img
         src="https://64.media.tumblr.com/383760b5e04414482fb1753d89a97f04/e2301e7bd4f21116-f4/s540x810/50b48c109a7c02bc2d90864410acc2c8addb730d.pnj"
         alt="Strobe Indicator"
         className={`recording-image ${isRecording && !isPinComplete ? 'blinking' : ''}`}
@@ -49,6 +49,9 @@ function Strobe() {
         <>
           <h3>STROBE TO START IN:</h3>
           <h2>{seconds} seconds</h2>
+          <button id="cancel-button" onClick={returnToMap}>
+            CANCEL
+          </button>
         </>
       )}
       {isRecording && !isPinComplete && (
