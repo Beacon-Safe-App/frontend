@@ -48,7 +48,7 @@ function Register(props) {
       const data = await response.json();
       console.log('Response received:', data);
 
-      navigate('/login');
+      navigate('/');
     } catch (error) {
       console.error('Error occurred:', error.message);
     }

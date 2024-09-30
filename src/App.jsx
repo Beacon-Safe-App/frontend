@@ -127,6 +127,14 @@ function App() {
             <Logout logoutUser={logoutUser}/>
           }
         />
+          <Route
+            path="/register"
+            element={
+              <>
+                <Register baseBackendURL={baseBackendURL} />
+            </>
+          }
+        />
       </Routes>
     </Router>
   )}
