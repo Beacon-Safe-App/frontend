@@ -10,7 +10,7 @@ function PrivacyPolicy() {
     return (
         <div className="textblock-container">
             <h1>PRIVACY POLICY</h1>
-            <p>Last updated: 01/11/2023‍Your privacy is important to Beacon Safe Incorporated. This privacy policy (“Privacy Policy”) applies to the Beacon Safe Incorporated websites and other services that Beacon Safe Incorporated may offer you (the “Services”) and explains how personal information is collected, used, disclosed, and protected by Beacon Safe Incorporated.</p>
+            <p>Last updated: 01/11/2023‍<br></br>Your privacy is important to Beacon Safe Incorporated. This privacy policy (“Privacy Policy”) applies to the Beacon Safe Incorporated websites and other services that Beacon Safe Incorporated may offer you (the “Services”) and explains how personal information is collected, used, disclosed, and protected by Beacon Safe Incorporated.</p>
             <h3>‍CHANGES TO THIS PRIVACY POLICY</h3>
             <p>We may change this Privacy Policy from time to time. If we make any material changes to this Privacy Policy, we will inform you by providing you with an in-app notification or directly by email. Otherwise, any changes to this Privacy Policy will be announced by posting the revised Privacy Policy on the Beacon Safe Incorporated website. Those changes will go into effect on the “last updated” date shown in the revised Privacy Policy. We encourage you to check this Privacy Policy whenever you use Services to understand how your personal information is used.</p>
             <h3>WHAT DOES THIS PRIVACY POLICY COVER?</h3>

@@ -11,7 +11,7 @@ const navItems = [
     { id: 6, icon: 'https://64.media.tumblr.com/e2ee6b2156a4cc4d83828fe9a7739c14/8f27f598f01e6768-b1/s540x810/08ddf1754dd47e1e318d34e366107623e0d97e6c.pnj', label: 'AFTERCARE', route: '/aftercare' },
     { id: 7, icon: 'https://64.media.tumblr.com/d860b2ddd9eefebc77c25afc2be7e6df/3ac6fb9510c32e59-ed/s540x810/8de11f009883735dbdf62832f3244755b9893d8b.pnj', label: 'TIMER', route: '/walkwithme' },
     { id: 8, icon: 'https://64.media.tumblr.com/ccb436886e444071cdf361b9ed0939d0/16c4e6698b3ae15e-43/s540x810/45f278c21dcc58f559b144477a6844f226a6ad1e.pnj', label: 'VOICE RECOGNITION', route: '/voicerecognition' },
-    { id: 9, icon: 'https://64.media.tumblr.com/8bfc7162ba8e2cc5bae584cea40c5071/9837fef34ebdbd6e-f4/s540x810/f1f80c5f61d631371d549a168f17c10391032e5b.pnj', label: 'HISTORY LOG', route: '/historylog' },
+    { id: 9, icon: 'https://64.media.tumblr.com/eaf3e5ad1b9062ee91a008c7c59358e3/1872fe866e485be2-72/s1280x1920/ae5dd6cdb29a62c1e89f1f2469777888d1110247.pnj', label: 'BYSTANDER REPORT', route: '/bystanderreport' },
 ];
 
 const TopNavBar = () => {
@@ -40,7 +40,7 @@ const TopNavBar = () => {
                                         <Link to="/preferences">PREFERENCES</Link>
                                         <Link to="/howto">HOW-TO</Link>
                                         <Link to="/about">ABOUT</Link>
-                                        <Link to="/bystanderreport">BYSTANDER REPORT</Link>
+                                        <Link to="/historylog">HISTORY LOG</Link>
                                         <Link to="/privacypolicy">PRIVACY</Link>
                                         <Link to="/termsandconditions">TERMS</Link>
                                         <Link to="/logout">LOGOUT</Link>

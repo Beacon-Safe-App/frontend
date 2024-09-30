@@ -188,9 +188,7 @@ function App() {
           path="/historylog"
           element={
             <>
-              <TopNavBar />
               <HistoryLog />
-              <BottomNavBar />
             </>
           }
         />
