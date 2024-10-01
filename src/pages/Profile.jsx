@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useLastVisitedPage from '../hooks/useLastVisitedPage.js';
-import './css/Index.css';
+import './css/Profile.css';
 
 function Profile({ userData, baseBackendURL }) {
     useLastVisitedPage();
@@ -21,22 +21,22 @@ function Profile({ userData, baseBackendURL }) {
 
     useEffect(() => {
         if (userData) {
-          setFormData({
-            name: userData?.name || '',
-            pronouns: userData?.preferences?.pronouns || '',
-            phoneNumber: userData?.phoneNumber || '',
-            email: userData?.email || '',
-            password: '',
-            pin: userData?.preferences?.pin || '',
-            interventionPreferences: userData?.preferences?.interventionPreferences.join(', ') || '',
-            contacts: userData?.preferences?.contacts
-              ?.map(contact => contact.name)
-              .join(', ') || '',
-            accessibility: userData?.preferences?.accessibility || '',
-            addtlreq: userData?.preferences?.addtlreq || '',
-          });
+            setFormData({
+                name: userData?.name || '',
+                pronouns: userData?.preferences?.pronouns || '',
+                phoneNumber: userData?.phoneNumber || '',
+                email: userData?.email || '',
+                password: '',
+                pin: userData?.preferences?.pin || '',
+                interventionPreferences: userData?.preferences?.interventionPreferences.join(', ') || '',
+                contacts: userData?.preferences?.contacts
+                    ?.map(contact => contact.name)
+                    .join(', ') || '',
+                accessibility: userData?.preferences?.accessibility || '',
+                addtlreq: userData?.preferences?.addtlreq || '',
+            });
         }
-      }, [userData]);
+    }, [userData]);
 
     const handleChange = (e) => {
         setFormData({
