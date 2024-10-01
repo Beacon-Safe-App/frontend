@@ -5,11 +5,13 @@ import './css/Login.css';
 function Login({ loginUser, userData }) {
 
   useEffect(() => {
-    try {if (userData) {
-      navigate('/map')
-    }}
-    catch {}
-  },[userData])
+    try {
+      if (userData) {
+        navigate('/map')
+      }
+    }
+    catch { }
+  }, [userData])
 
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -30,10 +32,10 @@ function Login({ loginUser, userData }) {
     <div className="login-container">
       <img id="logo-image" src="https://64.media.tumblr.com/716975a64c9046776c921f55ad51639b/5620776a7cc956d4-67/s2048x3072/f4b3cc26ac90e4bfc465e43e8177f4caeec26817.pnj" alt="logo" />
       <form className="login-form" onSubmit={handleSubmit}>
-        <input 
-          type="email" 
-          className="email-input" 
-          placeholder="enter your email" 
+        <input
+          type="email"
+          className="email-input"
+          placeholder="enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
