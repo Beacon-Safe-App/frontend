@@ -1,3 +1,4 @@
+/* HistoryLog.jsx, HowTo.jsx, Profile.jsx */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 .how-to-container {
@@ -14,15 +15,17 @@
 }
 
 .profile-container {
-  width: 45%;
-  max-width: 800px;
-  min-width: 300px;
+  width: 100%;
+  max-width: 600px;
+  min-width: 280px;
   margin: 0 auto;
-  height: 90vh;
+  padding: 20px;
+  height: 80vh;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-sizing: border-box;
 }
 
 .profile-form {
@@ -30,6 +33,7 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 
 .return-to-login {
@@ -44,7 +48,7 @@
 .profile-section-list {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
   flex-grow: 1;
 }
 
@@ -53,15 +57,21 @@
   flex-direction: column;
   align-items: flex-start;
   border-bottom: 1px solid #ccc;
+  padding: 10px 0;
 }
 
 .profile-section-item label {
   margin-bottom: 5px;
   font-size: 1rem;
+  font-weight: bold;
 }
 
 .profile-section-item input {
   width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .profile-section-item input::placeholder {
@@ -86,17 +96,48 @@
 }
 
 @media screen and (max-width: 600px) {
-  .profile-container, .how-to-container {
+
+  .profile-container,
+  .how-to-container {
     width: 90%;
-    padding: 10px;
+    padding: 15px;
+    height: auto;
   }
 
-  .section-item {
-      flex-basis: 100%;
-      gap: 5px;
+  .profile-form {
+    gap: 10px;
+  }
+
+  .profile-section-item {
+    padding: 8px 0;
   }
 
   .submit-button {
-    margin-top: 10px;
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .profile-container {
+    padding: 10px;
+  }
+
+  .profile-section-item input {
+    font-size: 0.9rem;
+  }
+
+  .submit-button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
+
+@media (min-height: 800px) {
+  .profile-container {
+    height: 85vh;
+  }
+
+  .profile-form {
+    gap: 20px;
   }
 }
