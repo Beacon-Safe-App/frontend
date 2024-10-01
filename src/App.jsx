@@ -106,7 +106,32 @@ function App() {
 
   const renderOnlyLogin = () => {
   return (
-    <Router>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <Login loginUser={loginUser} userData={userData} />
+        }
+      />
+      <Route
+        path="/logout"
+        element={
+          <Logout logoutUser={logoutUser}/>
+        }
+      />
+        <Route
+          path="/register"
+          element={
+            <>
+              <Register baseBackendURL={baseBackendURL} />
+          </>
+        }
+      />
+    </Routes>
+  )}
+
+  const renderAllRoutes = () => {
+    return (
       <Routes>
         <Route
           path="/"
@@ -115,225 +140,196 @@ function App() {
           }
         />
         <Route
+          path="/about"
+          element={
+            <>
+              <About />
+            </>
+          }
+        />
+        <Route
+          path="/aftercare"
+          element={
+            <>
+              <TopNavBar />
+              <Aftercare />
+              <BottomNavBar />
+            </>
+          }
+        />
+        <Route
+          path="/alarm"
+          element={
+            <>
+              <Alarm />
+            </>
+          }
+        />
+        <Route
+          path="/audiorecording"
+          element={
+            <>
+              <AudioRecording />
+            </>
+          }
+        />
+        <Route
+          path="/bystanderreport"
+          element={
+            <>
+              <TopNavBar />
+              <BystanderReport />
+              <BottomNavBar />
+            </>
+          }
+        />
+        <Route
+          path="/emergencymode"
+          element={
+            <>
+              <EmergencyMode />
+            </>
+          }
+        />
+        <Route
+          path="/fakecall"
+          element={
+            <>
+              <TopNavBar />
+              <FakeCall />
+              <BottomNavBar />
+            </>
+          }
+        />
+        <Route
+          path="/strobe"
+          element={
+            <>
+              <Strobe />
+            </>
+          }
+        />
+        <Route
+          path="/historylog"
+          element={
+            <>
+              <HistoryLog />
+            </>
+          }
+        />
+        <Route
           path="/logout"
           element={
             <Logout logoutUser={logoutUser}/>
           }
         />
-          <Route
-            path="/register"
-            element={
-              <>
-                <Register baseBackendURL={baseBackendURL} />
+        <Route
+          path="/howto"
+          element={
+            <>
+              <HowTo />
+            </>
+          }
+        />
+        <Route
+          path="/map"
+          element={
+            <>
+              <TopNavBar />
+              <MapPage baseBackendURL={baseBackendURL}/>
+              <BottomNavBar />
+            </>
+          }
+        />
+        <Route
+          path="/preferences"
+          element={
+            <>
+              <Preferences userData={userData} baseBackendURL={baseBackendURL} />
+            </>
+          }
+        />
+        <Route
+          path="/privacypolicy"
+          element={
+            <>
+              <PrivacyPolicy />
+            </>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <>
+              <Profile userData={userData} baseBackendURL={baseBackendURL} />
+            </>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <>
+              <Register baseBackendURL={baseBackendURL} />
+            </>
+          }
+        />
+        <Route
+          path="/stalkerlog"
+          element={
+            <>
+              <TopNavBar />
+              <StalkerLog />
+              <BottomNavBar />
+            </>
+          }
+        />
+        <Route
+          path="/termsandconditions"
+          element={
+            <>
+              <TermsAndConditions />
+            </>
+          }
+        />
+        <Route
+          path="/videorecording"
+          element={
+            <>
+              <VideoRecording />
+            </>
+          }
+        />
+        <Route
+          path="/voicerecognition"
+          element={
+            <>
+              <TopNavBar />
+              <VoiceRecognition />
+              <BottomNavBar />
+            </>
+          }
+        />
+        <Route
+          path="/walkwithme"
+          element={
+            <>
+              <TopNavBar />
+              <WalkWithMe />
+              <BottomNavBar />
+            </>
+          }
+        />
+        <Route
+          path="/worldview"
+          element={
+            <>
+              <TopNavBar />
+              <MapPage baseBackendURL={baseBackendURL}/>
+              <BottomNavBar />
             </>
           }
         />
       </Routes>
-    </Router>
-  )}
-
-  const renderAllRoutes = () => {
-    return (
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Login loginUser={loginUser} userData={userData} />
-            }
-          />
-          <Route
-            path="/about"
-            element={
-              <>
-                <About />
-              </>
-            }
-          />
-          <Route
-            path="/aftercare"
-            element={
-              <>
-                <TopNavBar />
-                <Aftercare />
-                <BottomNavBar />
-              </>
-            }
-          />
-          <Route
-            path="/alarm"
-            element={
-              <>
-                <Alarm />
-              </>
-            }
-          />
-          <Route
-            path="/audiorecording"
-            element={
-              <>
-                <AudioRecording />
-              </>
-            }
-          />
-          <Route
-            path="/bystanderreport"
-            element={
-              <>
-                <TopNavBar />
-                <BystanderReport />
-                <BottomNavBar />
-              </>
-            }
-          />
-          <Route
-            path="/emergencymode"
-            element={
-              <>
-                <EmergencyMode />
-              </>
-            }
-          />
-          <Route
-            path="/fakecall"
-            element={
-              <>
-                <TopNavBar />
-                <FakeCall />
-                <BottomNavBar />
-              </>
-            }
-          />
-          <Route
-            path="/strobe"
-            element={
-              <>
-                <Strobe />
-              </>
-            }
-          />
-          <Route
-            path="/historylog"
-            element={
-              <>
-                <HistoryLog />
-              </>
-            }
-          />
-          <Route
-            path="/logout"
-            element={
-              <Logout logoutUser={logoutUser}/>
-            }
-          />
-          <Route
-            path="/howto"
-            element={
-              <>
-                <HowTo />
-              </>
-            }
-          />
-          <Route
-            path="/map"
-            element={
-              <>
-                <TopNavBar />
-                <MapPage baseBackendURL={baseBackendURL}/>
-                <BottomNavBar />
-              </>
-            }
-          />
-          <Route
-            path="/preferences"
-            element={
-              <>
-                <Preferences userData={userData} baseBackendURL={baseBackendURL} />
-              </>
-            }
-          />
-          <Route
-            path="/privacypolicy"
-            element={
-              <>
-                <PrivacyPolicy />
-              </>
-            }
-          />
-          <Route
-            path="/profile"
-            element={
-              <>
-                <Profile userData={userData} baseBackendURL={baseBackendURL} />
-              </>
-            }
-          />
-          <Route
-            path="/register"
-            element={
-              <>
-                <Register baseBackendURL={baseBackendURL} />
-              </>
-            }
-          />
-          <Route
-            path="/stalkerlog"
-            element={
-              <>
-                <TopNavBar />
-                <StalkerLog />
-                <BottomNavBar />
-              </>
-            }
-          />
-          <Route
-            path="/termsandconditions"
-            element={
-              <>
-                <TermsAndConditions />
-              </>
-            }
-          />
-          <Route
-            path="/videorecording"
-            element={
-              <>
-                <VideoRecording />
-              </>
-            }
-          />
-          <Route
-            path="/voicerecognition"
-            element={
-              <>
-                <TopNavBar />
-                <VoiceRecognition />
-                <BottomNavBar />
-              </>
-            }
-          />
-          <Route
-            path="/walkwithme"
-            element={
-              <>
-                <TopNavBar />
-                <WalkWithMe />
-                <BottomNavBar />
-              </>
-            }
-          />
-          <Route
-            path="/worldview"
-            element={
-              <>
-                <TopNavBar />
-                <MapPage baseBackendURL={baseBackendURL}/>
-                <BottomNavBar />
-              </>
-            }
-          />
-        </Routes>
-      </Router>
     );
   }
 
