@@ -1,12 +1,12 @@
 /* Preferences.jsx */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
-/* h3 {
+.preferences-h3 {
   font-size: 1.2rem;
   color: white;
   margin-bottom: 20px;
   text-align: center;
-} */
+}
 
 .progress-bar {
   width: 100%;
@@ -34,7 +34,7 @@
   padding-bottom: 20px;
 }
 
-label {
+.preferences-label {
   font-size: 1rem;
   color: #b9b9b9;
   margin-bottom: 4vh;
@@ -43,7 +43,7 @@ label {
   line-height: 1.4;
 }
 
-input {
+.preferences-input {
   width: 80%;
   max-width: 400px;
   padding: 1em;
@@ -59,12 +59,12 @@ input {
   font-weight: 300;
 }
 
-input::placeholder {
+.preferences-input::placeholder {
   color: lightgrey;
   opacity: 0.7;
 }
 
-input:focus {
+.preferences-input:focus {
   border-bottom: 1px solid white;
 }
 
@@ -235,7 +235,8 @@ input:focus {
     padding: 5vw;
   }
 
-  .contacts-container, .contact-box-scrollable {
+  .contacts-container,
+  .contact-box-scrollable {
     width: 95%;
   }
 
