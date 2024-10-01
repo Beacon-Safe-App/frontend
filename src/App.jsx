@@ -21,6 +21,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 import Register from './pages/Register.jsx';
 import StalkerLog from './pages/StalkerLog.jsx';
 import Strobe from './pages/Strobe.jsx';
+import TaskManager from './pages/TaskManager.jsx';
 import TermsAndConditions from './pages/TermsAndConditions.jsx';
 import VideoRecording from './pages/VideoRecording.jsx';
 import VoiceRecognition from './pages/VoiceRecognition.jsx';
@@ -279,6 +280,16 @@ function App() {
             <>
               <TopNavBar />
               <StalkerLog />
+              <BottomNavBar />
+            </>
+          }
+        />
+         <Route
+          path="/taskmanager"
+          element={
+            <>
+              <TopNavBar />
+              <TaskManager />
               <BottomNavBar />
             </>
           }

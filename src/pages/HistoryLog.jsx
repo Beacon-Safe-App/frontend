@@ -7,6 +7,7 @@ function HistoryLog() {
     useLastVisitedPage();
 
     const sections = [
+        { title: 'ALL DATA', route: '/datadashboard' },
         { title: 'Emergencies', route: '/emergencylog' },
         { title: 'Video Records', route: '/videorecordinglog' },
         { title: 'Audio Records', route: '/audiorecordinglog' },
