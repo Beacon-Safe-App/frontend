@@ -108,7 +108,7 @@ function Preferences({ userData, baseBackendURL }) {
               onChange={handleChange}
               required
             />
-            <button type="button" onClick={handleNext}>→</button>
+            <button className="preference-button" type="button" onClick={handleNext}>→</button>
           </div>
         );
       case 2:
@@ -124,7 +124,7 @@ function Preferences({ userData, baseBackendURL }) {
               onChange={handleChange}
               required
             />
-            <button type="button" onClick={handleNext}>→</button>
+            <button className="preference-button" type="button" onClick={handleNext}>→</button>
           </div>
         );
       case 3:
@@ -140,7 +140,7 @@ function Preferences({ userData, baseBackendURL }) {
               onChange={handleChange}
               required
             />
-            <button type="button" onClick={handleNext}>→</button>
+            <button className="preference-button" type="button" onClick={handleNext}>→</button>
           </div>
         );
       case 4:
@@ -156,85 +156,75 @@ function Preferences({ userData, baseBackendURL }) {
               onChange={handleChange}
               required
             />
-            <button type="button" onClick={handleNext}>→</button>
+            <button className="preference-button" type="button" onClick={handleNext}>→</button>
           </div>
         );
       case 5:
         return (
           <div className="form-step">
             <h3>Intervention Preferences (select all that apply):</h3>
-            <div className="options-box">
-              <label>
+            <div className="intervention-options-container">
+              <div className="preference-item">
                 <input
                   type="checkbox"
                   name="auin_police"
                   checked={formData.interventionPreferences.includes('auin_police')}
                   onChange={handleCheckboxChange}
                 />
-                police intervention
-              </label>
-            </div>
-            <div className="options-box">
-              <label>
+                <label htmlFor="auin_police">Police Intervention</label>
+              </div>
+              <div className="preference-item">
                 <input
                   type="checkbox"
                   name="auin_security"
                   checked={formData.interventionPreferences.includes('auin_security')}
                   onChange={handleCheckboxChange}
                 />
-                professional security intervention
-              </label>
-            </div>
-            <div className="options-box">
-              <label>
+                <label htmlFor="auin_security">Professional Security</label>
+              </div>
+              <div className="preference-item">
                 <input
                   type="checkbox"
                   name="auin_government"
                   checked={formData.interventionPreferences.includes('auin_government')}
                   onChange={handleCheckboxChange}
                 />
-                law enforcement intervention
-              </label>
-            </div>
-            <div className="options-box">
-              <label>
+                <label htmlFor="auin_government">Law Enforcement</label>
+              </div>
+              <div className="preference-item">
                 <input
                   type="checkbox"
                   name="auin_civil"
                   checked={formData.interventionPreferences.includes('auin_civil')}
                   onChange={handleCheckboxChange}
                 />
-                civil servant intervention
-              </label>
-            </div>
-            <div className="options-box">
-              <label>
+                <label htmlFor="auin_civil">Civil Servants</label>
+              </div>
+              <div className="preference-item">
                 <input
                   type="checkbox"
                   name="auin_community"
                   checked={formData.interventionPreferences.includes('auin_community')}
                   onChange={handleCheckboxChange}
                 />
-                community intervention
-              </label>
-            </div>
-            <div className="options-box">
-              <label>
+                <label htmlFor="auin_community">Community Intervention</label>
+              </div>
+              <div className="preference-item">
                 <input
                   type="checkbox"
                   name="perin_community"
                   checked={formData.interventionPreferences.includes('perin_community')}
                   onChange={handleCheckboxChange}
                 />
-                personal intervention
-              </label>
+                <label htmlFor="perin_community">Personal (on behalf of others)</label>
+              </div>
             </div>
-            <button type="button" onClick={handleNext}>→</button>
+            <button className="preference-button" type="button" onClick={handleNext}>→</button>
           </div>
         );
       case 6:
         return (
-          <div className="form-step" >
+          <div className="form-step">
             <h3 className="primary-contacts-title">Primary Contacts:</h3>
             <div className="contacts-container">
               <div className="contact-box-scrollable">
@@ -268,11 +258,10 @@ function Preferences({ userData, baseBackendURL }) {
                 </button>
               )}
             </div>
-
             <button type="submit" className="submit-preferences-button">
               submit preferences
             </button>
-          </div >
+          </div>
         );
       default:
         return null;
