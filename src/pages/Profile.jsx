@@ -70,7 +70,7 @@ function Profile({ userData, baseBackendURL }) {
         <div className="profile-container">
             <h1>PROFILE</h1>
             <div className="return-to-login">
-                <Link to={sessionStorage.getItem('lastVisitedPage') || '/'} className="return-link">← Return</Link>
+                <Link to={sessionStorage.getItem('lastVisitedPage') || '/'} className="return-link">← RETURN</Link>
             </div>
 
             <form onSubmit={handleSubmit} className="profile-form">
