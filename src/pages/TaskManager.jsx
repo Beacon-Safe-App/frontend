@@ -282,19 +282,9 @@ function TaskManager() {
     };
 
     return (
-        <div>
-            <div id="task-manager-image-container">
-                <img
-                    id="task-manager-image"
-                    src="https://64.media.tumblr.com/95125fd07ae4892f344d4bfd78a4a942/51a0d67943d6d554-36/s1280x1920/f8289d3c0d1546a73f4f4626a21c1761b5a6a49e.pnj"
-                    alt="task manager graphic"
-                />
-            </div>
-            <p className="task-manager-p">
-                Here, you can manage personal tasks specifically related to any incidents you have experienced and find recommendations for step-by-step processes for seeking appropriate documentation, justice, community support and/or medical attention.
-            </p>
-
+        <div className="task-manager-container">
             <input
+                className="search-bar"
                 type="text"
                 placeholder="Search for crimes..."
                 value={searchTerm}
@@ -310,7 +300,26 @@ function TaskManager() {
                 </ul>
             )}
 
-            <div>
+            <div className="task-section">
+                <ul className="task-list">
+                    {todos.map((todo, index) => (
+                        <li key={index}>
+                            <input
+                                type="checkbox"
+                                checked={todo.completed}
+                                onChange={() => toggleComplete(index)}
+                                className="task-checkbox"
+                            />
+                            <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+                                {todo.text}
+                            </span>
+                            <button id="delete-button" onClick={() => deleteTodo(index)}>Delete</button>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            <div className="add-task-section">
                 <input
                     type="text"
                     placeholder="Add new task"
@@ -319,22 +328,6 @@ function TaskManager() {
                 />
                 <button onClick={addTodo}>Add</button>
             </div>
-
-            <ul>
-                {todos.map((todo, index) => (
-                    <li key={index}>
-                        <input
-                            type="checkbox"
-                            checked={todo.completed}
-                            onChange={() => toggleComplete(index)}
-                        />
-                        <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
-                            {todo.text}
-                        </span>
-                        <button onClick={() => deleteTodo(index)}>Delete</button>
-                    </li>
-                ))}
-            </ul>
         </div>
     );
 }
