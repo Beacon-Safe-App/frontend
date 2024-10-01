@@ -30,13 +30,9 @@
 }
 
 .tool-label {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-top: 10px;
     color: #ffffff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-    transition: opacity 0.3s ease;
 }
 
 .tool-label {
@@ -85,7 +81,7 @@
 }
 
 #aftercare-image {
-    max-width: 30%;
+    max-width: 20%;
     height: auto;
     margin-bottom: 20px;
     margin-top: 0;
@@ -97,8 +93,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 0;
-    padding-top: 10px;
+    margin-top: 0 auto;
+    padding: 10px;
+    width: 90%;
+    max-width: 1200px;
+    height: auto;
+    box-sizing: border-box;
 }
 
 .walk-with-me-container {
@@ -148,10 +148,11 @@
 }
 
 .tool-p {
-    font-size: 1.25rem;
-    padding-top: 10px;
-    padding-bottom: 60px;
-    max-width: 55vw;
+    font-size: 1.1rem;
+    padding: 20px 5%;
+    max-width: 90%;
+    line-height: 1.5;
+    text-align: center;
 }
 
 .tool-h3 {
@@ -270,9 +271,9 @@
 }
 
 .tool-button {
-    padding: 10px 20px;
+    padding: 12px 20px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
     background: linear-gradient(145deg, #1e3a5f, #12233e);
     color: white;
     border: none;
@@ -280,8 +281,9 @@
     border-radius: 10px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6), -3px -3px 10px rgba(255, 255, 255, 0.1);
     transition: background 0.3s, box-shadow 0.3s;
-    margin-top: 50px;
-    margin-bottom: 150px;
+    margin-top: 20px;
+    width: 80%;
+    max-width: 500px;
 }
 
 .tool-button:hover {
@@ -290,7 +292,7 @@
 }
 
 #voice-recognition-on-image {
-    max-width: 35%;
+    max-width: 20%;
     height: auto;
     margin-bottom: 20px;
     margin-top: 0;
@@ -299,7 +301,7 @@
 }
 
 #voice-recognition-off-image {
-    max-width: 35%;
+    max-width: 20%;
     height: auto;
     margin-bottom: 20px;
     margin-top: 0;
@@ -327,4 +329,31 @@
     margin-top: 10px;
     color: lightgrey;
     text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .tool-p {
+        font-size: 1rem;
+        padding: 15px 5%;
+    }
+
+    .tool-button {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .tool-p {
+        font-size: 0.9rem;
+    }
+
+    .tool-button {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+
+    #tool-image {
+        max-width: 90%;
+    }
 }
