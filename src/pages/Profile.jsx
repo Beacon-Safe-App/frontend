@@ -74,9 +74,9 @@ function Profile({ userData, baseBackendURL }) {
             </div>
 
             <form onSubmit={handleSubmit} className="profile-form">
-                <div className="section-list">
-                    <div className="section-item">
-                        <label>Name</label>
+                <div className="profile-section-list">
+                    <div className="profile-section-item">
+                        <label>NAME</label>
                         <input
                             type="text"
                             name="name"
@@ -86,8 +86,8 @@ function Profile({ userData, baseBackendURL }) {
                         />
                     </div>
 
-                    <div className="section-item">
-                        <label>Pronouns</label>
+                    <div className="profile-section-item">
+                        <label>PRONOUNS</label>
                         <input
                             type="text"
                             name="pronouns"
@@ -97,8 +97,8 @@ function Profile({ userData, baseBackendURL }) {
                         />
                     </div>
 
-                    <div className="section-item">
-                        <label>Phone Number</label>
+                    <div className="profile-section-item">
+                        <label>PHONE NUMBER</label>
                         <input
                             type="tel"
                             name="phoneNumber"
@@ -108,8 +108,8 @@ function Profile({ userData, baseBackendURL }) {
                         />
                     </div>
 
-                    <div className="section-item">
-                        <label>Email</label>
+                    <div className="profile-section-item">
+                        <label>EMAIL</label>
                         <input
                             type="email"
                             name="email"
@@ -119,8 +119,8 @@ function Profile({ userData, baseBackendURL }) {
                         />
                     </div>
 
-                    <div className="section-item">
-                        <label>Password</label>
+                    <div className="profile-section-item">
+                        <label>PASSWORD</label>
                         <input
                             type="password"
                             name="password"
@@ -130,8 +130,8 @@ function Profile({ userData, baseBackendURL }) {
                         />
                     </div>
 
-                    <div className="section-item">
-                        <label>Personal Pin Number</label>
+                    <div className="profile-section-item">
+                        <label>PERSONAL PIN</label>
                         <input
                             type="password"
                             name="pin"
@@ -141,8 +141,8 @@ function Profile({ userData, baseBackendURL }) {
                         />
                     </div>
 
-                    <div className="section-item">
-                        <label>Intervention Preferences</label>
+                    <div className="profile-section-item">
+                        <label>INTERVENTION PREFERENCES</label>
                         <input
                             type="text"
                             name="interventionPreferences"
@@ -152,8 +152,8 @@ function Profile({ userData, baseBackendURL }) {
                         />
                     </div>
 
-                    <div className="section-item">
-                        <label>Primary Contacts</label>
+                    <div className="profile-section-item">
+                        <label>PRIMARY CONTACTS</label>
                         <input
                             type="text"
                             name="contacts"
@@ -163,8 +163,8 @@ function Profile({ userData, baseBackendURL }) {
                         />
                     </div>
 
-                    <div className="section-item">
-                        <label>Accessibility</label>
+                    <div className="profile-section-item">
+                        <label>ACCESSIBILITY</label>
                         <input
                             type="text"
                             name="accessibility"
@@ -174,8 +174,8 @@ function Profile({ userData, baseBackendURL }) {
                         />
                     </div>
 
-                    <div className="section-item">
-                        <label>Additional Requirements</label>
+                    <div className="profile-section-item">
+                        <label>ADDITIONAL REQUIREMENTS</label>
                         <input
                             type="text"
                             name="addtlreq"
@@ -184,7 +184,7 @@ function Profile({ userData, baseBackendURL }) {
                             placeholder={formData.addtlreq || 'Additional Requirements'}
                         />
                     </div>
-                    <button type="submit" className="submit-button">Save Changes</button>
+                    <button type="submit" className="submit-button">SAVE CHANGES</button>
                 </div>
             </form>
         </div>

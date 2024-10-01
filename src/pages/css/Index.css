@@ -1,10 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
 .how-to-container {
-  margin: 20px;
+  width: 45%;
   max-width: 800px;
+  min-width: 300px;
   margin: 0 auto;
-  padding: 20px;
-  overflow-y: auto;
   height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.profile-container {
+  width: 45%;
+  max-width: 800px;
+  min-width: 300px;
+  margin: 0 auto;
+  height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile-form {
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .return-to-login {
@@ -16,38 +41,39 @@
   color: #007BFF;
 }
 
-.section-list {
+.profile-section-list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  flex-wrap: wrap;
+  gap: 5px;
+  flex-grow: 1;
 }
 
-.section-item {
+.profile-section-item {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 10px 0;
   border-bottom: 1px solid #ccc;
 }
 
-.section-item label {
+.profile-section-item label {
   margin-bottom: 5px;
   font-size: 1rem;
 }
 
-.section-item input {
-  width: auto;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+.profile-section-item input {
+  width: 100%;
+}
+
+.profile-section-item input::placeholder {
+  font-size: 1.2rem;
+  color: #888;
 }
 
 .submit-button {
   margin-top: 20px;
-  padding: 10px;
-  background-color: #007BFF;
+  padding: 12px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #4c5156;
   color: white;
   border: none;
   border-radius: 5px;
@@ -60,11 +86,17 @@
 }
 
 @media screen and (max-width: 600px) {
-  .how-to-container {
-      margin: 10px;
+  .profile-container, .how-to-container {
+    width: 90%;
+    padding: 10px;
   }
 
   .section-item {
       flex-basis: 100%;
+      gap: 5px;
+  }
+
+  .submit-button {
+    margin-top: 10px;
   }
 }
