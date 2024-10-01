@@ -271,7 +271,7 @@ function App() {
             path="/profile"
             element={
               <>
-                <Profile />
+                <Profile userData={userData} baseBackendURL={baseBackendURL} />
               </>
             }
           />
