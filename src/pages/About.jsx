@@ -26,8 +26,8 @@ function About() {
       <h3>CONTACT</h3>
       <p>To get in touch, please contact Pepper directly: pepper.rostami@gmail.com</p>
       <div className="return-to-login">
-        <Link to={sessionStorage.getItem('lastVisitedPage') || '/'} className="return-link">← RETURN</Link>
-      </div>
+                <Link to={'/map'} className="return-link">← RETURN</Link>
+            </div>
     </div>
   );
 }

@@ -138,7 +138,7 @@ function Register(props) {
         {renderFormStep()}
       </form>
       <div className="return-to-login">
-        <p><a href="/" target="_blank" rel="noopener noreferrer">return to login</a></p>
+        <Link to={'/'} className="return-link">← RETURN</Link>
       </div>
     </div>
   );

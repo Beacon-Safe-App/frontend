@@ -45,6 +45,20 @@ function Profile({ userData, baseBackendURL }) {
         });
     };
 
+    const prepareFormData = () => {
+        const updatedData = { ...formData };
+        if (!updatedData.password) delete updatedData.password;
+        updatedData.contacts = updatedData.contacts
+            ? updatedData.contacts.split(',').map(contact => contact.trim())
+            : [];
+
+        updatedData.interventionPreferences = updatedData.interventionPreferences
+            ? updatedData.interventionPreferences.split(',').map(pref => pref.trim())
+            : [];
+
+        return updatedData;
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -53,7 +67,7 @@ function Profile({ userData, baseBackendURL }) {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(prepareFormData()),
             });
             const result = await response.json();
             if (result.status === 'success') {
@@ -70,7 +84,7 @@ function Profile({ userData, baseBackendURL }) {
         <div className="profile-container">
             <h1>PROFILE</h1>
             <div className="return-to-login">
-                <Link to={sessionStorage.getItem('lastVisitedPage') || '/'} className="return-link">← RETURN</Link>
+                <Link to={'/map'} className="return-link">← RETURN</Link>
             </div>
 
             <form onSubmit={handleSubmit} className="profile-form">

@@ -63,7 +63,7 @@ function Preferences({ userData, baseBackendURL }) {
     if (formData.contacts.length < 10) {
       setFormData({
         ...formData,
-        contacts: [...formData.contacts, { name: '', phoneNumber: '' }],
+        contacts: [...formData.contacts, { name: '', phone_number: '' }],
       });
     }
   };
@@ -291,7 +291,7 @@ function Preferences({ userData, baseBackendURL }) {
         {renderFormStep()}
       </form>
       <div className="return-home">
-        <p><a href="/map" target="_blank" rel="noopener noreferrer">return home</a></p>
+        <p><a href="/" target="_blank" rel="noopener noreferrer">return home</a></p>
       </div>
     </div>
   );

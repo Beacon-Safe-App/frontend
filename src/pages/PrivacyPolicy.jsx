@@ -48,7 +48,7 @@ function PrivacyPolicy() {
             <h3>COMPLAINTS</h3>
             <p>‍If you’re based in New York State, you can always file a complaint with the Equal Employment Opportunity Commission or the Better Business Bureau.</p>
             <div className="return-to-login">
-                <Link to={sessionStorage.getItem('lastVisitedPage') || '/'} className="return-link">← RETURN</Link>
+                <Link to={'/map'} className="return-link">← RETURN</Link>
             </div>
         </div>
     );

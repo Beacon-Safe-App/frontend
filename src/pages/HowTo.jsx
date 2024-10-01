@@ -29,7 +29,7 @@ function HowTo() {
     <div className="how-to-container">
       <h1>General Information and Instructions</h1>
       <div className="return-to-login">
-        <Link to={sessionStorage.getItem('lastVisitedPage') || '/'} className="return-link">← RETURN</Link>
+                <Link to={'/map'} className="return-link">← RETURN</Link>
       </div>
 
       <div className="section-list">
