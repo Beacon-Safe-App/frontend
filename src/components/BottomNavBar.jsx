@@ -17,9 +17,9 @@ const BottomNavBar = () => {
                 {navItems.map(item => (
                     <div className="nav-item" key={item.id}>
                         <Link to={item.route}>
-                            <img 
-                                src={item.icon} 
-                                alt={item.label} 
+                            <img
+                                src={item.icon}
+                                alt={item.label}
                                 className={`bottom-nav-icon ${item.id === 3 ? 'bottom-nav-icon-red' : ''}`}
                             />
                         </Link>
