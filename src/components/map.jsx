@@ -163,6 +163,7 @@ const GoogleMap = (props) => {
   }
 
   const [userLocation, setUserLocation] = useState({ "lat": 0, "long": 0 })
+  const [isLocationLoaded, setLocationLoaded] = useState(false)
 
   const options = {
     enableHighAccuracy: true,
@@ -173,6 +174,7 @@ const GoogleMap = (props) => {
   function success(pos) {
     const crd = pos.coords;
     setUserLocation({ "lat": crd.latitude, "long": crd.longitude })
+    setLocationLoaded(true)
   }
 
   function errors(err) {
@@ -197,7 +199,7 @@ const GoogleMap = (props) => {
 
   useEffect(() => {
     getUserLocation()
-  }, [])
+  }, [props.hardcodeStartAddress, props.startAddress])
 
   const getAddress = async (userLocation) => {
     if (props.hardcodeStartAddress === true) {
@@ -219,7 +221,9 @@ const GoogleMap = (props) => {
   }, [userLocation, props.hardcodeStartAddress, props.startAddress]);
 
   const returnUserLocationMarker = () => {
-  return (
+    // setIsReturnUserLocationMarkerLoaded(true)
+    console.log('rendering user location marker')
+    return (
     <Marker
     position={{ lat: userLocation.lat, lng: userLocation.long }}
     title={'Your location'}
@@ -270,12 +274,18 @@ const GoogleMap = (props) => {
     );
   }
 
-  if (props.destination !== "") {
-    console.log('returning map with directions')
-    return returnMapWithDirections()
+  if (isLocationLoaded === true) {
+    if (props.destination !== "") {
+      console.log('returning map with directions')
+      return returnMapWithDirections()
+    } else {
+      console.log('returning map')
+      return returnMap()
+    }
   } else {
-    console.log('returning map')
-    return returnMap()
+        return (
+        <h1>"Loading..."</h1>
+      )
   }
 };
 
