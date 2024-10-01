@@ -6,7 +6,7 @@ function BystanderReport() {
 
     return (
         <div className="bystander-report-container">
-            <div 
+            <div
                 className="tool-image-container"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}

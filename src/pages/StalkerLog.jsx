@@ -6,7 +6,7 @@ function StalkerLog() {
 
     return (
         <div className="fake-call-container">
-            <div 
+            <div
                 className="tool-image-container"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}

@@ -16,7 +16,6 @@
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-
 .tool-image-container:hover #tool-image {
     transform: scale(1.1);
     filter: brightness(1.2);
@@ -43,7 +42,8 @@
     display: block;
 }
 
-#fake-call-image, #soundwave-image {
+#fake-call-image,
+#soundwave-image {
     max-width: 35%;
     height: auto;
     margin-bottom: 20px;
@@ -88,7 +88,8 @@
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.fake-call-container, .bystander-report-container,
+.fake-call-container,
+.bystander-report-container,
 .walk-with-me-container {
     display: flex;
     flex-direction: column;
@@ -137,7 +138,8 @@
     align-items: center;
 }
 
-.fake-call-container:hover #fake-call-image, .bystander-report-container:hover #bystander-report-image {
+.fake-call-container:hover #fake-call-image,
+.bystander-report-container:hover #bystander-report-image {
     transform: scale(1.1);
     filter: brightness(1.2);
 }
