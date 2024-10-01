@@ -206,6 +206,7 @@ const GoogleMap = (props) => {
       const URL = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${userLocation.lat},${userLocation.long}&key=${apiKey}`
       const request = await fetch(URL)
       const response = await request.json()
+      setSourceAddress(response.results[0]['formatted_address'])
     }
   }
   const [sourceAddress, setSourceAddress] = useState("")
