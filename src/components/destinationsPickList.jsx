@@ -18,8 +18,6 @@ const DestinationPickList = (props) => {
 
     useEffect(() => {
         getDestinations()
-        try { props.updateDestination(destinations[0].address) }
-        catch { }
     }, [])
 
     const [isOpen, setIsOpen] = useState(false);

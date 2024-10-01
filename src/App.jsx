@@ -104,13 +104,6 @@ function App() {
     getCurrentUserData()
   }, [])
 
-  const [destination, setDestination] = useState('');
-
-  const updateDestination = (address) => {
-    setDestination(address);
-    console.log(`the value of destination is now set to ${destination}`);
-  };
-
   const renderOnlyLogin = () => {
   return (
     <Router>
