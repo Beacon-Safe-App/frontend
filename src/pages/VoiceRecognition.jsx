@@ -19,7 +19,7 @@ function VoiceRecognition() {
         Enabling voice recognition allows you to activate emergency mode with a verbal command, without opening the app or pressing the button.
         <br />
         <br />
-        To learn more about voice recognition, or to reset preferences, click here.
+        To learn more about voice recognition, or to reset preferences, click <a href="/preferences" target="_blank" rel="noopener noreferrer">here</a>.
       </p>
       <img
         id={isVoiceRecognitionOn ? "voice-recognition-on-image" : "voice-recognition-off-image"}

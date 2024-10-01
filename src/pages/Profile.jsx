@@ -12,28 +12,28 @@ function Profile({ userData, baseBackendURL }) {
         phoneNumber: '',
         email: '',
         password: '',
-        pinNumber: '',
+        pin: '',
         interventionPreferences: '',
-        primaryContacts: '',
+        contacts: '',
         accessibility: '',
-        additionalRequirements: '',
-        voiceRecognition: ''
+        addtlreq: '',
     });
 
     useEffect(() => {
         if (userData) {
           setFormData({
-            name: userData.name || '',
-            pronouns: userData.pronouns || '',
-            phoneNumber: userData.phoneNumber || '',
-            email: userData.email || '',
+            name: userData?.name || '',
+            pronouns: userData?.preferences?.pronouns || '',
+            phoneNumber: userData?.phoneNumber || '',
+            email: userData?.email || '',
             password: '',
-            pinNumber: userData.pinNumber || '',
-            interventionPreferences: userData.preferences?.interventionPreferences || '',
-            primaryContacts: userData.preferences?.primaryContacts || '',
-            accessibility: userData.preferences?.accessibility || '',
-            additionalRequirements: userData.preferences?.additionalRequirements || '',
-            voiceRecognition: userData.preferences?.voiceRecognition || '',
+            pin: userData?.preferences?.pin || '',
+            interventionPreferences: userData?.preferences?.interventionPreferences.join(', ') || '',
+            contacts: userData?.preferences?.contacts
+              ?.map(contact => contact.name)
+              .join(', ') || '',
+            accessibility: userData?.preferences?.accessibility || '',
+            addtlreq: userData?.preferences?.addtlreq || '',
           });
         }
       }, [userData]);
@@ -67,7 +67,7 @@ function Profile({ userData, baseBackendURL }) {
     };
 
     return (
-        <div className="how-to-container">
+        <div className="profile-container">
             <h1>PROFILE</h1>
             <div className="return-to-login">
                 <Link to={sessionStorage.getItem('lastVisitedPage') || '/'} className="return-link">← Return</Link>
@@ -75,18 +75,115 @@ function Profile({ userData, baseBackendURL }) {
 
             <form onSubmit={handleSubmit} className="profile-form">
                 <div className="section-list">
-                    {['Name', 'Pronouns', 'Phone Number', 'Email', 'Password', 'Personal Pin Number', 'Intervention Preferences', 'Primary Contacts', 'Accessibility', 'Additional Requirements', 'Voice Recognition'].map((label, idx) => (
-                        <div key={idx} className="section-item">
-                            <label>{label}</label>
-                            <input
-                                type={label.includes('Password') || label.includes('Pin') ? 'password' : 'text'}
-                                name={label.replace(/\s+/g, '').toLowerCase()}
-                                value={formData[label.replace(/\s+/g, '').toLowerCase()]}
-                                onChange={handleChange}
-                                placeholder={label}
-                            />
-                        </div>
-                    ))}
+                    <div className="section-item">
+                        <label>Name</label>
+                        <input
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            placeholder={formData.name || 'Name'}
+                        />
+                    </div>
+
+                    <div className="section-item">
+                        <label>Pronouns</label>
+                        <input
+                            type="text"
+                            name="pronouns"
+                            value={formData.pronouns}
+                            onChange={handleChange}
+                            placeholder={formData.pronouns || 'Pronouns'}
+                        />
+                    </div>
+
+                    <div className="section-item">
+                        <label>Phone Number</label>
+                        <input
+                            type="tel"
+                            name="phoneNumber"
+                            value={formData.phoneNumber}
+                            onChange={handleChange}
+                            placeholder={formData.phoneNumber || 'Phone Number'}
+                        />
+                    </div>
+
+                    <div className="section-item">
+                        <label>Email</label>
+                        <input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder={formData.email || 'Email'}
+                        />
+                    </div>
+
+                    <div className="section-item">
+                        <label>Password</label>
+                        <input
+                            type="password"
+                            name="password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            placeholder="New Password"
+                        />
+                    </div>
+
+                    <div className="section-item">
+                        <label>Personal Pin Number</label>
+                        <input
+                            type="password"
+                            name="pin"
+                            value={formData.pin}
+                            onChange={handleChange}
+                            placeholder={formData.pin || 'Pin Number'}
+                        />
+                    </div>
+
+                    <div className="section-item">
+                        <label>Intervention Preferences</label>
+                        <input
+                            type="text"
+                            name="interventionPreferences"
+                            value={formData.interventionPreferences}
+                            onChange={handleChange}
+                            placeholder={formData.interventionPreferences || 'Intervention Preferences'}
+                        />
+                    </div>
+
+                    <div className="section-item">
+                        <label>Primary Contacts</label>
+                        <input
+                            type="text"
+                            name="contacts"
+                            value={formData.contacts}
+                            onChange={handleChange}
+                            placeholder={formData.contacts || 'Primary Contacts'}
+                        />
+                    </div>
+
+                    <div className="section-item">
+                        <label>Accessibility</label>
+                        <input
+                            type="text"
+                            name="accessibility"
+                            value={formData.accessibility}
+                            onChange={handleChange}
+                            placeholder={formData.accessibility || 'Accessibility'}
+                        />
+                    </div>
+
+                    <div className="section-item">
+                        <label>Additional Requirements</label>
+                        <input
+                            type="text"
+                            name="addtlreq"
+                            value={formData.addtlreq}
+                            onChange={handleChange}
+                            placeholder={formData.addtlreq || 'Additional Requirements'}
+                        />
+                    </div>
                     <button type="submit" className="submit-button">Save Changes</button>
                 </div>
             </form>

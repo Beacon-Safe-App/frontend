@@ -1,6 +1,6 @@
 .how-to-container {
   margin: 20px;
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   overflow-y: auto;
@@ -20,6 +20,7 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 .section-item {
@@ -32,11 +33,11 @@
 
 .section-item label {
   margin-bottom: 5px;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .section-item input {
-  width: 100%;
+  width: auto;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -61,5 +62,9 @@
 @media screen and (max-width: 600px) {
   .how-to-container {
       margin: 10px;
+  }
+
+  .section-item {
+      flex-basis: 100%;
   }
 }

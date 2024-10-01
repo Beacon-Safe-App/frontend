@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import useLastVisitedPage from '../hooks/useLastVisitedPage.js';
 import './css/Preferences.css';
 
 function Preferences({ userData, baseBackendURL }) {
-  useLastVisitedPage();
   const userId = userData._id
 
   const [step, setStep] = useState(1);
@@ -291,8 +289,8 @@ function Preferences({ userData, baseBackendURL }) {
       <form className="preferences-form" onSubmit={handleSubmit}>
         {renderFormStep()}
       </form>
-      <div className="return-to-login">
-        <Link to={sessionStorage.getItem('lastVisitedPage') || '/'} className="return-link">← Return</Link>
+      <div className="return-home">
+        <p><a href="/map" target="_blank" rel="noopener noreferrer">return home</a></p>
       </div>
     </div>
   );

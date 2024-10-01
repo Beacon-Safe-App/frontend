@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import useLastVisitedPage from '../hooks/useLastVisitedPage.js';
 import './css/Register.css';
 
 function Register(props) {
@@ -127,8 +126,6 @@ function Register(props) {
 
   const progressPercentage = (step / 4) * 100;
 
-  useLastVisitedPage();
-
   return (
     <div className="register-container">
       <div className="progress-bar">
@@ -141,7 +138,7 @@ function Register(props) {
         {renderFormStep()}
       </form>
       <div className="return-to-login">
-        <Link to={sessionStorage.getItem('lastVisitedPage') || '/'} className="return-link">← Return</Link>
+        <p><a href="/" target="_blank" rel="noopener noreferrer">return to login</a></p>
       </div>
     </div>
   );
