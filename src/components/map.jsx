@@ -217,6 +217,16 @@ const GoogleMap = (props) => {
     }
   }, [userLocation, props.hardcodeStartAddress, props.startAddress]);
 
+  const returnUserLocationMarker = () => {
+  return (
+    <Marker
+    position={{ lat: userLocation.lat, lng: userLocation.long }}
+    title={'Your location'}
+    >
+    </Marker>
+    )
+  }
+
   const returnMapWithDirections = () => {
     return (
       <div className="googlemap-container">
@@ -230,11 +240,7 @@ const GoogleMap = (props) => {
               mapTypeId: 'satellite'
             }}
           >
-            <Marker
-              position={{ lat: userLocation.lat, lng: userLocation.long }}
-              title={'Marker'}
-            >
-            </Marker>
+            {returnUserLocationMarker()}
             <Directions origin={sourceAddress} destination={props.destination} baseBackendURL={props.baseBackendURL} />
           </Map>
         </APIProvider>
@@ -248,18 +254,15 @@ const GoogleMap = (props) => {
         <APIProvider apiKey={apiKey} onLoad={() => console.log('Maps API has loaded')}>
           <Map
             className='googlemap'
-            defaultZoom={13}
+            defaultZoom={16}
+            onLoad={() => console.log('map loaded')}
             defaultCenter={{ lat: userLocation.lat, lng: userLocation.long }}
             options={{
               styles: googleMapStyle,
               mapTypeId: 'satellite'
             }}
           >
-            <Marker
-              position={{ lat: userLocation.lat, lng: userLocation.long }}
-              title={'Marker'}
-            >
-            </Marker>
+          {returnUserLocationMarker()}
           </Map>
         </APIProvider>
       </div>
@@ -267,8 +270,10 @@ const GoogleMap = (props) => {
   }
 
   if (props.destination !== "") {
+    console.log('returning map with directions')
     return returnMapWithDirections()
   } else {
+    console.log('returning map')
     return returnMap()
   }
 };
