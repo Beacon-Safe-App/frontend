@@ -95,10 +95,7 @@ const apiKey = import.meta.env.VITE_apiKey;
 const GoogleMap = (props) => {
 
   function Directions(props) {
-    console.log(`at this point origin is ${JSON.stringify(props.origin)}`)
-    console.log(`at this point destination is ${JSON.stringify(props.destination)}`)
     if ((props.origin.split('').indexOf(' ') == -1) || (props.destination.split('').indexOf(' ') == -1)) {
-      console.log('origin or destination not defined')
       return (<></>)
     }
 
@@ -111,14 +108,12 @@ const GoogleMap = (props) => {
     const selected = routes[routeIndex];
     const leg = selected?.legs[0];
 
-    // Initialize directions service and renderer
     useEffect(() => {
       if (!routesLibrary || !map) return;
       setDirectionsService(new routesLibrary.DirectionsService());
       setDirectionsRenderer(new routesLibrary.DirectionsRenderer({ map }));
     }, [routesLibrary, map]);
 
-    // Use directions service
     useEffect(() => {
       if (!directionsService || !directionsRenderer) return;
 
@@ -137,7 +132,6 @@ const GoogleMap = (props) => {
       return () => directionsRenderer.setMap(null);
     }, [directionsService, directionsRenderer, props.origin, props.destination]);
 
-    // Update direction route
     useEffect(() => {
       if (!directionsRenderer) return;
       directionsRenderer.setRouteIndex(routeIndex);
@@ -178,7 +172,6 @@ const GoogleMap = (props) => {
 
   function success(pos) {
     const crd = pos.coords;
-    console.log(`Your current position is: Latitude : ${crd.latitude} Longitude: ${crd.longitude} More or less ${crd.accuracy} meters.`)
     setUserLocation({ "lat": crd.latitude, "long": crd.longitude })
   }
 
@@ -191,19 +184,14 @@ const GoogleMap = (props) => {
       navigator.permissions
         .query({ name: "geolocation" })
         .then(function (result) {
-          console.log(result);
           if (result.state === "granted") {
-            //If granted then you can directly call your function here
             navigator.geolocation.getCurrentPosition(success, errors, options);
           } else if (result.state === "prompt") {
-            //If prompt then the user will be asked to give permission
             navigator.geolocation.getCurrentPosition(success, errors, options);
           } else if (result.state === "denied") {
-            console.log('unable to get location data')
           }
         });
     } else {
-      console.log("Geolocation is not supported by this browser.");
     }
   }
 
@@ -213,21 +201,16 @@ const GoogleMap = (props) => {
 
   const getAddress = async (userLocation) => {
     if (props.hardcodeStartAddress === true) {
-      console.log('using hardcoded start address')
       setSourceAddress(props.startAddress)
     } else {
       const URL = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${userLocation.lat},${userLocation.long}&key=${apiKey}`
       const request = await fetch(URL)
       const response = await request.json()
-      console.log(response.results)
     }
   }
-
-  console.log(`the userLocation is ${JSON.stringify(userLocation)}`)
   const [sourceAddress, setSourceAddress] = useState("")
   useEffect(() => {
     if (props.hardcodeStartAddress === true) {
-      console.log('using hardcoded start address');
       setSourceAddress(props.startAddress);
     } else {
       getAddress(userLocation);
@@ -284,10 +267,8 @@ const GoogleMap = (props) => {
   }
 
   if (props.destination !== "") {
-    console.log('returning map with directions')
     return returnMapWithDirections()
   } else {
-    console.log('returning map')
     return returnMap()
   }
 };

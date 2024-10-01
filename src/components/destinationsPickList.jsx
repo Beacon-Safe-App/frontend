@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const DestinationPickList = (props) => {
     const [destinations, setDestinations] = useState([])
 
-    const getDestinations = async() => {
+    const getDestinations = async () => {
         const URL = `${props.baseBackendURL}/locations`
         const response = await fetch(URL, {
             method: 'GET',
@@ -12,17 +12,16 @@ const DestinationPickList = (props) => {
                 "Content-Type": "application/json"
             }
         })
-        console.log(response)
         const data = await response.json()
         setDestinations(data['data'])
     }
-    
+
     useEffect(() => {
         getDestinations()
-        try {props.updateDestination(destinations[0].address)}
-        catch {}
+        try { props.updateDestination(destinations[0].address) }
+        catch { }
     }, [])
-    
+
     const [isOpen, setIsOpen] = useState(false);
 
     function handleDestinationClick(address) {

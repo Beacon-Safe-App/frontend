@@ -21,7 +21,7 @@ const MapPage = (props) => {
                 startAddress={'1530 E 19th St Brooklyn NY 11230'}
                 className="googlemap"
             />
-            <DestinationPickList updateDestination={updateDestination} baseBackendURL={props.baseBackendURL}/>
+            <DestinationPickList updateDestination={updateDestination} baseBackendURL={props.baseBackendURL} />
         </div>
     );
 };
