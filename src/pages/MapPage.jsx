@@ -17,7 +17,7 @@ const MapPage = (props) => {
         <div className="map-page">
             <GoogleMap
                 destination={destination}
-                hardcodeStartAddress={true}
+                hardcodeStartAddress={false}
                 startAddress={'1530 E 19th St Brooklyn NY 11230'}
                 className="googlemap"
             />

@@ -63,7 +63,7 @@ function Preferences({ userData, baseBackendURL }) {
     if (formData.contacts.length < 10) {
       setFormData({
         ...formData,
-        contacts: [...formData.contacts, { name: '', phone_number: '' }],
+        contacts: [...formData.contacts, { name: '', phoneNumber: '' }],
       });
     }
   };
@@ -98,7 +98,7 @@ function Preferences({ userData, baseBackendURL }) {
       case 1:
         return (
           <div className="form-step">
-            <label className="preferences-label" htmlFor="pin">a pin number will be used to deactivate any active security tools. for example, if using the 'walk with me' feature, in order to ensure you have reached your destination safely and emergency mode should not be activated, you will be asked to enter your pin.</label>
+            <label htmlFor="pin">a pin number will be used to deactivate any active security tools. for example, if using the 'walk with me' feature, in order to ensure you have reached your destination safely and emergency mode should not be activated, you will be asked to enter your pin.</label>
             <input
               type="text"
               name="pin"
@@ -107,15 +107,14 @@ function Preferences({ userData, baseBackendURL }) {
               value={formData.pin}
               onChange={handleChange}
               required
-              className="preferences-input"
             />
-            <button className="preference-button" type="button" onClick={handleNext}>→</button>
+            <button type="button" onClick={handleNext}>→</button>
           </div>
         );
       case 2:
         return (
           <div className="form-step">
-            <label className="preferences-label" htmlFor="pronouns">we ask for your pronouns to ensure that anyone intervening and supporting you in a state of emergency will address you correctly.</label>
+            <label htmlFor="pronouns">we ask for your pronouns to ensure that anyone intervening and supporting you in a state of emergency will address you correctly.</label>
             <input
               type="text"
               name="pronouns"
@@ -124,15 +123,14 @@ function Preferences({ userData, baseBackendURL }) {
               value={formData.pronouns}
               onChange={handleChange}
               required
-              className="preferences-input"
             />
-            <button className="preference-button" type="button" onClick={handleNext}>→</button>
+            <button type="button" onClick={handleNext}>→</button>
           </div>
         );
       case 3:
         return (
           <div className="form-step">
-            <label className="preferences-label" htmlFor="accessibility">we ask for you to let us know of any accessibility considerations one should be aware of in the event that you are in an emergency. an example could be that you are deaf or hard of hearing, or that you require a wheelchair.</label>
+            <label htmlFor="accessibility">we ask for you to let us know of any accessibility considerations one should be aware of in the event that you are in an emergency. an example could be that you are deaf or hard of hearing, or that you require a wheelchair.</label>
             <input
               type="text"
               name="accessibility"
@@ -141,15 +139,14 @@ function Preferences({ userData, baseBackendURL }) {
               value={formData.accessibility}
               onChange={handleChange}
               required
-              className="preferences-input"
             />
-            <button className="preference-button" type="button" onClick={handleNext}>→</button>
+            <button type="button" onClick={handleNext}>→</button>
           </div>
         );
       case 4:
         return (
           <div className="form-step">
-            <label className="preferences-label" htmlFor="addtlreq">we leave this section open-ended, if there is anything else you want intervening parties to be aware of in the event that you are in an emergency situation.</label>
+            <label htmlFor="addtlreq">we leave this section open-ended, if there is anything else you want intervening parties to be aware of in the event that you are in an emergency situation.</label>
             <input
               type="text"
               name="addtlreq"
@@ -158,106 +155,107 @@ function Preferences({ userData, baseBackendURL }) {
               value={formData.addtlreq}
               onChange={handleChange}
               required
-              className="preferences-input"
             />
-            <button className="preference-button" type="button" onClick={handleNext}>→</button>
+            <button type="button" onClick={handleNext}>→</button>
           </div>
         );
       case 5:
         return (
           <div className="form-step">
-            <h3 className="preferences-h3">Intervention Preferences (select all that apply):</h3>
-            <div className="intervention-options-container">
-              <div className="preference-item">
+            <h3>Intervention Preferences (select all that apply):</h3>
+            <div className="options-box">
+              <label>
                 <input
                   type="checkbox"
                   name="auin_police"
                   checked={formData.interventionPreferences.includes('auin_police')}
                   onChange={handleCheckboxChange}
-                  className="preferences-input"
                 />
-                <label className="preferences-label" htmlFor="auin_police">Police Intervention</label>
-              </div>
-              <div className="preference-item">
+                police intervention
+              </label>
+            </div>
+            <div className="options-box">
+              <label>
                 <input
                   type="checkbox"
                   name="auin_security"
                   checked={formData.interventionPreferences.includes('auin_security')}
                   onChange={handleCheckboxChange}
-                  className="preferences-input"
                 />
-                <label className="preferences-label" htmlFor="auin_security">Professional Security</label>
-              </div>
-              <div className="preference-item">
+                professional security intervention
+              </label>
+            </div>
+            <div className="options-box">
+              <label>
                 <input
                   type="checkbox"
                   name="auin_government"
                   checked={formData.interventionPreferences.includes('auin_government')}
                   onChange={handleCheckboxChange}
-                  className="preferences-input"
                 />
-                <label className="preferences-label" htmlFor="auin_government">Law Enforcement</label>
-              </div>
-              <div className="preference-item">
+                law enforcement intervention
+              </label>
+            </div>
+            <div className="options-box">
+              <label>
                 <input
                   type="checkbox"
                   name="auin_civil"
                   checked={formData.interventionPreferences.includes('auin_civil')}
                   onChange={handleCheckboxChange}
-                  className="preferences-input"
                 />
-                <label className="preferences-label" htmlFor="auin_civil">Civil Servants</label>
-              </div>
-              <div className="preference-item">
+                civil servant intervention
+              </label>
+            </div>
+            <div className="options-box">
+              <label>
                 <input
                   type="checkbox"
                   name="auin_community"
                   checked={formData.interventionPreferences.includes('auin_community')}
                   onChange={handleCheckboxChange}
-                  className="preferences-input"
                 />
-                <label className="preferences-label" htmlFor="auin_community">Community Intervention</label>
-              </div>
-              <div className="preference-item">
+                community intervention
+              </label>
+            </div>
+            <div className="options-box">
+              <label>
                 <input
                   type="checkbox"
                   name="perin_community"
                   checked={formData.interventionPreferences.includes('perin_community')}
                   onChange={handleCheckboxChange}
-                  className="preferences-input"
                 />
-                <label className="preferences-label" htmlFor="perin_community">Personal (on behalf of others)</label>
-              </div>
+                personal intervention
+              </label>
             </div>
-            <button className="preference-button" type="button" onClick={handleNext}>→</button>
+            <button type="button" onClick={handleNext}>→</button>
           </div>
         );
       case 6:
         return (
-          <div className="form-step">
-            <h3 className="preferences-h3">Primary Contacts:</h3>
+          <div className="form-step" >
+            <h3 className="primary-contacts-title">Primary Contacts:</h3>
             <div className="contacts-container">
               <div className="contact-box-scrollable">
                 {formData.contacts.map((contact, index) => (
                   <div key={index} className="contact-entry">
-                    <label className="preferences-label">
+                    <label>
                       Contact Name:
                       <input
                         type="text"
                         name="name"
                         value={contact.name}
                         onChange={(event) => handleContactChange(index, event)}
-                        className="preferences-input"
                       />
                     </label>
-                    <label className="preferences-label">
+                    <label>
                       Phone Number:
                       <input
                         type="tel"
                         name="phone_number"
                         value={contact.phone_number}
                         onChange={(event) => handleContactChange(index, event)}
-                        className="preferences-input"
                       />
                     </label>
                   </div>
@@ -270,10 +268,11 @@ function Preferences({ userData, baseBackendURL }) {
                 </button>
               )}
             </div>
+
             <button type="submit" className="submit-preferences-button">
               submit preferences
             </button>
-          </div>
+          </div >
         );
       default:
         return null;
@@ -291,7 +290,7 @@ function Preferences({ userData, baseBackendURL }) {
         {renderFormStep()}
       </form>
       <div className="return-home">
-        <p><a href="/" target="_blank" rel="noopener noreferrer">return home</a></p>
+        <p><a href="/map" target="_blank" rel="noopener noreferrer">return home</a></p>
       </div>
     </div>
   );
