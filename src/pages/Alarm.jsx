@@ -69,7 +69,7 @@ function Alarm({ userData }) {
       )}
       {isRecording && !isPinComplete && (
         <>
-          <h2>ALARM IN PROGRESS</h2>
+          <h2>ALARM ACTIVATED</h2>
           <h3>ENTER PERSONAL PIN TO DEACTIVATE:</h3>
           <input
             id="primarytoolinput"
@@ -90,7 +90,7 @@ function Alarm({ userData }) {
       )}
       {isPinComplete && (
         <div>
-          <h2>ALARM HAS STOPPED</h2>
+          <h2>ALARM DEACTIVATED</h2>
           <button id="primarytoolbutton" onClick={returnToMap}>
             RETURN TO MAP
           </button>

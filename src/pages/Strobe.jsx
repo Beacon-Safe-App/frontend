@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './css/PrimaryTools.css';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./css/PrimaryTools.css";
 
-function Strobe({userData}) {
+function Strobe({ userData }) {
   const [seconds, setSeconds] = useState(10);
   const [isRecording, setIsRecording] = useState(false);
-  const [pin, setPin] = useState('');
+  const [pin, setPin] = useState("");
   const [isPinComplete, setIsPinComplete] = useState(false);
+  const [isPinInvalid, setIsPinInvalid] = useState(false);
   const navigate = useNavigate();
-  const userPin = userData?.preferences?.pin || 'NotDefined'
+  const userPin = userData?.preferences?.pin || "NotDefined";
 
-  if (userPin === 'NotDefined') {
-      return (
-          <h1>Please define a pin in preferences to use this feature</h1>
-      )
+  if (userPin === "NotDefined") {
+    return <h1>Please define a pin in preferences to use this feature</h1>;
   }
 
   useEffect(() => {
@@ -29,20 +28,25 @@ function Strobe({userData}) {
 
   const handlePinChange = (event) => {
     const value = event.target.value;
-    if (value.length <= 4) {
-      setPin(value);
-      if (Number(value) === Number(userPin)) {
-        setIsPinComplete(true);
-      }
+    setPin(value);
+    setIsPinInvalid(false);
+  };
+
+  const validatePin = () => {
+    if (pin === userPin) {
+      setIsPinComplete(true);
+    } else {
+      setIsPinInvalid(true);
     }
   };
 
   const returnToMap = () => {
     setSeconds(10);
     setIsRecording(false);
-    setPin('');
+    setPin("");
     setIsPinComplete(false);
-    navigate('/map');
+    setIsPinInvalid(false);
+    navigate("/map");
   };
 
   return (
@@ -50,11 +54,13 @@ function Strobe({userData}) {
       <img
         src="https://64.media.tumblr.com/383760b5e04414482fb1753d89a97f04/e2301e7bd4f21116-f4/s540x810/50b48c109a7c02bc2d90864410acc2c8addb730d.pnj"
         alt="Strobe Indicator"
-        className={`recording-image ${isRecording && !isPinComplete ? 'blinking' : ''}`}
+        className={`recording-image ${
+          isRecording && !isPinComplete ? "blinking" : ""
+        }`}
       />
       {!isRecording && (
         <>
-          <h3>STROBE TO START IN:</h3>
+          <h3>STROBE TO ACTIVATE IN:</h3>
           <h2>{seconds} seconds</h2>
           <button id="cancel-button" onClick={returnToMap}>
             CANCEL
@@ -63,25 +69,34 @@ function Strobe({userData}) {
       )}
       {isRecording && !isPinComplete && (
         <>
-          <h2>STROBE IN PROGRESS</h2>
+          <h2>STROBE ACTIVATED</h2>
           <h3>ENTER PERSONAL PIN TO DEACTIVATE:</h3>
-          <input id="primarytoolinput"
+          <input
+            id="primarytoolinput"
             type="password"
             value={pin}
             onChange={handlePinChange}
-            maxLength={4}
             placeholder="Enter your PIN"
           />
+          <button id="primarytoolbutton" onClick={validatePin}>
+            SUBMIT
+          </button>
+          {isPinInvalid && (
+            <div className="error-popup">
+              <p>Invalid PIN. Please try again.</p>
+            </div>
+          )}
         </>
       )}
       {isPinComplete && (
         <div>
-          <h2>STROBE HAS STOPPED</h2>
-          <button id="primarytoolbutton" onClick={returnToMap}>RETURN TO MAP</button>
+          <h2>STROBE DEACTIVATED</h2>
+          <button id="primarytoolbutton" onClick={returnToMap}>
+            RETURN TO MAP
+          </button>
         </div>
       )}
     </div>
   );
 }
-
 export default Strobe;

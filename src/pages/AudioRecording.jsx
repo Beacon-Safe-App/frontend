@@ -54,7 +54,9 @@ function AudioRecording({ userData }) {
       <img
         src="https://64.media.tumblr.com/f932053ac4f4e8e0d294457d241adec9/ad51c2a0414ef920-b3/s540x810/dbf89ff192722ca3d2c9eb898e1f433a0f7a1033.pnj"
         alt="Recording Indicator"
-        className={`recording-image ${isRecording && !isPinComplete ? 'blinking' : ''}`}
+        className={`recording-image ${
+          isRecording && !isPinComplete ? "blinking" : ""
+        }`}
       />
       {!isRecording && (
         <>
