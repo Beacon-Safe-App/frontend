@@ -1,5 +1,6 @@
 <a id="readme-top"></a>
 <br />
+
 <div align="center">
   <a href="https://github.com/Beacon-Safe-App/frontend">
     <img src="https://64.media.tumblr.com/716975a64c9046776c921f55ad51639b/5620776a7cc956d4-67/s1280x1920/1f2d0e37d403977ef061e149f3baf3c21f1b5675.pnj" alt="Beacon Safe App Logo" width="80" height="80">
@@ -35,15 +36,15 @@
 </details>
 
 ## About The Project
+
 This project was started as a Capstone submission for General Assembly Software Engineering Intensive. Much of what is represented in this iteration is placeholder material and meant to be seen as a soft prototype. The intention is to build off of this to ultimately create a functional mobile app that is accessible to the general public.
-    <br />
-    <br></br>
+<br />
+<br></br>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 ### Built With
+
 - React
 - Vite
 - Express
@@ -51,9 +52,7 @@ This project was started as a Capstone submission for General Assembly Software 
 - Google Maps API (that is the API key asked for in the VITE_apiKey environment variable)
 - Microsoft Azure (Web App, Static Web App, Key Vault, Cosmos DB)
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ## Getting Started
 
@@ -62,7 +61,6 @@ To build off of this app or use its code, follow these steps:
 1. fork
 2. clone
 3. run 'npm install' in Terminal
-
 
 ## Usage
 
@@ -86,39 +84,36 @@ Recommended for use in densely-populated areas including cities and college camp
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 ## Roadmap
 
 - [ ] Map/Routing to Emergency Support Destination
 - [ ] Primary Tool Bar
-    - [ ] Emergency Mode
-    - [ ] Video Recording
-    - [ ] Audio Recording
-    - [ ] Alarm
-    - [ ] Strobe
+  - [ ] Emergency Mode
+  - [ ] Video Recording
+  - [ ] Audio Recording
+  - [ ] Alarm
+  - [ ] Strobe
 - [ ] Secondary Tool Bar
-    - [ ] World View
-    - [ ] Stalker Log
-    - [ ] Fake Call
-    - [ ] Aftercare
-        - [ ] Judicial
-        - [ ] Community
-        - [ ] Task Manager
-    - [ ] Walk With Me/Timer
-    - [ ] Voice Recognition
-    - [ ] History Log
+  - [ ] World View
+  - [ ] Stalker Log
+  - [ ] Fake Call
+  - [ ] Aftercare
+    - [ ] Judicial
+    - [ ] Community
+    - [ ] Task Manager
+  - [ ] Walk With Me/Timer
+  - [ ] Voice Recognition
+  - [ ] History Log
 - [ ] Information Menu
-    - [ ] Profile
-    - [ ] Preferences
-    - [ ] How-To
-    - [ ] About
-    - [ ] History Log
-    - [ ] Privacy Policy
-    - [ ] Terms & Conditions
+  - [ ] Profile
+  - [ ] Preferences
+  - [ ] How-To
+  - [ ] About
+  - [ ] History Log
+  - [ ] Privacy Policy
+  - [ ] Terms & Conditions
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 ## Contributing
 
@@ -132,7 +127,6 @@ If you have a suggestion that would make this better, please fork the repo and c
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 ## Future Features
 
 Future Features:
@@ -140,11 +134,11 @@ Future Features:
 1. Configuration for mobile
 2. Emergency Mode functionality
 3. 'Help Mode' Community and Contact List Intervention incorporation and functionality
-    - Beacon app users can intervene when other users are in need of help
-    - Personal contact list and community members can track user location when help beacon is sent out
+   - Beacon app users can intervene when other users are in need of help
+   - Personal contact list and community members can track user location when help beacon is sent out
 4. Map Feature functionality
-    - Filter toggles for emergency support destinations by type
-    - Emergency support destinations represented via icons on map
+   - Filter toggles for emergency support destinations by type
+   - Emergency support destinations represented via icons on map
 5. Video Record functionality
 6. Audio Record functionality
 7. Alarm functionality
@@ -164,7 +158,6 @@ Future Features:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 ## Contact
 
 Pepper Rostamizadeh - pepper.rostami@gmail.com
@@ -174,7 +167,6 @@ Konstantin Kaminskiy - kon@konthecat.com
 Github: [https://github.com/KonTheCat](https://github.com/KonTheCat)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ## Acknowledgments
 

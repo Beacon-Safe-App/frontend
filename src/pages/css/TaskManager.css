@@ -1,119 +1,119 @@
 /* TaskManager.jsx */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 
 .task-manager-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 800px;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
 }
 
 .search-bar {
-    width: 50%;
-    max-width: 800px;
-    padding: 10px;
-    margin-bottom: 100px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  width: 50%;
+  max-width: 800px;
+  padding: 10px;
+  margin-bottom: 100px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .crime-suggestions {
-    width: 45%;
-    max-width: 800px;
-    border: 1px solid #ccc;
-    background: white;
-    color: black;
-    position: absolute;
-    z-index: 1000;
-    max-height: 150px;
-    overflow-y: auto;
-    margin-top: 5px;
+  width: 45%;
+  max-width: 800px;
+  border: 1px solid #ccc;
+  background: white;
+  color: black;
+  position: absolute;
+  z-index: 1000;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-top: 5px;
 }
 
 .crime-suggestions li {
-    padding: 10px;
-    cursor: pointer;
+  padding: 10px;
+  cursor: pointer;
 }
 
 .crime-suggestions li:hover {
-    background: #f0f0f0;
+  background: #f0f0f0;
 }
 
 .task-section {
-    width: 100%;
-    max-width: 800px;
-    height: 500px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 20px;
+  width: 100%;
+  max-width: 800px;
+  height: 500px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
 }
 
 .task-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .task-list li {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    padding-right: 20px;
-    border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  padding-right: 20px;
+  border-bottom: 1px solid #ddd;
 }
 
 .task-list input[type="checkbox"] {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .task-list span {
-    width: 100%;
-    margin: 20px;
-    text-align: left;
+  width: 100%;
+  margin: 20px;
+  text-align: left;
 }
 
 .add-task-section {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 800px;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 20px;
 }
 
 .add-task-section input {
-    flex-grow: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    margin-right: 10px;
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-right: 10px;
 }
 
 .add-task-section button {
-    font-family: 'Montserrat', sans-serif;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #dddd;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #dddd;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .add-task-section button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 #delete-button {
-    font-family: 'Montserrat', sans-serif;
-    margin-left: auto;
+  font-family: "Montserrat", sans-serif;
+  margin-left: auto;
 }
 
 .task-checkbox {
-    align-items: left;
+  align-items: left;
 }

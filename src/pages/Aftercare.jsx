@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './css/Tools.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./css/Tools.css";
 
 function Aftercare() {
   return (
@@ -18,8 +18,7 @@ function Aftercare() {
         <br></br>
         <br></br>
         You can also browse our list of available resources and victim-focused
-        organizations, including support and advocacy groups in your
-        community.
+        organizations, including support and advocacy groups in your community.
         <br></br>
         <br></br>
         Please use the tools below to search for rights and due process by crime
@@ -44,7 +43,7 @@ function Aftercare() {
           <div className="tool-label">COMMUNITY</div>
         </div>
         <div className="tool-image-container">
-          <Link to="/taskmanager" style={{ textDecoration: 'none' }}>
+          <Link to="/taskmanager" style={{ textDecoration: "none" }}>
             <img
               className="aftercare-submenu-image"
               src="https://64.media.tumblr.com/95125fd07ae4892f344d4bfd78a4a942/51a0d67943d6d554-36/s540x810/5ec9345518e2829509462a396ba4feefae3f9022.pnj"

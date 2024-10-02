@@ -86,15 +86,11 @@ function Preferences({ userData, baseBackendURL, getCurrentUserData }) {
 
       const result = await response.json();
       if (response.ok) {
-        console.log("User preferences updated successfully", result);
         getCurrentUserData();
         navigate("/");
       } else {
-        console.error("Failed to update preferences:", result.message);
       }
-    } catch (error) {
-      console.error("An error occurred while updating preferences:", error);
-    }
+    } catch (error) {}
   };
 
   const renderFormStep = () => {

@@ -15,7 +15,6 @@ function Profile({ userData, baseBackendURL, getCurrentUserData }) {
 
   useEffect(() => {
     if (userData) {
-      console.log(userData);
       setFormData({
         name: userData?.name || "",
         phoneNumber: userData?.phoneNumber || "",
@@ -56,9 +55,7 @@ function Profile({ userData, baseBackendURL, getCurrentUserData }) {
       } else {
         alert("Failed to update profile");
       }
-    } catch (err) {
-      console.error("Error updating profile:", err);
-    }
+    } catch (err) {}
   };
 
   return (

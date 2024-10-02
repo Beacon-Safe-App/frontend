@@ -1,5 +1,5 @@
 /* Preferences.jsx */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 
 .progress-bar {
   width: 100%;
@@ -48,7 +48,7 @@ input {
   text-align: center;
   outline: none;
   margin-bottom: 20px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
 }
 
@@ -169,7 +169,7 @@ input:focus {
 }
 
 .preference-button {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-color: transparent;
   border: none;
   font-size: 2rem;
@@ -184,7 +184,7 @@ input:focus {
 }
 
 .add-contact-button {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-color: midnightblue;
   color: white;
   border: none;
@@ -228,7 +228,8 @@ input:focus {
     padding: 5vw;
   }
 
-  .contacts-container, .contact-box-scrollable {
+  .contacts-container,
+  .contact-box-scrollable {
     width: 95%;
   }
 

@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-// pages import
 import About from "./pages/About.jsx";
 import Aftercare from "./pages/Aftercare.jsx";
 import Alarm from "./pages/Alarm.jsx";
@@ -28,11 +27,9 @@ import VoiceRecognition from "./pages/VoiceRecognition.jsx";
 import WalkWithMe from "./pages/WalkWithMe.jsx";
 import WorldView from "./pages/WorldView.jsx";
 
-// components import
 import TopNavBar from "./components/TopNavBar.jsx";
 import BottomNavBar from "./components/BottomNavBar.jsx";
 
-// css import
 import "./App.css";
 import { render } from "react-dom";
 
@@ -40,10 +37,8 @@ function App() {
   const getBaseBackendURL = () => {
     switch (window.location.origin) {
       case "https://yellow-beach-0a6bcfb0f.5.azurestaticapps.net":
-        console.log("Running in the production environment");
         return "https://beacon-backend-prod.azurewebsites.net";
       default:
-        console.log("Running in the local environment");
         return "http://localhost:8080";
     }
   };
@@ -62,10 +57,8 @@ function App() {
       body: JSON.stringify(loginData),
     });
     const requestData = await request.json();
-    console.log(requestData);
 
     if (requestData.message === "Login successful") {
-      console.log(`user ${requestData.data[0]._id} successfully logged in`);
       sessionStorage.setItem("userLoggedIn", "true");
       setUserData(requestData.data[0]);
       return true;
@@ -340,10 +333,8 @@ function App() {
   };
 
   if (sessionStorage.getItem("userLoggedIn") === "true") {
-    console.log("rendering all routes");
     return renderAllRoutes();
   } else {
-    console.log("rendering only login route");
     return renderOnlyLogin();
   }
 }

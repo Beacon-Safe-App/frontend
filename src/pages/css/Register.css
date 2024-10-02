@@ -66,7 +66,7 @@ input {
   text-align: center;
   outline: none;
   margin-bottom: 60px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 input::placeholder {
@@ -81,7 +81,7 @@ input::placeholder {
   color: lightgrey;
   font-weight: 100;
   border: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 #nextregisterarrowbutton:hover {
@@ -92,7 +92,7 @@ input::placeholder {
   font-size: 2rem;
   background: transparent;
   border: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   cursor: pointer;
 }
 
