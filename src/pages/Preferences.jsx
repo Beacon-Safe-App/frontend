@@ -86,7 +86,7 @@ function Preferences({ userData, baseBackendURL, getCurrentUserData }) {
 
       const result = await response.json();
       if (response.ok) {
-        console.log("User preferences updated successfully", result);
+        // console.log("User preferences updated successfully", result);
         getCurrentUserData();
         navigate("/");
       } else {

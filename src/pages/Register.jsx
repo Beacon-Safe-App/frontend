@@ -32,7 +32,7 @@ function Register(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log("Submitting form...", formData);
+    // console.log("Submitting form...", formData);
 
     try {
       formData["preferences"] = {};
@@ -48,7 +48,7 @@ function Register(props) {
       }
 
       const data = await response.json();
-      console.log("Response received:", data);
+      // console.log("Response received:", data);
 
       navigate("/");
     } catch (error) {
@@ -196,7 +196,7 @@ function Register(props) {
       <form
         className="register-form"
         onSubmit={(e) => {
-          console.log("Form is being submitted");
+          // console.log("Form is being submitted");
           handleSubmit(e);
         }}
       >

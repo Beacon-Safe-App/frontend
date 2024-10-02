@@ -1,27 +1,30 @@
-import React, { useState } from 'react';
-import GoogleMap from '../components/map.jsx';
-import DestinationPickList from '../components/destinationsPickList.jsx';
-import './css/MapPage.css';
+import React, { useState } from "react";
+import GoogleMap from "../components/map.jsx";
+import DestinationPickList from "../components/destinationsPickList.jsx";
+import "./css/MapPage.css";
 
 const WorldView = (props) => {
-    const [destination, setDestination] = useState('');
+  const [destination, setDestination] = useState("");
 
-    const updateDestination = (address) => {
-        setDestination(address);
-        console.log(`the value of destination is now set to ${address}`);
-    };
+  const updateDestination = (address) => {
+    setDestination(address);
+    // console.log(`the value of destination is now set to ${address}`);
+  };
 
-    return (
-        <div className="map-page">
-            <GoogleMap
-                destination={destination}
-                hardcodeStartAddress={true}
-                startAddress={'1530 E 19th St Brooklyn NY 11230'}
-                className="googlemap"
-            />
-            <DestinationPickList updateDestination={updateDestination} baseBackendURL={props.baseBackendURL} />
-        </div>
-    );
+  return (
+    <div className="map-page">
+      <GoogleMap
+        destination={destination}
+        hardcodeStartAddress={true}
+        startAddress={"1530 E 19th St Brooklyn NY 11230"}
+        className="googlemap"
+      />
+      <DestinationPickList
+        updateDestination={updateDestination}
+        baseBackendURL={props.baseBackendURL}
+      />
+    </div>
+  );
 };
 
 export default WorldView;
