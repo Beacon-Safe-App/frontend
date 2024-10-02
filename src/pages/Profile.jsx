@@ -8,32 +8,17 @@ function Profile({ userData, baseBackendURL }) {
 
     const [formData, setFormData] = useState({
         name: '',
-        pronouns: '',
         phoneNumber: '',
         email: '',
-        password: '',
-        pin: '',
-        interventionPreferences: '',
-        contacts: '',
-        accessibility: '',
-        addtlreq: '',
     });
 
     useEffect(() => {
         if (userData) {
+            console.log(userData)
             setFormData({
                 name: userData?.name || '',
-                pronouns: userData?.preferences?.pronouns || '',
                 phoneNumber: userData?.phoneNumber || '',
                 email: userData?.email || '',
-                password: '',
-                pin: userData?.preferences?.pin || '',
-                interventionPreferences: userData?.preferences?.interventionPreferences.join(', ') || '',
-                contacts: userData?.preferences?.contacts
-                    ?.map(contact => contact.name)
-                    .join(', ') || '',
-                accessibility: userData?.preferences?.accessibility || '',
-                addtlreq: userData?.preferences?.addtlreq || '',
             });
         }
     }, [userData]);
@@ -48,22 +33,15 @@ function Profile({ userData, baseBackendURL }) {
     const prepareFormData = () => {
         const updatedData = { ...formData };
         if (!updatedData.password) delete updatedData.password;
-        updatedData.contacts = updatedData.contacts
-            ? updatedData.contacts.split(',').map(contact => contact.trim())
-            : [];
-
-        updatedData.interventionPreferences = updatedData.interventionPreferences
-            ? updatedData.interventionPreferences.split(',').map(pref => pref.trim())
-            : [];
-
         return updatedData;
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`${baseBackendURL}/auth/update/${userData._id}`, {
-                method: 'PATCH',
+            const response = await fetch(`${baseBackendURL}/auth/${userData._id}`, {
+                method: 'PUT',
+                credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -101,17 +79,6 @@ function Profile({ userData, baseBackendURL }) {
                     </div>
 
                     <div className="profile-section-item">
-                        <label>PRONOUNS</label>
-                        <input
-                            type="text"
-                            name="pronouns"
-                            value={formData.pronouns}
-                            onChange={handleChange}
-                            placeholder={formData.pronouns || 'Pronouns'}
-                        />
-                    </div>
-
-                    <div className="profile-section-item">
                         <label>PHONE NUMBER</label>
                         <input
                             type="tel"
@@ -133,71 +100,6 @@ function Profile({ userData, baseBackendURL }) {
                         />
                     </div>
 
-                    <div className="profile-section-item">
-                        <label>PASSWORD</label>
-                        <input
-                            type="password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            placeholder="New Password"
-                        />
-                    </div>
-
-                    <div className="profile-section-item">
-                        <label>PERSONAL PIN</label>
-                        <input
-                            type="password"
-                            name="pin"
-                            value={formData.pin}
-                            onChange={handleChange}
-                            placeholder={formData.pin || 'Pin Number'}
-                        />
-                    </div>
-
-                    <div className="profile-section-item">
-                        <label>INTERVENTION PREFERENCES</label>
-                        <input
-                            type="text"
-                            name="interventionPreferences"
-                            value={formData.interventionPreferences}
-                            onChange={handleChange}
-                            placeholder={formData.interventionPreferences || 'Intervention Preferences'}
-                        />
-                    </div>
-
-                    <div className="profile-section-item">
-                        <label>PRIMARY CONTACTS</label>
-                        <input
-                            type="text"
-                            name="contacts"
-                            value={formData.contacts}
-                            onChange={handleChange}
-                            placeholder={formData.contacts || 'Primary Contacts'}
-                        />
-                    </div>
-
-                    <div className="profile-section-item">
-                        <label>ACCESSIBILITY</label>
-                        <input
-                            type="text"
-                            name="accessibility"
-                            value={formData.accessibility}
-                            onChange={handleChange}
-                            placeholder={formData.accessibility || 'Accessibility'}
-                        />
-                    </div>
-
-                    <div className="profile-section-item">
-                        <label>ADDITIONAL REQUIREMENTS</label>
-                        <input
-                            type="text"
-                            name="addtlreq"
-                            value={formData.addtlreq}
-                            onChange={handleChange}
-                            placeholder={formData.addtlreq || 'Additional Requirements'}
-                        />
-                    </div>
                     <button type="submit" className="submit-button">SAVE CHANGES</button>
                 </div>
             </form>
