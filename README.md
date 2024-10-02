@@ -8,7 +8,7 @@
 <h3 align="center">BEACON SAFE</h3>
 
   <p align="center">
-    PHASE 1 of Beacon: a public safety app for densely-populated cities that prioritizes community involvement and intervention and provides crime victims seeking aid and/or justice with the necessary tools, documentation and support required to do so.
+    PHASE 1 of Beacon: a personal safety app for individuals living in densely-populated cities that prioritizes community involvement and intervention and provides crime victims seeking aid and/or justice with the necessary tools, documentation and support required to do so.
     <br />
     <br></br>
     <a href="https://yellow-beach-0a6bcfb0f.5.azurestaticapps.net/"><strong>DEPLOYED LINK</strong></a>
@@ -57,11 +57,32 @@ This project was started as a Capstone submission for General Assembly Software 
 
 ## Getting Started
 
-fork, clone, run npm install in Terminal
+To build off of this app or use its code, follow these steps:
+
+1. fork
+2. clone
+3. run 'npm install' in Terminal
 
 
 ## Usage
 
+This application provides tools and support for victims of crimes and witnesses to crimes including:
+
+- Assault
+- Sexual Assault
+- Burglary
+- Robbery
+- Carjacking
+- Mugging
+- Crimes committed by police & law enforcement against civilians
+- Domestic / intimate partner violence
+- Drugging
+- Harassment
+- Sexual Harassment
+- Hate Crimes
+- Human Trafficking / Kidnapping
+
+Recommended for use in densely-populated areas including cities and college campuses.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -118,23 +139,28 @@ Future Features:
 
 1. Configuration for mobile
 2. Emergency Mode functionality
-3. Map Feature functionality
+3. 'Help Mode' Community and Contact List Intervention incorporation and functionality
+    - Beacon app users can intervene when other users are in need of help
+    - Personal contact list and community members can track user location when help beacon is sent out
+4. Map Feature functionality
     - Filter toggles for emergency support destinations by type
     - Emergency support destinations represented via icons on map
-4. Video Record functionality
-5. Audio Record functionality
-6. Alarm functionality
-7. Strobe functionality
-8. Stalker Log functionality
-9. Fake Call functionality
-10. General Information & Instruction page build-outs
-11. History Log page build-outs and functionality
-12. Aftercare: Judicial page build-out
-13. Aftercare: Community page build-out
-14. Walk With Me/Timer functionality
-15. Voice Recognition configuration
-16. Bystander Report functionality
-17. Location Expansion (beyond Brooklyn, New York)
+5. Video Record functionality
+6. Audio Record functionality
+7. Alarm functionality
+8. Strobe functionality
+9. Stalker Log functionality
+10. Fake Call functionality
+11. General Information & Instruction page build-outs
+12. History Log page build-outs and functionality
+13. Aftercare: Judicial page build-out
+14. Aftercare: Community page build-out
+15. Walk With Me/Timer functionality
+16. Voice Recognition configuration
+17. Bystander Report functionality
+18. Location Expansion (beyond Brooklyn, New York)
+19. Protected server data storage for emergency data collected
+20. Browser access to secure emergency data collected
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
