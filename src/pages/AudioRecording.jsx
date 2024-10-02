@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './css/PrimaryTools.css';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./css/PrimaryTools.css";
 
-function AudioRecording({userData}) {
+function AudioRecording({ userData }) {
   const [seconds, setSeconds] = useState(10);
   const [isRecording, setIsRecording] = useState(false);
-  const [pin, setPin] = useState('');
+  const [pin, setPin] = useState("");
   const [isPinComplete, setIsPinComplete] = useState(false);
+  const [isPinInvalid, setIsPinInvalid] = useState(false);
   const navigate = useNavigate();
-  const userPin = userData?.preferences?.pin || 'NotDefined'
+  const userPin = userData?.preferences?.pin || "NotDefined";
 
-  if (userPin === 'NotDefined') {
-      return (
-          <h1>Please define a pin in preferences to use this feature</h1>
-      )
+  if (userPin === "NotDefined") {
+    return <h1>Please define a pin in preferences to use this feature</h1>;
   }
 
   useEffect(() => {
@@ -29,20 +28,25 @@ function AudioRecording({userData}) {
 
   const handlePinChange = (event) => {
     const value = event.target.value;
-    if (value.length <= 4) {
-      setPin(value);
-      if (Number(value) === Number(userPin)) {
-        setIsPinComplete(true);
-      }
+    setPin(value);
+    setIsPinInvalid(false);
+  };
+
+  const validatePin = () => {
+    if (pin === userPin) {
+      setIsPinComplete(true);
+    } else {
+      setIsPinInvalid(true);
     }
   };
 
   const returnToMap = () => {
     setSeconds(10);
     setIsRecording(false);
-    setPin('');
+    setPin("");
     setIsPinComplete(false);
-    navigate('/map');
+    setIsPinInvalid(false);
+    navigate("/map");
   };
 
   return (
@@ -54,7 +58,7 @@ function AudioRecording({userData}) {
       />
       {!isRecording && (
         <>
-          <h3>AUDIO RECORDING TO START IN:</h3>
+          <h3>AUDIO RECORDING TO ACTIVATE IN:</h3>
           <h2>{seconds} seconds</h2>
           <button id="cancel-button" onClick={returnToMap}>
             CANCEL
@@ -64,21 +68,30 @@ function AudioRecording({userData}) {
       {isRecording && !isPinComplete && (
         <>
           <h2>AUDIO RECORDING IN PROGRESS</h2>
-          <p className="primarytoolp">recording being sent live to a protected server</p>
           <h3>ENTER PERSONAL PIN TO DEACTIVATE:</h3>
-          <input id="primarytoolinput"
+          <input
+            id="primarytoolinput"
             type="password"
             value={pin}
             onChange={handlePinChange}
-            maxLength={4}
             placeholder="Enter your PIN"
           />
+          <button id="primarytoolbutton" onClick={validatePin}>
+            SUBMIT
+          </button>
+          {isPinInvalid && (
+            <div className="error-popup">
+              <p>Invalid PIN. Please try again.</p>
+            </div>
+          )}
         </>
       )}
       {isPinComplete && (
         <div>
-          <h2>RECORDING HAS STOPPED</h2>
-          <button id="primarytoolbutton" onClick={returnToMap}>RETURN TO MAP</button>
+          <h2>AUDIO RECORDING HAS STOPPED</h2>
+          <button id="primarytoolbutton" onClick={returnToMap}>
+            RETURN TO MAP
+          </button>
         </div>
       )}
     </div>
