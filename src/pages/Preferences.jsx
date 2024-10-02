@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import './css/Preferences.css';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import "./css/Preferences.css";
 
-function Preferences({ userData, baseBackendURL }) {
-  const userId = userData._id
+function Preferences({ userData, baseBackendURL, getCurrentUserData }) {
+  const userId = userData._id;
 
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
-    pin: `${userData.preferences.pin}` || '',
-    pronouns: `${userData.preferences.pronouns}` || '',
-    accessibility: `${userData.preferences.accessibility}` || '',
-    addtlreq: `${userData.preferences.addtlreq}` || '',
+    pin: `${userData.preferences.pin}` || "",
+    pronouns: `${userData.preferences.pronouns}` || "",
+    accessibility: `${userData.preferences.accessibility}` || "",
+    addtlreq: `${userData.preferences.addtlreq}` || "",
     interventionPreferences: userData.preferences.interventionPreferences || [],
-    contacts: userData.preferences.contacts || [{ name: '', phone_number: '' }],
+    contacts: userData.preferences.contacts || [{ name: "", phone_number: "" }],
   });
 
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ function Preferences({ userData, baseBackendURL }) {
   const handleChange = (event) => {
     setFormData({
       ...formData,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -63,7 +63,7 @@ function Preferences({ userData, baseBackendURL }) {
     if (formData.contacts.length < 10) {
       setFormData({
         ...formData,
-        contacts: [...formData.contacts, { name: '', phoneNumber: '' }],
+        contacts: [...formData.contacts, { name: "", phoneNumber: "" }],
       });
     }
   };
@@ -73,10 +73,10 @@ function Preferences({ userData, baseBackendURL }) {
 
     try {
       const response = await fetch(`${baseBackendURL}/auth/${userId}`, {
-        method: 'PUT',
-        credentials: 'include',
+        method: "PUT",
+        credentials: "include",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ preferences: { formData } }),
       });
@@ -84,7 +84,8 @@ function Preferences({ userData, baseBackendURL }) {
       const result = await response.json();
       if (response.ok) {
         console.log("User preferences updated successfully", result);
-        navigate('/map');
+        getCurrentUserData();
+        navigate("/");
       } else {
         console.error("Failed to update preferences:", result.message);
       }
@@ -98,7 +99,12 @@ function Preferences({ userData, baseBackendURL }) {
       case 1:
         return (
           <div className="form-step">
-            <label htmlFor="pin">a pin number will be used to deactivate any active security tools. for example, if using the 'walk with me' feature, in order to ensure you have reached your destination safely and emergency mode should not be activated, you will be asked to enter your pin.</label>
+            <label htmlFor="pin">
+              a pin number will be used to deactivate any active security tools.
+              for example, if using the 'walk with me' feature, in order to
+              ensure you have reached your destination safely and emergency mode
+              should not be activated, you will be asked to enter your pin.
+            </label>
             <input
               type="text"
               name="pin"
@@ -108,13 +114,18 @@ function Preferences({ userData, baseBackendURL }) {
               onChange={handleChange}
               required
             />
-            <button type="button" onClick={handleNext}>→</button>
+            <button type="button" onClick={handleNext}>
+              →
+            </button>
           </div>
         );
       case 2:
         return (
           <div className="form-step">
-            <label htmlFor="pronouns">we ask for your pronouns to ensure that anyone intervening and supporting you in a state of emergency will address you correctly.</label>
+            <label htmlFor="pronouns">
+              we ask for your pronouns to ensure that anyone intervening and
+              supporting you in a state of emergency will address you correctly.
+            </label>
             <input
               type="text"
               name="pronouns"
@@ -124,13 +135,20 @@ function Preferences({ userData, baseBackendURL }) {
               onChange={handleChange}
               required
             />
-            <button type="button" onClick={handleNext}>→</button>
+            <button type="button" onClick={handleNext}>
+              →
+            </button>
           </div>
         );
       case 3:
         return (
           <div className="form-step">
-            <label htmlFor="accessibility">we ask for you to let us know of any accessibility considerations one should be aware of in the event that you are in an emergency. an example could be that you are deaf or hard of hearing, or that you require a wheelchair.</label>
+            <label htmlFor="accessibility">
+              we ask for you to let us know of any accessibility considerations
+              one should be aware of in the event that you are in an emergency.
+              an example could be that you are deaf or hard of hearing, or that
+              you require a wheelchair.
+            </label>
             <input
               type="text"
               name="accessibility"
@@ -140,13 +158,19 @@ function Preferences({ userData, baseBackendURL }) {
               onChange={handleChange}
               required
             />
-            <button type="button" onClick={handleNext}>→</button>
+            <button type="button" onClick={handleNext}>
+              →
+            </button>
           </div>
         );
       case 4:
         return (
           <div className="form-step">
-            <label htmlFor="addtlreq">we leave this section open-ended, if there is anything else you want intervening parties to be aware of in the event that you are in an emergency situation.</label>
+            <label htmlFor="addtlreq">
+              we leave this section open-ended, if there is anything else you
+              want intervening parties to be aware of in the event that you are
+              in an emergency situation.
+            </label>
             <input
               type="text"
               name="addtlreq"
@@ -156,7 +180,9 @@ function Preferences({ userData, baseBackendURL }) {
               onChange={handleChange}
               required
             />
-            <button type="button" onClick={handleNext}>→</button>
+            <button type="button" onClick={handleNext}>
+              →
+            </button>
           </div>
         );
       case 5:
@@ -168,7 +194,9 @@ function Preferences({ userData, baseBackendURL }) {
                 <input
                   type="checkbox"
                   name="auin_police"
-                  checked={formData.interventionPreferences.includes('auin_police')}
+                  checked={formData.interventionPreferences.includes(
+                    "auin_police"
+                  )}
                   onChange={handleCheckboxChange}
                 />
                 police intervention
@@ -179,7 +207,9 @@ function Preferences({ userData, baseBackendURL }) {
                 <input
                   type="checkbox"
                   name="auin_security"
-                  checked={formData.interventionPreferences.includes('auin_security')}
+                  checked={formData.interventionPreferences.includes(
+                    "auin_security"
+                  )}
                   onChange={handleCheckboxChange}
                 />
                 professional security intervention
@@ -190,7 +220,9 @@ function Preferences({ userData, baseBackendURL }) {
                 <input
                   type="checkbox"
                   name="auin_government"
-                  checked={formData.interventionPreferences.includes('auin_government')}
+                  checked={formData.interventionPreferences.includes(
+                    "auin_government"
+                  )}
                   onChange={handleCheckboxChange}
                 />
                 law enforcement intervention
@@ -201,7 +233,9 @@ function Preferences({ userData, baseBackendURL }) {
                 <input
                   type="checkbox"
                   name="auin_civil"
-                  checked={formData.interventionPreferences.includes('auin_civil')}
+                  checked={formData.interventionPreferences.includes(
+                    "auin_civil"
+                  )}
                   onChange={handleCheckboxChange}
                 />
                 civil servant intervention
@@ -212,7 +246,9 @@ function Preferences({ userData, baseBackendURL }) {
                 <input
                   type="checkbox"
                   name="auin_community"
-                  checked={formData.interventionPreferences.includes('auin_community')}
+                  checked={formData.interventionPreferences.includes(
+                    "auin_community"
+                  )}
                   onChange={handleCheckboxChange}
                 />
                 community intervention
@@ -223,18 +259,22 @@ function Preferences({ userData, baseBackendURL }) {
                 <input
                   type="checkbox"
                   name="perin_community"
-                  checked={formData.interventionPreferences.includes('perin_community')}
+                  checked={formData.interventionPreferences.includes(
+                    "perin_community"
+                  )}
                   onChange={handleCheckboxChange}
                 />
                 personal intervention
               </label>
             </div>
-            <button type="button" onClick={handleNext}>→</button>
+            <button type="button" onClick={handleNext}>
+              →
+            </button>
           </div>
         );
       case 6:
         return (
-          <div className="form-step" >
+          <div className="form-step">
             <h3 className="primary-contacts-title">Primary Contacts:</h3>
             <div className="contacts-container">
               <div className="contact-box-scrollable">
@@ -263,7 +303,11 @@ function Preferences({ userData, baseBackendURL }) {
               </div>
 
               {formData.contacts.length < 10 && (
-                <button type="button" className="add-contact-button" onClick={addNewContact}>
+                <button
+                  type="button"
+                  className="add-contact-button"
+                  onClick={addNewContact}
+                >
                   add a new contact
                 </button>
               )}
@@ -272,7 +316,7 @@ function Preferences({ userData, baseBackendURL }) {
             <button type="submit" className="submit-preferences-button">
               submit preferences
             </button>
-          </div >
+          </div>
         );
       default:
         return null;
@@ -284,13 +328,20 @@ function Preferences({ userData, baseBackendURL }) {
   return (
     <div className="preferences-container">
       <div className="progress-bar">
-        <div className="progress" style={{ width: `${progressPercentage}%` }}></div>
+        <div
+          className="progress"
+          style={{ width: `${progressPercentage}%` }}
+        ></div>
       </div>
       <form className="preferences-form" onSubmit={handleSubmit}>
         {renderFormStep()}
       </form>
       <div className="return-home">
-        <p><a href="/map" target="_blank" rel="noopener noreferrer">return home</a></p>
+        <p>
+          <a href="/map" target="_blank" rel="noopener noreferrer">
+            return home
+          </a>
+        </p>
       </div>
     </div>
   );

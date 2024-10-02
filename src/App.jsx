@@ -1,63 +1,63 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import React from "react";
+import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 // pages import
-import About from './pages/About.jsx';
-import Aftercare from './pages/Aftercare.jsx';
-import Alarm from './pages/Alarm.jsx';
-import AudioRecording from './pages/AudioRecording.jsx';
-import BystanderReport from './pages/BystanderReport.jsx';
-import EmergencyMode from './pages/EmergencyMode.jsx';
-import FakeCall from './pages/FakeCall.jsx';
-import HistoryLog from './pages/HistoryLog.jsx';
-import HowTo from './pages/HowTo.jsx';
-import Login from './pages/Login.jsx';
-import Logout from './pages/Logout.jsx';
-import MapPage from './pages/MapPage';
-import Preferences from './pages/Preferences.jsx';
-import Profile from './pages/Profile.jsx';
-import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
-import Register from './pages/Register.jsx';
-import StalkerLog from './pages/StalkerLog.jsx';
-import Strobe from './pages/Strobe.jsx';
-import TaskManager from './pages/TaskManager.jsx';
-import TermsAndConditions from './pages/TermsAndConditions.jsx';
-import VideoRecording from './pages/VideoRecording.jsx';
-import VoiceRecognition from './pages/VoiceRecognition.jsx';
-import WalkWithMe from './pages/WalkWithMe.jsx';
-import WorldView from './pages/WorldView.jsx';
+import About from "./pages/About.jsx";
+import Aftercare from "./pages/Aftercare.jsx";
+import Alarm from "./pages/Alarm.jsx";
+import AudioRecording from "./pages/AudioRecording.jsx";
+import BystanderReport from "./pages/BystanderReport.jsx";
+import EmergencyMode from "./pages/EmergencyMode.jsx";
+import FakeCall from "./pages/FakeCall.jsx";
+import HistoryLog from "./pages/HistoryLog.jsx";
+import HowTo from "./pages/HowTo.jsx";
+import Login from "./pages/Login.jsx";
+import Logout from "./pages/Logout.jsx";
+import MapPage from "./pages/MapPage";
+import Preferences from "./pages/Preferences.jsx";
+import Profile from "./pages/Profile.jsx";
+import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
+import Register from "./pages/Register.jsx";
+import StalkerLog from "./pages/StalkerLog.jsx";
+import Strobe from "./pages/Strobe.jsx";
+import TaskManager from "./pages/TaskManager.jsx";
+import TermsAndConditions from "./pages/TermsAndConditions.jsx";
+import VideoRecording from "./pages/VideoRecording.jsx";
+import VoiceRecognition from "./pages/VoiceRecognition.jsx";
+import WalkWithMe from "./pages/WalkWithMe.jsx";
+import WorldView from "./pages/WorldView.jsx";
 
 // components import
-import TopNavBar from './components/TopNavBar.jsx';
-import BottomNavBar from './components/BottomNavBar.jsx'
+import TopNavBar from "./components/TopNavBar.jsx";
+import BottomNavBar from "./components/BottomNavBar.jsx";
 
 // css import
-import './App.css';
-import { render } from 'react-dom';
+import "./App.css";
+import { render } from "react-dom";
 
 function App() {
   const getBaseBackendURL = () => {
     switch (window.location.origin) {
       case "https://yellow-beach-0a6bcfb0f.5.azurestaticapps.net":
-        console.log("Running in the production environment")
-        return ("https://beacon-backend-prod.azurewebsites.net")
+        console.log("Running in the production environment");
+        return "https://beacon-backend-prod.azurewebsites.net";
       default:
-        console.log("Running in the local environment")
-        return ("http://localhost:8080")
+        console.log("Running in the local environment");
+        return "http://localhost:8080";
     }
-  }
+  };
 
-  const baseBackendURL = getBaseBackendURL()
+  const baseBackendURL = getBaseBackendURL();
 
   const [userData, setUserData] = useState(null);
 
   const loginUser = async (loginData) => {
     const request = await fetch(`${baseBackendURL}/auth/login`, {
       method: "POST",
-      credentials: 'include',
+      credentials: "include",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(loginData),
     });
@@ -65,80 +65,72 @@ function App() {
     console.log(requestData);
 
     if (requestData.message === "Login successful") {
-      console.log(`user ${requestData.data[0]._id} successfully logged in`)
-      sessionStorage.setItem('userLoggedIn', 'true')
-      setUserData(requestData.data[0])
-      return true
+      console.log(`user ${requestData.data[0]._id} successfully logged in`);
+      sessionStorage.setItem("userLoggedIn", "true");
+      setUserData(requestData.data[0]);
+      return true;
     } else {
       setUserData(null);
-      sessionStorage.setItem('userLoggedIn', 'false')
-      return false
+      sessionStorage.setItem("userLoggedIn", "false");
+      return false;
     }
   };
 
   const logoutUser = async () => {
-    const URL = `${baseBackendURL}/auth/logout`
+    const URL = `${baseBackendURL}/auth/logout`;
     await fetch(URL, {
-        method: "POST",
-        credentials: 'include'
-    })
-    sessionStorage.setItem('userLoggedIn', 'false')
-    setUserData(null)
-  }
+      method: "POST",
+      credentials: "include",
+    });
+    sessionStorage.setItem("userLoggedIn", "false");
+    setUserData(null);
+  };
 
   const getCurrentUserData = async () => {
-    const request = await fetch (`${baseBackendURL}/auth/`, {
+    const request = await fetch(`${baseBackendURL}/auth/`, {
       method: "GET",
-      credentials: 'include',
-  })
-  const requestData = await request.json()
-  if (requestData.message === "Returning user data") {
-    sessionStorage.setItem('userLoggedIn', 'true')
-    setUserData(requestData.data[0])
-  } else {
-    sessionStorage.setItem('userLoggedIn', 'false')
-    setUserData(null)
-  }
-  }
+      credentials: "include",
+    });
+    const requestData = await request.json();
+    if (requestData.message === "Returning user data") {
+      sessionStorage.setItem("userLoggedIn", "true");
+      setUserData(requestData.data[0]);
+    } else {
+      sessionStorage.setItem("userLoggedIn", "false");
+      setUserData(null);
+    }
+  };
 
   useEffect(() => {
-    getCurrentUserData()
-  }, [])
+    getCurrentUserData();
+  }, []);
 
   const renderOnlyLogin = () => {
-  return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <Login loginUser={loginUser} userData={userData} />
-        }
-      />
-      <Route
-        path="/logout"
-        element={
-          <Logout logoutUser={logoutUser}/>
-        }
-      />
+    return (
+      <Routes>
+        <Route
+          path="/"
+          element={<Login loginUser={loginUser} userData={userData} />}
+        />
+        <Route path="/logout" element={<Logout logoutUser={logoutUser} />} />
         <Route
           path="/register"
           element={
             <>
               <Register baseBackendURL={baseBackendURL} />
-          </>
-        }
-      />
-    </Routes>
-  )}
+            </>
+          }
+        />
+      </Routes>
+    );
+  };
 
   const renderAllRoutes = () => {
     return (
       <Routes>
         <Route
           path="/"
-          element={
-            <Login loginUser={loginUser} userData={userData} />
-          }
+          element={<Login loginUser={loginUser} userData={userData} />}
         />
         <Route
           path="/about"
@@ -162,7 +154,7 @@ function App() {
           path="/alarm"
           element={
             <>
-              <Alarm userData={userData}/>
+              <Alarm userData={userData} />
             </>
           }
         />
@@ -170,7 +162,7 @@ function App() {
           path="/audiorecording"
           element={
             <>
-              <AudioRecording userData={userData}/>
+              <AudioRecording userData={userData} />
             </>
           }
         />
@@ -188,7 +180,7 @@ function App() {
           path="/emergencymode"
           element={
             <>
-              <EmergencyMode userData={userData}/>
+              <EmergencyMode userData={userData} />
             </>
           }
         />
@@ -206,7 +198,7 @@ function App() {
           path="/strobe"
           element={
             <>
-              <Strobe userData={userData}/>
+              <Strobe userData={userData} />
             </>
           }
         />
@@ -218,12 +210,7 @@ function App() {
             </>
           }
         />
-        <Route
-          path="/logout"
-          element={
-            <Logout logoutUser={logoutUser}/>
-          }
-        />
+        <Route path="/logout" element={<Logout logoutUser={logoutUser} />} />
         <Route
           path="/howto"
           element={
@@ -237,7 +224,7 @@ function App() {
           element={
             <>
               <TopNavBar />
-              <MapPage baseBackendURL={baseBackendURL}/>
+              <MapPage baseBackendURL={baseBackendURL} />
               <BottomNavBar />
             </>
           }
@@ -246,7 +233,11 @@ function App() {
           path="/preferences"
           element={
             <>
-              <Preferences userData={userData} baseBackendURL={baseBackendURL} />
+              <Preferences
+                userData={userData}
+                baseBackendURL={baseBackendURL}
+                getCurrentUserData={getCurrentUserData}
+              />
             </>
           }
         />
@@ -262,7 +253,11 @@ function App() {
           path="/profile"
           element={
             <>
-              <Profile userData={userData} baseBackendURL={baseBackendURL} />
+              <Profile
+                userData={userData}
+                baseBackendURL={baseBackendURL}
+                getCurrentUserData={getCurrentUserData}
+              />
             </>
           }
         />
@@ -284,7 +279,7 @@ function App() {
             </>
           }
         />
-         <Route
+        <Route
           path="/taskmanager"
           element={
             <>
@@ -306,7 +301,7 @@ function App() {
           path="/videorecording"
           element={
             <>
-              <VideoRecording userData={userData}/>
+              <VideoRecording userData={userData} />
             </>
           }
         />
@@ -335,23 +330,22 @@ function App() {
           element={
             <>
               <TopNavBar />
-              <MapPage baseBackendURL={baseBackendURL}/>
+              <MapPage baseBackendURL={baseBackendURL} />
               <BottomNavBar />
             </>
           }
         />
       </Routes>
     );
-  }
+  };
 
-  if (sessionStorage.getItem('userLoggedIn') === 'true') {
-    console.log('rendering all routes')
-    return renderAllRoutes()
+  if (sessionStorage.getItem("userLoggedIn") === "true") {
+    console.log("rendering all routes");
+    return renderAllRoutes();
   } else {
-    console.log('rendering only login route')
-    return renderOnlyLogin()
+    console.log("rendering only login route");
+    return renderOnlyLogin();
   }
-  
 }
 
 export default App;
