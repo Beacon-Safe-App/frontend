@@ -31,10 +31,6 @@
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
@@ -45,106 +41,77 @@
 </details>
 
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+This project was started as a Capstone submission for General Assembly Software Engineering Intensive. Much of what is represented in this iteration is placeholder material and meant to be seen as a soft prototype. The intention is to build off of this to ultimately create a functional mobile app that is accessible to the general public.
+    <br />
+    <br></br>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 ### Built With
-
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+- React
+- Vite
+- Microsoft Azure
+- Express
+- Mongoose
+- MongoDB
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
-<!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-5. Change git remote url to avoid accidental pushes to base project
-   ```sh
-   git remote set-url origin github_username/repo_name
-   git remote -v # confirm the changes
-   ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+fork, clone, run npm install in Terminal
 
 
-
-<!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
-<!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+- [ ] Map/Routing to Emergency Support Destination
+- [ ] Primary Tool Bar
+    - [ ] Emergency Mode
+    - [ ] Video Recording
+    - [ ] Audio Recording
+    - [ ] Alarm
+    - [ ] Strobe
+- [ ] Secondary Tool Bar
+    - [ ] World View
+    - [ ] Stalker Log
+    - [ ] Fake Call
+    - [ ] Aftercare
+        - [ ] Judicial
+        - [ ] Community
+        - [ ] Task Manager
+    - [ ] Walk With Me/Timer
+    - [ ] Voice Recognition
+    - [ ] History Log
+- [ ] Information Menu
+    - [ ] Profile
+    - [ ] Preferences
+    - [ ] How-To
+    - [ ] About
+    - [ ] History Log
+    - [ ] Privacy Policy
+    - [ ] Terms & Conditions
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-<!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
+2. Create your Feature Branch
+3. Commit your Changes
+4. Push to the Branch
 5. Open a Pull Request
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -152,7 +119,27 @@ Don't forget to give the project a star! Thanks again!
 
 ## Future Features
 
- for more information.
+Future Features:
+
+1. Configuration for mobile
+2. Emergency Mode functionality
+3. Map Feature functionality
+    - Filter toggles for emergency support destinations by type
+    - Emergency support destinations represented via icons on map
+4. Video Record functionality
+5. Audio Record functionality
+6. Alarm functionality
+7. Strobe functionality
+8. Stalker Log functionality
+9. Fake Call functionality
+10. General Information & Instruction page build-outs
+11. History Log page build-outs and functionality
+12. Aftercare: Judicial page build-out
+13. Aftercare: Community page build-out
+14. Walk With Me/Timer functionality
+15. Voice Recognition configuration
+16. Bystander Report functionality
+17. Location Expansion (beyond Brooklyn, New York)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -168,12 +155,16 @@ Github: [https://github.com/KonTheCat](https://github.com/KonTheCat)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
-<!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
-* []()
-* []()
+This project was inspired by many existing platforms, namely:
+
+1. The ACLU's Mobile Justice/Police Encounter app which allows users to record interactions with law enforcement, report civil rights violations, and receive information on legal rights and resources
+
+2. Brooklyn-based Hollaback!/Right To Be: an app designed to help users document and report harassment, provide resources for addressing and preventing harassment, and connect users with support networks
+
+3. Tech 4 Good's 'Circle of 6' app which focuses on preventing violence and promoting safety by allowing users to quickly alert their trusted contacts in case of an emergency
+
+4. Colin Kaepernick's 'Know Your Rights Camp' organization and app that provides users with information on their legal rights, resources for various situations, and tools to assist with navigating interactions with law enforcement
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
