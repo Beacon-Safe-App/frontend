@@ -41,7 +41,7 @@ const DestinationPickList = (props) => {
     return (
         <div className={`destination-pick-list ${isOpen ? 'open' : ''}`}>
             <button onClick={() => setIsOpen(!isOpen)}>
-                {isOpen ? 'Pick a Destination ↑' : 'Pick a Destination ↓'}
+                {isOpen ? 'CLOSE MENU ↑' : 'PICK A DESTINATION ↓'}
             </button>
             {isOpen && (
                 <div className="destination-list">
