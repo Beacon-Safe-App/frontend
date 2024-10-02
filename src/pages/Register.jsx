@@ -63,7 +63,7 @@ function Register(props) {
               type="text"
               name="name"
               id="name"
-              placeholder="first and last name"
+              placeholder="name"
               value={formData.name}
               onChange={handleChange}
               required
