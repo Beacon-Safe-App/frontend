@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './css/PrimaryTools.css';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./css/PrimaryTools.css";
 
-function Alarm({userData}) {
+function Alarm({ userData }) {
   const [seconds, setSeconds] = useState(10);
   const [isRecording, setIsRecording] = useState(false);
-  const [pin, setPin] = useState('');
+  const [pin, setPin] = useState("");
   const [isPinComplete, setIsPinComplete] = useState(false);
+  const [isPinInvalid, setIsPinInvalid] = useState(false);
   const navigate = useNavigate();
-  const userPin = userData?.preferences?.pin || 'NotDefined'
+  const userPin = userData?.preferences?.pin || "NotDefined";
 
-  if (userPin === 'NotDefined') {
-      return (
-          <h1>Please define a pin in preferences to use this feature</h1>
-      )
+  if (userPin === "NotDefined") {
+    return <h1>Please define a pin in preferences to use this feature</h1>;
   }
 
   useEffect(() => {
@@ -29,20 +28,25 @@ function Alarm({userData}) {
 
   const handlePinChange = (event) => {
     const value = event.target.value;
-    if (value.length <= 4) {
-      setPin(value);
-      if (Number(value) === Number(userPin)) {
-        setIsPinComplete(true);
-      }
+    setPin(value);
+    setIsPinInvalid(false);
+  };
+
+  const validatePin = () => {
+    if (pin === userPin) {
+      setIsPinComplete(true);
+    } else {
+      setIsPinInvalid(true);
     }
   };
 
   const returnToMap = () => {
     setSeconds(10);
     setIsRecording(false);
-    setPin('');
+    setPin("");
     setIsPinComplete(false);
-    navigate('/map');
+    setIsPinInvalid(false);
+    navigate("/map");
   };
 
   return (
@@ -50,11 +54,13 @@ function Alarm({userData}) {
       <img
         src="https://64.media.tumblr.com/6b561e80f7c47e3915828c3047c67aa1/6f3589135cc2e4a0-55/s540x810/f5bc0d98339befb7b15391b62f2ce5ffac411d06.pnj"
         alt="Alarm Indicator"
-        className={`recording-image ${isRecording && !isPinComplete ? 'blinking' : ''}`}
+        className={`recording-image ${
+          isRecording && !isPinComplete ? "blinking" : ""
+        }`}
       />
       {!isRecording && (
         <>
-          <h3>ALARM TO START IN:</h3>
+          <h3>EMERGENCY MODE TO START IN:</h3>
           <h2>{seconds} seconds</h2>
           <button id="cancel-button" onClick={returnToMap}>
             CANCEL
@@ -65,19 +71,29 @@ function Alarm({userData}) {
         <>
           <h2>ALARM IN PROGRESS</h2>
           <h3>ENTER PERSONAL PIN TO DEACTIVATE:</h3>
-          <input id="primarytoolinput"
+          <input
+            id="primarytoolinput"
             type="password"
             value={pin}
             onChange={handlePinChange}
-            maxLength={4}
             placeholder="Enter your PIN"
           />
+          <button id="primarytoolbutton" onClick={validatePin}>
+            SUBMIT
+          </button>
+          {isPinInvalid && (
+            <div className="error-popup">
+              <p>Invalid PIN. Please try again.</p>
+            </div>
+          )}
         </>
       )}
       {isPinComplete && (
         <div>
           <h2>ALARM HAS STOPPED</h2>
-          <button id="primarytoolbutton" onClick={returnToMap}>RETURN TO MAP</button>
+          <button id="primarytoolbutton" onClick={returnToMap}>
+            RETURN TO MAP
+          </button>
         </div>
       )}
     </div>
