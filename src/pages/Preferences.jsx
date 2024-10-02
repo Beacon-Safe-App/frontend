@@ -8,12 +8,15 @@ function Preferences({ userData, baseBackendURL, getCurrentUserData }) {
 
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
-    pin: `${userData.preferences.pin}` || "",
-    pronouns: `${userData.preferences.pronouns}` || "",
-    accessibility: `${userData.preferences.accessibility}` || "",
-    addtlreq: `${userData.preferences.addtlreq}` || "",
-    interventionPreferences: userData.preferences.interventionPreferences || [],
-    contacts: userData.preferences.contacts || [{ name: "", phone_number: "" }],
+    pin: userData?.preferences?.pin || "",
+    pronouns: userData?.preferences?.pronouns || "",
+    accessibility: userData?.preferences?.accessibility || "",
+    addtlreq: userData?.preferences?.addtlreq || "",
+    interventionPreferences:
+      userData?.preferences?.interventionPreferences || [],
+    contacts: userData?.preferences?.contacts || [
+      { name: "", phone_number: "" },
+    ],
   });
 
   const navigate = useNavigate();
