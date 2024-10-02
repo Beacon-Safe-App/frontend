@@ -60,7 +60,7 @@ function Alarm({ userData }) {
       />
       {!isRecording && (
         <>
-          <h3>EMERGENCY MODE TO START IN:</h3>
+          <h3>ALARM TO ACTIVATE IN:</h3>
           <h2>{seconds} seconds</h2>
           <button id="cancel-button" onClick={returnToMap}>
             CANCEL
