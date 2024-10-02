@@ -48,7 +48,7 @@ This project was started as a Capstone submission for General Assembly Software 
 - Vite
 - Express
 - Mongoose
-- Google Maps API
+- Google Maps API (that is the API key asked for in the VITE_apiKey environment variable)
 - Microsoft Azure (Web App, Static Web App, Key Vault, Cosmos DB)
 
 
