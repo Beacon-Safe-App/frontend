@@ -10,6 +10,7 @@ const MapPage = (props) => {
 
   const updateDestination = (address) => {
     setDestination(address);
+    // console.log(`the value of destination is now set to ${address}`);
   };
 
   return (
@@ -17,7 +18,7 @@ const MapPage = (props) => {
       <GoogleMap
         destination={destination}
         hardcodeStartAddress={false}
-        startAddress={"1530 E 19th St Brooklyn NY 11230"}
+        startAddress={""}
         className="googlemap"
       />
       <DestinationPickList

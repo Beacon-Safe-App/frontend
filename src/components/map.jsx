@@ -192,7 +192,9 @@ const GoogleMap = (props) => {
     setLocationLoaded(true);
   }
 
-  function errors(err) {}
+  function errors(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+  }
 
   function getUserLocation() {
     if (navigator.geolocation) {
@@ -234,6 +236,7 @@ const GoogleMap = (props) => {
   }, [userLocation, props.hardcodeStartAddress, props.startAddress]);
 
   const returnUserLocationMarker = () => {
+    // console.log('rendering user location marker')
     return (
       <Marker
         position={{ lat: userLocation.lat, lng: userLocation.long }}

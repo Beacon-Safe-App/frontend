@@ -8,6 +8,7 @@ const WorldView = (props) => {
 
   const updateDestination = (address) => {
     setDestination(address);
+    // console.log(`the value of destination is now set to ${address}`);
   };
 
   return (
