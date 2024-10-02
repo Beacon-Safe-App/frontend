@@ -31,7 +31,7 @@ function EmergencyMode({userData}) {
         const value = event.target.value;
         if (value.length <= 4) {
             setPin(value);
-            if (Number(value) === Number(userPin) ) {
+            if (Number(value) === Number(userPin)) {
                 setIsPinComplete(true);
             }
         }

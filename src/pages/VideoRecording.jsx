@@ -2,12 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './css/PrimaryTools.css';
 
-function VideoRecording() {
+function VideoRecording({userData}) {
   const [seconds, setSeconds] = useState(10);
   const [isRecording, setIsRecording] = useState(false);
   const [pin, setPin] = useState('');
   const [isPinComplete, setIsPinComplete] = useState(false);
   const navigate = useNavigate();
+  const userPin = userData?.preferences?.pin || 'NotDefined'
+
+  if (userPin === 'NotDefined') {
+    return (
+        <h1>Please define a pin in preferences to use this feature</h1>
+    )
+}
 
   useEffect(() => {
     if (seconds > 0 && !isRecording) {
@@ -24,7 +31,7 @@ function VideoRecording() {
     const value = event.target.value;
     if (value.length <= 4) {
       setPin(value);
-      if (value.length === 4) {
+      if (Number(value) === Number(userPin)) {
         setIsPinComplete(true);
       }
     }
@@ -64,7 +71,7 @@ function VideoRecording() {
             value={pin}
             onChange={handlePinChange}
             maxLength={4}
-            placeholder="Enter 4-digit PIN"
+            placeholder="Enter your PIN"
           />
         </>
       )}

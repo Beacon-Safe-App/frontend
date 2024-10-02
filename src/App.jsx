@@ -162,7 +162,7 @@ function App() {
           path="/alarm"
           element={
             <>
-              <Alarm />
+              <Alarm userData={userData}/>
             </>
           }
         />
@@ -170,7 +170,7 @@ function App() {
           path="/audiorecording"
           element={
             <>
-              <AudioRecording />
+              <AudioRecording userData={userData}/>
             </>
           }
         />
@@ -206,7 +206,7 @@ function App() {
           path="/strobe"
           element={
             <>
-              <Strobe />
+              <Strobe userData={userData}/>
             </>
           }
         />
@@ -306,7 +306,7 @@ function App() {
           path="/videorecording"
           element={
             <>
-              <VideoRecording />
+              <VideoRecording userData={userData}/>
             </>
           }
         />
