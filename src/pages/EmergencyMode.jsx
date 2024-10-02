@@ -7,14 +7,15 @@ function EmergencyMode({userData}) {
     const [isRecording, setIsRecording] = useState(false);
     const [pin, setPin] = useState('');
     const [isPinComplete, setIsPinComplete] = useState(false);
+    const [isPinInvalid, setIsPinInvalid] = useState(false);
     const navigate = useNavigate();
-    const userPin = userData?.preferences?.pin || 'NotDefined'
+    const userPin = userData?.preferences?.pin || 'NotDefined';
 
     if (userPin === 'NotDefined') {
         return (
             <h1>Please define a pin in preferences to use this feature</h1>
-        )
-    }
+        );
+    };
 
     useEffect(() => {
         if (seconds > 0 && !isRecording) {
@@ -29,11 +30,15 @@ function EmergencyMode({userData}) {
 
     const handlePinChange = (event) => {
         const value = event.target.value;
-        if (value.length <= 4) {
-            setPin(value);
-            if (Number(value) === Number(userPin)) {
-                setIsPinComplete(true);
-            }
+        setPin(value);
+        setIsPinInvalid(false);
+    };
+
+    const validatePin = () => {
+        if (pin === userPin) {
+            setIsPinComplete(true);
+        } else {
+            setIsPinInvalid(true);
         }
     };
 
@@ -42,6 +47,7 @@ function EmergencyMode({userData}) {
         setIsRecording(false);
         setPin('');
         setIsPinComplete(false);
+        setIsPinInvalid(false);
         navigate('/map');
     };
 
@@ -65,15 +71,27 @@ function EmergencyMode({userData}) {
             {isRecording && !isPinComplete && (
                 <>
                     <h2>EMERGENCY MODE IN PROGRESS</h2>
-                    <p className="primarytoolp">primary contacts being alerted and location actively being shared.<br></br>video and audio recording in progress.<br></br>recordings being sent live to our protected server.</p>
+                    <p className="primarytoolp">
+                        primary contacts being alerted and location actively being shared.
+                        <br></br>
+                        video and audio recording in progress.
+                        <br></br>
+                        recordings being sent live to our protected server.
+                    </p>
                     <h3>ENTER PERSONAL PIN TO DEACTIVATE:</h3>
-                    <input id="primarytoolinput"
+                    <input 
+                        id="primarytoolinput"
                         type="password"
                         value={pin}
                         onChange={handlePinChange}
-                        maxLength={4}
                         placeholder="Enter your PIN"
                     />
+                    <button id="primarytoolbutton" onClick={validatePin}>SUBMIT</button>
+                    {isPinInvalid && (
+                        <div className="error-popup">
+                            <p>Invalid PIN. Please try again.</p>
+                        </div>
+                    )}
                 </>
             )}
             {isPinComplete && (
