@@ -188,7 +188,7 @@ function App() {
           path="/emergencymode"
           element={
             <>
-              <EmergencyMode />
+              <EmergencyMode userData={userData}/>
             </>
           }
         />
