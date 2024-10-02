@@ -148,6 +148,22 @@ h2 {
     animation: fadeIn 0.5s ease;
 }
 
+@keyframes backgroundFlash {
+    0% {
+        background: linear-gradient(to bottom, black, grey);
+    }
+    50% {
+        background: white;
+    }
+    100% {
+        background: linear-gradient(to bottom, black, grey);
+    }
+}
+
+.flashing-background {
+    animation: backgroundFlash 1s infinite;
+}
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
