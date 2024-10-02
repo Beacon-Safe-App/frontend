@@ -46,10 +46,11 @@ This project was started as a Capstone submission for General Assembly Software 
 ### Built With
 - React
 - Vite
-- Microsoft Azure
 - Express
 - Mongoose
-- MongoDB
+- Google Maps API
+- Microsoft Azure (Web App, Static Web App, Key Vault, Cosmos DB)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
